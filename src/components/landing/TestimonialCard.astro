@@ -1,0 +1,53 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  quote: string;
+  rating: number;
+  name: string;
+  title: string;
+  imageSrc: ImageMetadata;
+  imageAlt: string;
+}
+
+const { quote, name, title, imageSrc, imageAlt, rating } = Astro.props as Props;
+---
+
+<div
+  class="bg-surface-container-lowest relative flex flex-col rounded-xl p-10 shadow-sm transition-shadow hover:shadow-xl"
+>
+  <span
+    class="text-primary/10 absolute top-6 right-8 font-serif text-6xl italic"
+    >"</span
+  >
+  <div class="text-primary mb-6 flex">
+    {
+      Array(rating)
+        .fill(1)
+        .map(() => <Icon name="material-symbols:star" />)
+    }
+    {
+      Array(5 - rating)
+        .fill(1)
+        .map(() => <Icon name="material-symbols:star-outline" />)
+    }
+  </div>
+  <p class="text-on-surface-variant mb-8 flex-1 leading-relaxed italic">
+    {quote}
+  </p>
+  <div class="flex items-center gap-4">
+    <div class="h-12 w-12 overflow-hidden rounded-full">
+      <Image
+        src={imageSrc}
+        alt={name}
+        class="h-full w-full object-cover"
+        data-alt={imageAlt}
+      />
+    </div>
+    <div>
+      <p class="font-bold">{name}</p>
+      <p class="text-on-surface-variant text-xs">{title}</p>
+    </div>
+  </div>
+</div>

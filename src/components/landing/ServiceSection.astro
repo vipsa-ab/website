@@ -1,0 +1,58 @@
+---
+import { Icon } from "astro-icon/components";
+import ServiceCard from "./ServiceCard.astro";
+import Rectangular from "@/assets/img/rectangular.webp";
+
+const services = [
+  {
+    title: "Hemstädning",
+    description:
+      "Regelbunden städning som anpassas helt efter dina behov och önskemål i vardagen.",
+    imageUrl: Rectangular,
+    dataAlt:
+      "Professional cleaner in white uniform dusting a modern glass coffee table in a bright minimalist apartment",
+    linkUrl: "/services/home-cleaning",
+  },
+  {
+    title: "Flyttstädning",
+    description:
+      "Garanterad godkänd flyttstädning så att du kan fokusera helt på ditt nya hem.",
+    imageUrl: Rectangular,
+    dataAlt:
+      "Empty modern apartment with white walls and wooden floors being cleaned for new move-in",
+    linkUrl: "/services/move-cleaning",
+  },
+  {
+    title: "Kontorsstädning",
+    description:
+      "En ren arbetsmiljö ökar trivseln och produktiviteten för alla på företaget.",
+    imageUrl: Rectangular,
+    dataAlt:
+      "Bright modern office space with large windows and clean desks showing professional office cleaning results",
+    linkUrl: "/services/office-cleaning",
+  },
+];
+---
+
+<section class="bg-surface-container-low py-24">
+  <div class="container mx-auto mb-16 px-4">
+    <h2 class="font-headline mb-4 text-3xl font-bold md:text-5xl">
+      Våra Tjänster
+    </h2>
+    <div class="bg-primary h-1.5 w-20 rounded-full"></div>
+
+    <div class="grid grid-cols-1 gap-8 pt-20 lg:grid-cols-2 xl:grid-cols-4">
+      {
+        services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            imageUrl={service.imageUrl}
+            dataAlt={service.dataAlt}
+            linkUrl={service.linkUrl}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

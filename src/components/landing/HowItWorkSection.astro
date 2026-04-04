@@ -1,0 +1,68 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="bg-surface py-24">
+  <div class="container mx-auto max-w-7xl px-4">
+    <div class="mb-16 text-center">
+      <h2 class="font-headline mb-4 text-3xl font-bold md:text-5xl">
+        Hur det fungerar
+      </h2>
+      <p class="text-on-surface-variant text-lg">
+        Enkelhet är kärnan i vår service.
+      </p>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3">
+      <!-- Step 1 -->
+      <div
+        class="bg-surface-container group hover:bg-primary-container/10 flex flex-col items-center rounded-xl p-10 text-center transition-colors"
+      >
+        <div
+          class="bg-primary-container mb-6 flex h-16 w-16 items-center justify-center rounded-full text-3xl text-white shadow-lg"
+        >
+          <Icon name="material-symbols:calendar-month" class="size-6" />
+        </div>
+        <h3 class="font-headline mb-4 text-xl font-bold">1. Boka</h3>
+        <p class="text-on-surface-variant">
+          Välj tid och tjänst direkt på webben eller ring oss. Det tar mindre än
+          en minut.
+        </p>
+      </div>
+      <!-- Step 2 -->
+      <div
+        class="bg-surface-container group hover:bg-primary-container/10 flex flex-col items-center rounded-xl p-10 text-center transition-colors"
+      >
+        <div
+          class="bg-primary-container mb-6 flex h-16 w-16 items-center justify-center rounded-full text-3xl text-white shadow-lg"
+        >
+          <Icon name="material-symbols:cleaning-services" class="size-6" />
+        </div>
+        <h3 class="font-headline mb-4 text-xl font-bold">2. Vi städar</h3>
+        <p class="text-on-surface-variant">
+          Vårt proffsiga team kommer på utsatt tid och utför arbetet med högsta
+          precision.
+        </p>
+      </div>
+      <!-- Step 3 -->
+      <div
+        class="bg-surface-container group hover:bg-primary-container/10 flex flex-col items-center rounded-xl p-10 text-center transition-colors"
+      >
+        <div
+          class="bg-primary-container mb-6 flex h-16 w-16 items-center justify-center rounded-full text-3xl text-white shadow-lg"
+        >
+          <Icon
+            name="material-symbols:sentiment-very-satisfied"
+            class="size-6"
+          />
+        </div>
+        <h3 class="font-headline mb-4 text-xl font-bold">
+          3. Njut av renheten
+        </h3>
+        <p class="text-on-surface-variant">
+          Kom hem till ett skinande rent hus och lägg din tid på det du älskar
+          mest.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

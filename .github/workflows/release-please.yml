@@ -1,0 +1,25 @@
+name: Release Please Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+# Permisos necesarios para que el bot pueda crear PRs, tags y releases
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      # 1. Ejecutar Release Please
+      # - Si hay commits nuevos, crea/actualiza el "Release PR" (y el package.json).
+      # - Si se hace merge de ese PR, crea el Tag y el GitHub Release oficial.
+      - name: Release Please
+        id: release
+        uses: google-github-actions/release-please-action@v4
+        with:
+          release-type: node # Esto asegura que el package.json se actualice
+          target-branch: main

@@ -1,0 +1,79 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/container-queries";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-on-error: #ffffff;
+  --color-surface-container-low: #f3f3f3;
+  --color-on-error-container: #93000a;
+  --color-surface-bright: #f9f9f9;
+  --color-inverse-primary: #b1ded7;
+  --color-surface-variant: #e2e2e2;
+  --color-on-primary-fixed: #233e3d;
+  --color-outline-variant: #d8efeb;
+  --color-secondary-container: #83c5bd;
+  --color-surface-dim: #dadada;
+  --color-tertiary-container: #00b0de;
+  --color-on-secondary-container: #2c5f5d;
+  --color-surface: #f9f9f9;
+  --color-inverse-on-surface: #f1f1f1;
+  --color-surface-container-high: #e8e8e8;
+  --color-on-primary-container: #254a49;
+  --color-tertiary-fixed: #bce9ff;
+  --color-secondary-fixed: #d8efeb;
+  --color-surface-container-highest: #e2e2e2;
+  --color-on-background: #1a1c1c;
+  --color-primary-fixed-dim: #b1ded7;
+  --color-on-primary-fixed-variant: #2c5f5d;
+  --color-on-tertiary: #ffffff;
+  --color-secondary: #31706d;
+  --color-inverse-surface: #2f3131;
+  --color-background: #f9f9f9;
+  --color-tertiary-fixed-dim: #62d4ff;
+  --color-on-primary: #ffffff;
+  --color-error-container: #ffdad6;
+  --color-primary: #2c5f5d;
+  --color-error: #ba1a1a;
+  --color-on-tertiary-fixed: #001f29;
+  --color-primary-container: #3f8d87;
+  --color-on-tertiary-fixed-variant: #004d63;
+  --color-primary-fixed: #b1ded7;
+  --color-surface-container-lowest: #ffffff;
+  --color-on-secondary: #ffffff;
+  --color-secondary-fixed-dim: #b1ded7;
+  --color-surface-tint: #2c5f5d;
+  --color-on-tertiary-container: #003e51;
+  --color-on-secondary-fixed-variant: #254a49;
+  --color-surface-container: #eeeeee;
+  --color-outline: #83c5bd;
+  --color-on-surface: #1a1c1c;
+  --color-on-surface-variant: #31706d;
+  --color-tertiary: #006783;
+  --color-on-secondary-fixed: #233e3d;
+
+  --font-headline: var(--font-manrope);
+  --font-body: var(--font-plus-jakarta-sans);
+  --font-label: var(--font-plus-jakarta-sans);
+
+  --default-font-family: var(--font-plus-jakarta-sans);
+
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+}
+
+@utility glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+}
+
+@utility signature-gradient {
+  background: linear-gradient(135deg, #2c5f5d 0%, #3f8d87 100%);
+}
+
+@utility text-glow {
+  text-shadow: 0 0 20px rgba(255, 126, 51, 0.2);
+}

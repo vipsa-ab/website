@@ -1,0 +1,141 @@
+---
+import { Icon } from "astro-icon/components";
+
+import Logo from "@/components/icones/Logo.astro";
+---
+
+<footer
+  class="font-label w-full bg-neutral-100 pt-20 pb-10 dark:bg-neutral-950"
+>
+  <div class="container mx-auto grid grid-cols-1 gap-12 px-4 md:grid-cols-4">
+    <!-- Brand & Info -->
+    <div class="col-span-1 md:col-span-1">
+      <Logo class="mb-6 w-20" />
+
+      <p class="mb-8 leading-relaxed text-neutral-500 dark:text-neutral-400">
+        Din lokala partner för ett renare hem och en enklare vardag i Sigtuna.
+      </p>
+      <div class="flex gap-4">
+        <a
+          class="bg-surface-container text-primary hover:bg-primary flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:text-white"
+          href="https://www.facebook.com/vipsa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon
+            name="tabler:brand-facebook"
+            class="size-6"
+            aria-label="Facebook"
+            title="Facebook"
+          />
+        </a>
+        <a
+          class="bg-surface-container text-primary hover:bg-primary flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:text-white"
+          href="https://www.instagram.com/vipsa"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon
+            name="tabler:brand-instagram"
+            class="size-6"
+            aria-label="Instagram"
+            title="Instagram"
+          />
+        </a>
+      </div>
+    </div>
+    <!-- Quick Links -->
+    <div>
+      <h4 class="text-on-surface mb-6 font-bold">Snabblänkar</h4>
+      <ul class="space-y-4">
+        <li>
+          <a
+            class="hover:text-primary text-neutral-500 transition-colors"
+            href="/">Hem</a
+          >
+        </li>
+        <li>
+          <a
+            class="hover:text-primary text-neutral-500 transition-colors"
+            href="/services">Tjänster</a
+          >
+        </li>
+        <li>
+          <a
+            class="hover:text-primary text-neutral-500 transition-colors"
+            href="/about">Om Oss</a
+          >
+        </li>
+        <li>
+          <a
+            class="hover:text-primary text-neutral-500 transition-colors"
+            href="/booking">Boka Nu</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- Contact -->
+    <div class="col-span-1 md:col-span-2">
+      <h4 class="text-on-surface mb-6 font-bold">Kontaktuppgifter</h4>
+      <div class="grid gap-8 md:grid-cols-2">
+        <div class="space-y-4">
+          <div class="flex items-center gap-4">
+            <Icon
+              name="material-symbols:location-on"
+              class="text-primary size-6"
+              aria-label="Address"
+            />
+            <span class="text-neutral-500"
+              >Ormbergsvägen 15<br />193 36 Sigtuna</span
+            >
+          </div>
+          <div class="flex items-center gap-4">
+            <Icon
+              name="material-symbols:call"
+              class="text-primary size-6"
+              aria-label="Phone"
+            />
+            <span class="text-neutral-500">08-123 45 67</span>
+          </div>
+        </div>
+        <div class="space-y-4">
+          <div class="flex items-center gap-4">
+            <Icon
+              name="material-symbols:mail"
+              class="text-primary size-6"
+              aria-label="Email"
+            />
+            <span class="text-neutral-500">info@vipsa.se</span>
+          </div>
+          <div class="flex items-center gap-4">
+            <Icon
+              name="material-symbols:schedule"
+              class="text-primary size-6"
+              aria-label="Opening Hours"
+            />
+            <span class="text-neutral-500">Mån-Fre: 08:00 - 17:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Sub Footer -->
+  <div class="mt-20 border-t border-neutral-200 dark:border-neutral-800"></div>
+  <div
+    class="container mx-auto flex flex-col items-center justify-between gap-4 px-8 pt-8 md:flex-row"
+  >
+    <p class="text-sm text-neutral-500">
+      © 2024 LaganStäd AB. All rights reserved.
+    </p>
+    <div class="flex gap-8 text-sm">
+      <a
+        class="hover:text-primary text-neutral-500 transition-colors"
+        href="/privacy">Integritetspolicy</a
+      >
+      <a
+        class="hover:text-primary text-neutral-500 transition-colors"
+        href="/terms">Användarvillkor</a
+      >
+    </div>
+  </div>
+</footer>

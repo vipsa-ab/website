@@ -1,0 +1,106 @@
+---
+import { Icon } from "astro-icon/components";
+import Layout from "@/layouts/Layout.astro";
+
+const title = "Vipsa | 404 | Sidan kunde inte hittas";
+const description =
+  "Den sida du letar efter kunde inte hittas. Kontrollera att du har angett rätt URL eller gå tillbaka till startsidan.";
+---
+
+<Layout title={title} description={description}>
+  <section class="flex min-h-screen items-center justify-center pt-20">
+    <div
+      class="mx-auto flex max-w-7xl flex-col items-center px-8 py-20 text-center"
+    >
+      <!-- Asymmetric Aesthetic Component: Decorative Background Blur -->
+      <div
+        class="bg-primary-fixed/10 absolute top-1/2 left-1/2 -z-10 h-150 w-150 -translate-x-1/2 -translate-y-1/2 rounded-full blur-[120px]"
+      >
+      </div>
+      <!-- Main Content Area -->
+      <div class="relative z-10 max-w-2xl">
+        <!-- Large Playful Icon / Visual -->
+        <div class="relative mb-12 inline-block">
+          <div
+            class="bg-surface-container-lowest group relative flex h-64 w-64 items-center justify-center overflow-hidden rounded-full shadow-xl shadow-stone-200/20"
+          >
+            <Icon name="material-symbols:vacuum" class="text-primary size-30" />
+          </div>
+
+          <div
+            class="font-headline pointer-events-none absolute top-6 left-1/2 -translate-x-1/2 text-5xl font-extrabold text-white/20 mix-blend-difference select-none"
+          >
+            404
+          </div>
+        </div>
+        <div class="space-y-6">
+          <h1
+            class="text-on-surface text-5xl leading-tight font-extrabold tracking-tight md:text-6xl"
+          >
+            Hoppsan! Sidan verkar ha tagit ledigt.
+          </h1>
+          <p
+            class="text-on-surface-variant font-body mx-auto max-w-xl text-lg leading-relaxed md:text-xl"
+          >
+            Precis som ett nystädat hem, ibland behöver vi börja om från början.
+            Vi hittar tyvärr inte sidan du letar efter.
+          </p>
+          <div
+            class="flex flex-col items-center justify-center gap-4 pt-10 sm:flex-row"
+          >
+            <a
+              class="signature-gradient flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-bold text-white shadow-lg shadow-orange-500/20 transition-all hover:opacity-90 active:scale-95 sm:w-auto"
+              href="/"
+            >
+              <Icon name="material-symbols:home" class="size-6" />
+              Gå till startsidan
+            </a>
+            <a
+              class="bg-surface-container-lowest text-primary hover:bg-surface-container-low flex w-full items-center justify-center gap-2 rounded-full px-8 py-4 text-lg font-bold transition-all active:scale-95 sm:w-auto"
+              href="/contact"
+            >
+              <Icon name="material-symbols:mail" class="size-6" />
+              Kontakta oss
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Suggestion Bento-style Grid (Subtle) -->
+      <div class="mt-24 grid w-full max-w-5xl grid-cols-1 gap-6 md:grid-cols-3">
+        <div
+          class="bg-surface-container-low group hover:bg-surface-container flex cursor-pointer flex-col gap-4 rounded-xl p-8 text-left transition-colors"
+        >
+          <Icon
+            name="material-symbols:cleaning-services"
+            class="text-primary size-8"
+          />
+          <h3 class="font-headline text-xl font-bold">Våra Tjänster</h3>
+          <p class="text-on-surface-variant text-sm">
+            Utforska hur vi kan göra ditt hem skinande rent och harmonsikt.
+          </p>
+        </div>
+        <div
+          class="bg-surface-container-low group hover:bg-surface-container flex cursor-pointer flex-col gap-4 rounded-xl p-8 text-left transition-colors"
+        >
+          <Icon
+            name="material-symbols:calendar-month"
+            class="text-primary size-8"
+          />
+          <h3 class="font-headline text-xl font-bold">Boka Städning</h3>
+          <p class="text-on-surface-variant text-sm">
+            Hitta en tid som passar dig och ditt livspussel bäst.
+          </p>
+        </div>
+        <div
+          class="bg-surface-container-low group hover:bg-surface-container flex cursor-pointer flex-col gap-4 rounded-xl p-8 text-left transition-colors"
+        >
+          <Icon name="material-symbols:menu-book" class="text-primary size-8" />
+          <h3 class="font-headline text-xl font-bold">Städguiden</h3>
+          <p class="text-on-surface-variant text-sm">
+            Läs våra bästa tips för ett hållbart och välskött hem.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,41 @@
+---
+import Logo from "@/components/icones/Logo.astro";
+---
+
+<header>
+  <nav class="glass-nav fixed top-0 z-50 mx-auto w-full shadow-sm">
+    <div class="container mx-auto flex items-center justify-between px-4 py-4">
+      <a href="/" aria-label="Gå till startsidan">
+        <Logo class="h-8 w-auto" aria-hidden="true" />
+      </a>
+      <div class="space-gap-8 hidden items-center gap-x-10 md:flex">
+        <a
+          class="border-primary text-secondary border-b-2 pb-1 font-bold"
+          href="/">Hem</a
+        >
+        <a
+          class="text-neutral-600 transition-colors hover:text-neutral-900"
+          href="/services">Tjänster</a
+        >
+        <a
+          class="text-neutral-600 transition-colors hover:text-neutral-900"
+          href="/about">Om Oss</a
+        >
+        <a
+          class="text-neutral-600 transition-colors hover:text-neutral-900"
+          href="/pricing">Prislista</a
+        >
+        <a
+          class="text-neutral-600 transition-colors hover:text-neutral-900"
+          href="/contact">Kontakt</a
+        >
+      </div>
+      <a
+        href="/booking"
+        class="signature-gradient rounded-full px-6 py-3 font-bold text-white transition-transform hover:scale-105"
+      >
+        Boka Nu
+      </a>
+    </div>
+  </nav>
+</header>

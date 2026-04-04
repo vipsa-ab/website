@@ -1,0 +1,66 @@
+---
+import { ClientRouter } from "astro:transitions";
+import { Font } from "astro:assets";
+
+import Header from "@/components/ui/Header.astro";
+import Footer from "@/components/ui/Footer.astro";
+
+import "@/styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html class="light" lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="description" content={description} />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="/favicon.svg"
+      transition:persist
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="/favicon-96x96.png"
+      sizes="96x96"
+      transition:persist
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-touch-icon.png"
+      transition:persist
+    />
+    <meta name="apple-mobile-web-app-title" content="Vipsa" />
+    <link rel="manifest" href="/site.webmanifest" transition:persist />
+    <Font cssVariable="--font-manrope" preload transition:persist />
+    <Font cssVariable="--font-plus-jakarta-sans" preload transition:persist />
+    <ClientRouter />
+    <title>{title}</title>
+  </head>
+  <body
+    class="bg-surface font-body text-on-surface grid min-h-screen w-screen grid-rows-[auto_1fr_auto] overflow-x-hidden antialiased"
+  >
+    <Header transition:persist />
+    <main>
+      <slot />
+    </main>
+    <Footer transition:persist />
+  </body>
+</html>
+<style is:global>
+  :root {
+    --font-headline: var(--font-manrope);
+    --font-body: var(--font-plus-jakarta-sans);
+    --font-label: var(--font-plus-jakarta-sans);
+  }
+</style>

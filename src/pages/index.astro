@@ -1,0 +1,24 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+  HeroSection,
+  ServiceSection,
+  HowItWorkSection,
+  AboutSection,
+  TestimonialsSection,
+} from "@/components/landing";
+
+export const prerender = true;
+
+const title = "Vipsa | Samma städare. Varje gång.";
+const description =
+  "Professionell städning i Stockholm — med full RUT-avdrag och total ekonomisk transparens. Samma certifierade städare vid varje besök.";
+---
+
+<Layout title={title} description={description}>
+  <HeroSection />
+  <ServiceSection />
+  <HowItWorkSection />
+  <AboutSection />
+  <TestimonialsSection />
+</Layout>

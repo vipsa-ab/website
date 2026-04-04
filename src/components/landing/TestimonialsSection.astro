@@ -1,0 +1,60 @@
+---
+import TestimonialCard from "@/components/landing/TestimonialCard.astro";
+
+import Square from "@/assets/img/square.webp";
+
+const testimonials = [
+  {
+    quote:
+      "Vipsa har helt förändrat vår vardag. Att komma hem till ett doftande rent hus varje fredag är den bästa investeringen vi gjort för familjefriden!",
+    rating: 5,
+    name: "Anna Svensson",
+    title: "Villaägare i Solna",
+    imageSrc: Square,
+    imageAlt:
+      "Headshot of a middle-aged woman with a warm smile, natural lighting, blurred background",
+  },
+  {
+    quote:
+      "Professionellt, pålitligt och alltid lika noggrant. Vi har använt Vipsa i över två år och har aldrig blivit besvikna.",
+    rating: 5,
+    name: "Erik Johansson",
+    title: "Lägenhet i Östermalm",
+    imageSrc: Square,
+    imageAlt:
+      "Headshot of a middle-aged man in business casual attire, confident expression, office setting",
+  },
+  {
+    quote:
+      "Bästa beslutet för vår restaurang. Köket är alltid perfekt rengjort och personalen är så trevlig och effektiv!",
+    rating: 5,
+    name: "Maria Andersson",
+    title: "Restaurangägare",
+    imageSrc: Square,
+    imageAlt:
+      "Headshot of a woman in chef's attire, friendly smile, restaurant kitchen background",
+  },
+];
+---
+
+<section class="bg-surface py-24">
+  <div class="container mx-auto px-4">
+    <h2 class="font-headline mb-16 text-center text-3xl font-bold md:text-5xl">
+      Vad våra kunder säger
+    </h2>
+    <div class="grid gap-8 md:grid-cols-3">
+      {
+        testimonials.map((testimonial) => (
+          <TestimonialCard
+            quote={testimonial.quote}
+            rating={testimonial.rating}
+            name={testimonial.name}
+            title={testimonial.title}
+            imageSrc={testimonial.imageSrc}
+            imageAlt={testimonial.imageAlt}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

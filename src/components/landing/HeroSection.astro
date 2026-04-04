@@ -1,0 +1,78 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+import Square from "@/assets/img/square.webp";
+---
+
+<header
+  class="bg-surface relative w-screen overflow-hidden pt-32 pb-20 md:pt-48 md:pb-32"
+>
+  <div
+    class="container mx-auto flex flex-col items-center justify-between gap-16 px-4 lg:flex-row"
+  >
+    <div class="z-10">
+      <span
+        class="bg-secondary-fixed text-on-secondary-fixed mb-6 inline-block rounded-full px-4 py-1 text-xs font-bold tracking-widest uppercase"
+      >
+        Proffsig Hemstädning
+      </span>
+      <h1
+        class="font-headline text-on-surface mb-8 text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+      >
+        Ett renare hem, <br />
+        <span class="text-primary">mer tid för livet.</span>
+      </h1>
+      <p
+        class="text-on-surface-variant mb-10 max-w-lg text-lg leading-relaxed md:text-xl"
+      >
+        Vi levererar premium städtjänster i Sigtuna med fokus på detaljer,
+        trygghet och det där lilla extra som gör skillnad.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <button
+          class="signature-gradient shadow-primary/20 hover:shadow-primary/40 rounded-full px-8 py-4 text-lg font-bold text-white shadow-xl transition-all"
+        >
+          Boka städning
+        </button>
+        <button
+          class="bg-surface-container-lowest text-primary hover:bg-surface-container rounded-full px-8 py-4 text-lg font-bold transition-colors"
+        >
+          Våra tjänster
+        </button>
+      </div>
+    </div>
+    <div class="relative max-w-xl">
+      <div
+        class="bg-secondary-container/20 absolute -top-10 -right-10 h-64 w-64 rounded-full blur-3xl"
+      >
+      </div>
+      <div
+        class="relative z-10 transform overflow-hidden rounded-xl shadow-2xl transition-transform duration-500 hover:rotate-0 md:rotate-2"
+      >
+        <Image
+          alt="Ren lägenhet"
+          fetchpriority="high"
+          loading="eager"
+          class="aspect-4/5 w-full object-cover"
+          data-alt="A bright, minimalist, and modern living room after a professional cleaning service. The room is spotless with natural sunlight streaming through large windows, featuring light wood floors, a comfortable grey sofa, and a serene Nordic aesthetic."
+          src={Square}
+        />
+      </div>
+      <div
+        class="bg-surface-container-lowest absolute -bottom-6 -left-6 z-20 hidden rounded-lg p-6 shadow-xl md:block"
+      >
+        <div class="flex items-center gap-4">
+          <div class="bg-primary-container size-12 rounded-full p-3 text-white">
+            <Icon name="material-symbols:check-circle" class="size-6" />
+          </div>
+          <div>
+            <p class="text-on-surface font-bold">100% Nöjd-kund-garanti</p>
+            <p class="text-on-surface-variant text-sm">
+              Vi städar tills du är nöjd
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
