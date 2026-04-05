@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/vipsa-ab/website/compare/v1.0.1...v1.0.2) (2026-04-05)
+
+
+### Bug Fixes
+
+* update 404 page container layout and background blur responsiveness ([99639f7](https://github.com/vipsa-ab/website/commit/99639f7166cb48c0fc2065e782a9fbbfdf207e64))
+
 ## [1.0.1](https://github.com/vipsa-ab/website/compare/1.0.0...v1.0.1) (2026-04-05)
 
 
