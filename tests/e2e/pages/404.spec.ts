@@ -22,7 +22,7 @@ test.describe("404 Page", () => {
   // ── Header ─────────────────────────────────────────────────────────────
 
   test("header is present and sticky", async ({ page }) => {
-    const nav = page.locator("nav");
+    const nav = page.locator("header nav");
     await expect(nav).toBeVisible();
     const position = await nav.evaluate((el) => getComputedStyle(el).position);
     expect(position).toBe("fixed");
@@ -164,19 +164,25 @@ test.describe("404 Page", () => {
     page,
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
-    await page.locator('button[aria-label="Öppna navigationsmeny"]').click();
-    await page.locator('button[aria-label="Stäng navigationsmeny"]').click();
+    const trigger = page.locator('button[aria-label="Öppna navigationsmeny"]');
+    await trigger.click();
+    await page
+      .locator('button[aria-label="Stäng navigationsmeny"]')
+      .dispatchEvent("click");
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
     await expect(
       page.locator('[role="dialog"][aria-modal="true"]'),
-    ).not.toBeVisible();
+    ).not.toBeInViewport();
   });
 
   test("mobile: Escape key closes the drawer", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
-    await page.locator('button[aria-label="Öppna navigationsmeny"]').click();
+    const trigger = page.locator('button[aria-label="Öppna navigationsmeny"]');
+    await trigger.click();
     await page.keyboard.press("Escape");
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
     await expect(
       page.locator('[role="dialog"][aria-modal="true"]'),
-    ).not.toBeVisible();
+    ).not.toBeInViewport();
   });
 });

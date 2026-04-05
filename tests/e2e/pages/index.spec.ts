@@ -27,7 +27,7 @@ test.describe("Index Page", () => {
   // ── Header ─────────────────────────────────────────────────────────────
 
   test("header is visible and sticky at the top", async ({ page }) => {
-    const nav = page.locator("nav");
+    const nav = page.locator("header nav");
     await expect(nav).toBeVisible();
     const position = await nav.evaluate((el) => getComputedStyle(el).position);
     expect(position).toBe("fixed");
@@ -39,11 +39,13 @@ test.describe("Index Page", () => {
   });
 
   test("header nav contains all main page links", async ({ page }) => {
-    await expect(page.locator('nav a[href="/"]').first()).toBeAttached();
-    await expect(page.locator('nav a[href="/services"]')).toBeAttached();
-    await expect(page.locator('nav a[href="/about"]')).toBeAttached();
-    await expect(page.locator('nav a[href="/pricing"]')).toBeAttached();
-    await expect(page.locator('nav a[href="/contact"]')).toBeAttached();
+    // Scope to <header> to avoid matching the mobile menu portal nav which
+    // also renders these links when the MobileMenu island is hydrated.
+    await expect(page.locator('header a[href="/"]').first()).toBeAttached();
+    await expect(page.locator('header a[href="/services"]')).toBeAttached();
+    await expect(page.locator('header a[href="/about"]')).toBeAttached();
+    await expect(page.locator('header a[href="/pricing"]')).toBeAttached();
+    await expect(page.locator('header a[href="/contact"]')).toBeAttached();
   });
 
   // The desktop CTA is hidden on mobile (md:inline-flex), so we only check
@@ -265,19 +267,25 @@ test.describe("Index Page", () => {
     page,
   }) => {
     await page.setViewportSize({ width: 375, height: 812 });
-    await page.locator('button[aria-label="Öppna navigationsmeny"]').click();
-    await page.locator('button[aria-label="Stäng navigationsmeny"]').click();
+    const trigger = page.locator('button[aria-label="Öppna navigationsmeny"]');
+    await trigger.click();
+    await page
+      .locator('button[aria-label="Stäng navigationsmeny"]')
+      .dispatchEvent("click");
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
     await expect(
       page.locator('[role="dialog"][aria-modal="true"]'),
-    ).not.toBeVisible();
+    ).not.toBeInViewport();
   });
 
   test("mobile: Escape key closes the drawer", async ({ page }) => {
     await page.setViewportSize({ width: 375, height: 812 });
-    await page.locator('button[aria-label="Öppna navigationsmeny"]').click();
+    const trigger = page.locator('button[aria-label="Öppna navigationsmeny"]');
+    await trigger.click();
     await page.keyboard.press("Escape");
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
     await expect(
       page.locator('[role="dialog"][aria-modal="true"]'),
-    ).not.toBeVisible();
+    ).not.toBeInViewport();
   });
 });

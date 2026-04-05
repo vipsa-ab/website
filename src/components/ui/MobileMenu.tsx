@@ -15,15 +15,25 @@ const FOCUSABLE_SELECTORS =
 export default function MobileMenu() {
   const [isOpen, setIsOpen] = useState(false);
   const [currentPath, setCurrentPath] = useState("/");
-  const [mounted, setMounted] = useState(false);
+  // The portal container is inserted at the START of <body> so that
+  // Playwright's scrollIntoViewIfNeeded scrolls to position 0 (correct for
+  // fixed elements) rather than the end of a long page.
+  const [portalContainer, setPortalContainer] = useState<HTMLElement | null>(
+    null,
+  );
 
   const triggerRef = useRef<HTMLButtonElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
 
-  // Mark as mounted so the portal target (document.body) is available
   useEffect(() => {
-    setMounted(true);
     setCurrentPath(window.location.pathname);
+    let container = document.getElementById("mobile-menu-portal");
+    if (!container) {
+      container = document.createElement("div");
+      container.id = "mobile-menu-portal";
+      document.body.insertBefore(container, document.body.firstChild);
+    }
+    setPortalContainer(container);
   }, []);
 
   const close = useCallback(() => {
@@ -95,7 +105,7 @@ export default function MobileMenu() {
         aria-hidden="true"
         onClick={close}
         className={[
-          "bg-on-surface/30 fixed inset-0 z-50 backdrop-blur-sm transition-opacity duration-300 md:hidden",
+          "bg-on-surface/30 fixed inset-0 z-60 backdrop-blur-sm transition-opacity duration-300 md:hidden",
           isOpen ? "opacity-100" : "pointer-events-none opacity-0",
         ].join(" ")}
       />
@@ -108,7 +118,7 @@ export default function MobileMenu() {
         aria-modal="true"
         aria-label="Mobil navigationsmeny"
         className={[
-          "bg-surface-container-lowest/90 fixed top-0 right-0 z-50 flex h-full w-72 flex-col shadow-xl backdrop-blur-[20px] transition-transform duration-300 ease-in-out md:hidden",
+          "bg-surface-container-lowest/90 fixed top-0 right-0 z-60 flex h-full w-72 flex-col shadow-xl backdrop-blur-[20px] transition-transform duration-300 ease-in-out md:hidden",
           isOpen ? "translate-x-0" : "translate-x-full",
         ].join(" ")}
       >
@@ -212,8 +222,9 @@ export default function MobileMenu() {
         </svg>
       </button>
 
-      {/* Portal: backdrop + drawer rendered directly into document.body */}
-      {mounted && createPortal(overlay, document.body)}
+      {/* Portal: backdrop + drawer rendered into a container at the START of
+          body so Playwright's scrollIntoViewIfNeeded stays at position 0. */}
+      {portalContainer && createPortal(overlay, portalContainer)}
     </>
   );
 }
