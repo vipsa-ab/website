@@ -72,12 +72,16 @@ test.describe("Index Page", () => {
   });
 
   test("hero section renders primary CTA button", async ({ page }) => {
-    const cta = page.locator("main button", { hasText: "Boka städning" });
+    const cta = page.locator('main a[href="/booking"]', {
+      hasText: "Boka städning",
+    });
     await expect(cta).toBeVisible();
   });
 
   test("hero section renders secondary CTA button", async ({ page }) => {
-    const cta = page.locator("main button", { hasText: "Våra tjänster" });
+    const cta = page.locator('main a[href="/services"]', {
+      hasText: "Våra tjänster",
+    });
     await expect(cta).toBeVisible();
   });
 
@@ -172,7 +176,7 @@ test.describe("Index Page", () => {
 
   test("footer shows copyright notice", async ({ page }) => {
     await expect(page.locator("footer")).toContainText(
-      "© 2024 LaganStäd AB. All rights reserved.",
+      `© ${new Date().getFullYear()} Vipsa AB. All rights reserved.`,
     );
   });
 

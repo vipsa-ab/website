@@ -1,6 +1,17 @@
 ---
 import Logo from "@/components/icones/Logo.astro";
 import MobileMenu from "@/components/ui/MobileMenu";
+
+const normalizePath = (path: string) => {
+  return path.replace(/\/$/, "") || "/";
+};
+
+const isActive = (path: string) => {
+  const currentPath = normalizePath(Astro.url.pathname);
+  const targetPath = normalizePath(path);
+
+  return currentPath === targetPath;
+};
 ---
 
 <header>
@@ -11,23 +22,48 @@ import MobileMenu from "@/components/ui/MobileMenu";
       </a>
       <div class="space-gap-8 hidden items-center gap-x-10 md:flex">
         <a
-          class="border-primary text-secondary border-b-2 pb-1 font-bold"
+          class:list={[
+            "border-b-2 pb-1 font-bold transition-colors",
+            isActive("/")
+              ? "border-secondary text-secondary"
+              : "border-transparent text-neutral-600 hover:text-neutral-900",
+          ]}
           href="/">Hem</a
         >
         <a
-          class="text-neutral-600 transition-colors hover:text-neutral-900"
+          class:list={[
+            "border-b-2 pb-1 font-bold transition-colors",
+            isActive("/services")
+              ? "border-secondary text-secondary"
+              : "border-transparent text-neutral-600 hover:text-neutral-900",
+          ]}
           href="/services">Tjänster</a
         >
         <a
-          class="text-neutral-600 transition-colors hover:text-neutral-900"
+          class:list={[
+            "border-b-2 pb-1 font-bold transition-colors",
+            isActive("/about")
+              ? "border-secondary text-secondary"
+              : "border-transparent text-neutral-600 hover:text-neutral-900",
+          ]}
           href="/about">Om Oss</a
         >
         <a
-          class="text-neutral-600 transition-colors hover:text-neutral-900"
+          class:list={[
+            "border-b-2 pb-1 font-bold transition-colors",
+            isActive("/pricing")
+              ? "border-secondary text-secondary"
+              : "border-transparent text-neutral-600 hover:text-neutral-900",
+          ]}
           href="/pricing">Prislista</a
         >
         <a
-          class="text-neutral-600 transition-colors hover:text-neutral-900"
+          class:list={[
+            "border-b-2 pb-1 font-bold transition-colors",
+            isActive("/contact")
+              ? "border-secondary text-secondary"
+              : "border-transparent text-neutral-600 hover:text-neutral-900",
+          ]}
           href="/contact">Kontakt</a
         >
       </div>

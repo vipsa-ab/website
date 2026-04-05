@@ -106,7 +106,9 @@ describe("404 Page (integration with Layout)", () => {
   });
 
   it("renders the Footer copyright notice", async () => {
-    expect(html).toContain("© 2024 LaganStäd AB. All rights reserved.");
+    expect(html).toContain(
+      `© ${new Date().getFullYear()} Vipsa AB. All rights reserved.`,
+    );
   });
 
   it("renders the Footer legal links", async () => {

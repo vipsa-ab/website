@@ -57,8 +57,8 @@ describe("HeroSection", () => {
     expect(html).toContain('data-icon="material-symbols:check-circle"');
   });
 
-  it("wraps content in a header element", async () => {
+  it("wraps content in a section element", async () => {
     const html = await container.renderToString(HeroSection);
-    expect(html).toContain("<header");
+    expect(html).toContain("<section");
   });
 });

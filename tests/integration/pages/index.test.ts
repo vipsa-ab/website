@@ -108,7 +108,9 @@ describe("Index Page (integration with Layout)", () => {
   });
 
   it("renders the Footer copyright notice", async () => {
-    expect(html).toContain("© 2024 LaganStäd AB. All rights reserved.");
+    expect(html).toContain(
+      `© ${new Date().getFullYear()} Vipsa AB. All rights reserved.`,
+    );
   });
 
   it("renders the Footer privacy and terms links", async () => {
@@ -121,8 +123,8 @@ describe("Index Page (integration with Layout)", () => {
   it("wraps page sections inside <main>", async () => {
     const main = doc.querySelector("main");
     expect(main).not.toBeNull();
-    // HeroSection renders a <header> inside <main>
-    expect(main?.querySelector("header")).not.toBeNull();
+    // HeroSection renders a <section> inside <main>
+    expect(main?.querySelector("section")).not.toBeNull();
   });
 
   // ── Page content: landing sections ───────────────────────────────────────

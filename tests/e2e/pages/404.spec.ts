@@ -107,7 +107,7 @@ test.describe("404 Page", () => {
 
   test("footer shows copyright notice", async ({ page }) => {
     await expect(page.locator("footer")).toContainText(
-      "© 2024 LaganStäd AB. All rights reserved.",
+      `© ${new Date().getFullYear()} Vipsa AB. All rights reserved.`,
     );
   });
 
