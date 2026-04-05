@@ -1,4 +1,5 @@
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import reactSSR from "@astrojs/react/server.js";
 import { describe, it, expect, beforeEach } from "vitest";
 import { JSDOM } from "jsdom";
 import Page404 from "@/pages/404.astro";
@@ -8,6 +9,7 @@ describe("404 Page", () => {
 
   beforeEach(async () => {
     container = await AstroContainer.create();
+    container.addServerRenderer({ renderer: reactSSR });
   });
 
   it("renders the 404 display text", async () => {

@@ -1,4 +1,5 @@
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import reactSSR from "@astrojs/react/server.js";
 import { describe, it, expect, beforeEach } from "vitest";
 import { JSDOM } from "jsdom";
 import IndexPage from "@/pages/index.astro";
@@ -10,6 +11,7 @@ describe("Index Page (integration with Layout)", () => {
 
   beforeEach(async () => {
     container = await AstroContainer.create();
+    container.addServerRenderer({ renderer: reactSSR });
     html = await container.renderToString(IndexPage, { partial: false });
     doc = new JSDOM(html).window.document;
   });
@@ -82,6 +84,10 @@ describe("Index Page (integration with Layout)", () => {
     const bookingLink = doc.querySelector('header a[href="/booking"]');
     expect(bookingLink).not.toBeNull();
     expect(bookingLink?.textContent?.trim()).toBe("Boka Nu");
+  });
+
+  it("renders the mobile menu trigger button", async () => {
+    expect(html).toContain('aria-label="Öppna navigationsmeny"');
   });
 
   // ── Layout: Footer ───────────────────────────────────────────────────────

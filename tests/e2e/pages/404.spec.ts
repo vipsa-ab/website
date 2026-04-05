@@ -22,7 +22,7 @@ test.describe("404 Page", () => {
   // ── Header ─────────────────────────────────────────────────────────────
 
   test("header is present and sticky", async ({ page }) => {
-    const nav = page.locator("nav");
+    const nav = page.locator("header nav");
     await expect(nav).toBeVisible();
     const position = await nav.evaluate((el) => getComputedStyle(el).position);
     expect(position).toBe("fixed");
@@ -33,10 +33,19 @@ test.describe("404 Page", () => {
     await expect(page).toHaveURL("/");
   });
 
-  test("header booking CTA is visible", async ({ page }) => {
+  // The desktop CTA is hidden on mobile (md:inline-flex), so we only check
+  // that it exists in the DOM. For mobile visibility see the mobile menu tests.
+  test("header booking CTA exists and links to /booking", async ({ page }) => {
     const cta = page.locator('header a[href="/booking"]');
-    await expect(cta).toBeVisible();
+    await expect(cta).toBeAttached();
     await expect(cta).toHaveText("Boka Nu");
+  });
+
+  test("desktop: header booking CTA is visible on wide viewport", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 1280, height: 800 });
+    await expect(page.locator('header a[href="/booking"]')).toBeVisible();
   });
 
   // ── 404 content ────────────────────────────────────────────────────────
@@ -121,5 +130,59 @@ test.describe("404 Page", () => {
     await page.setViewportSize({ width: 375, height: 812 });
     await expect(page.locator("main h1")).toBeVisible();
     await expect(page.locator('main a[href="/"]')).toBeVisible();
+  });
+
+  // ── Mobile menu ────────────────────────────────────────────────────────
+
+  test("mobile: hamburger button is visible on narrow viewport", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    const hamburger = page.locator(
+      'button[aria-label="Öppna navigationsmeny"]',
+    );
+    await expect(hamburger).toBeVisible();
+  });
+
+  test("mobile: clicking hamburger opens the navigation drawer", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.locator('button[aria-label="Öppna navigationsmeny"]').click();
+    const drawer = page.locator('[role="dialog"][aria-modal="true"]');
+    await expect(drawer).toBeVisible();
+  });
+
+  test("mobile: drawer contains Boka Nu CTA", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    await page.locator('button[aria-label="Öppna navigationsmeny"]').click();
+    const drawer = page.locator('[role="dialog"]');
+    await expect(drawer.locator('a[href="/booking"]')).toBeVisible();
+  });
+
+  test("mobile: close button inside drawer closes the menu", async ({
+    page,
+  }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    const trigger = page.locator('button[aria-label="Öppna navigationsmeny"]');
+    await trigger.click();
+    await page
+      .locator('button[aria-label="Stäng navigationsmeny"]')
+      .dispatchEvent("click");
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await expect(
+      page.locator('[role="dialog"][aria-modal="true"]'),
+    ).not.toBeInViewport();
+  });
+
+  test("mobile: Escape key closes the drawer", async ({ page }) => {
+    await page.setViewportSize({ width: 375, height: 812 });
+    const trigger = page.locator('button[aria-label="Öppna navigationsmeny"]');
+    await trigger.click();
+    await page.keyboard.press("Escape");
+    await expect(trigger).toHaveAttribute("aria-expanded", "false");
+    await expect(
+      page.locator('[role="dialog"][aria-modal="true"]'),
+    ).not.toBeInViewport();
   });
 });

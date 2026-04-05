@@ -1,5 +1,6 @@
 ---
 import Logo from "@/components/icones/Logo.astro";
+import MobileMenu from "@/components/ui/MobileMenu";
 ---
 
 <header>
@@ -32,10 +33,11 @@ import Logo from "@/components/icones/Logo.astro";
       </div>
       <a
         href="/booking"
-        class="signature-gradient rounded-full px-6 py-3 font-bold text-white transition-transform hover:scale-105"
+        class="signature-gradient hidden rounded-full px-6 py-3 font-bold text-white transition-transform hover:scale-105 md:inline-flex"
       >
         Boka Nu
       </a>
+      <MobileMenu client:visible />
     </div>
   </nav>
 </header>
