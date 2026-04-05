@@ -1,4 +1,5 @@
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
+import reactSSR from "@astrojs/react/server.js";
 import { describe, it, expect, beforeEach } from "vitest";
 import { JSDOM } from "jsdom";
 import Header from "@/components/ui/Header.astro";
@@ -8,6 +9,7 @@ describe("Header", () => {
 
   beforeEach(async () => {
     container = await AstroContainer.create();
+    container.addServerRenderer({ renderer: reactSSR });
   });
 
   it("renders a <header> element", async () => {
@@ -77,5 +79,16 @@ describe("Header", () => {
     const navGroup = doc.querySelector(".md\\:flex");
     expect(navGroup).not.toBeNull();
     expect(navGroup?.className).toContain("hidden");
+  });
+
+  it("renders the mobile menu trigger button", async () => {
+    const html = await container.renderToString(Header);
+    expect(html).toContain('aria-label="Öppna navigationsmeny"');
+  });
+
+  it("mobile trigger has aria-expanded and aria-controls", async () => {
+    const html = await container.renderToString(Header);
+    expect(html).toContain('aria-expanded="false"');
+    expect(html).toContain('aria-controls="mobile-menu"');
   });
 });
