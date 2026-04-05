@@ -1,0 +1,52 @@
+---
+import { Icon } from "astro-icon/components";
+import type { ServiceCard } from "@/types";
+
+interface Props extends ServiceCard {}
+
+const { title, description, features, icon, color } = Astro.props as Props;
+
+const bgColor = {
+  primary: "bg-primary-fixed",
+  secondary: "bg-secondary-fixed",
+  tertiary: "bg-tertiary-fixed",
+} as const;
+
+const iconColor = {
+  primary: "text-primary",
+  secondary: "text-secondary",
+  tertiary: "text-tertiary",
+} as const;
+---
+
+<div
+  class="group bg-surface-container-lowest hover:border-outline-variant/10 flex flex-col items-center gap-8 rounded-xl border border-transparent p-10 transition-all duration-500 hover:shadow-2xl md:flex-row"
+>
+  <div
+    class:list={[
+      bgColor[color],
+      "flex h-24 w-24 shrink-0 items-center justify-center rounded-full",
+    ]}
+  >
+    <Icon name={icon} class:list={["size-12", iconColor[color]]} />
+  </div>
+  <div>
+    <h3 class="mb-4 text-2xl font-bold">{title}</h3>
+    <p class="text-on-surface-variant mb-4 leading-relaxed">
+      {description}
+    </p>
+    <ul class="mb-6 space-y-2">
+      {
+        features.map((feature) => (
+          <li class="flex items-center gap-2 text-sm font-medium">
+            <Icon
+              name="material-symbols:check-circle"
+              class="text-primary size-5"
+            />
+            {feature}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

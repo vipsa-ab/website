@@ -1,5 +1,5 @@
 ---
-import Logo from "@/components/icones/Logo.astro";
+import { Icon } from "astro-icon/components";
 import MobileMenu from "@/components/ui/MobileMenu";
 
 const normalizePath = (path: string) => {
@@ -18,7 +18,7 @@ const isActive = (path: string) => {
   <nav class="glass-nav fixed top-0 z-50 mx-auto w-full shadow-sm">
     <div class="container mx-auto flex items-center justify-between px-4 py-4">
       <a href="/" aria-label="Gå till startsidan">
-        <Logo class="h-8 w-auto" aria-hidden="true" />
+        <Icon name="logo" class="h-8 w-auto" />
       </a>
       <div class="space-gap-8 hidden items-center gap-x-10 md:flex">
         <a
