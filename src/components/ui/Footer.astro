@@ -1,7 +1,5 @@
 ---
 import { Icon } from "astro-icon/components";
-
-import Logo from "@/components/icones/Logo.astro";
 ---
 
 <footer
@@ -10,7 +8,7 @@ import Logo from "@/components/icones/Logo.astro";
   <div class="container mx-auto grid grid-cols-1 gap-12 px-4 md:grid-cols-4">
     <!-- Brand & Info -->
     <div class="col-span-1 md:col-span-1">
-      <Logo class="mb-6 w-20" />
+      <Icon name="logo" class="mb-6 size-20" />
 
       <p class="mb-8 leading-relaxed text-neutral-500 dark:text-neutral-400">
         Din lokala partner för ett renare hem och en enklare vardag i Sigtuna.
@@ -125,7 +123,7 @@ import Logo from "@/components/icones/Logo.astro";
     class="container mx-auto flex flex-col items-center justify-between gap-4 px-8 pt-8 md:flex-row"
   >
     <p class="text-sm text-neutral-500">
-      © 2024 LaganStäd AB. All rights reserved.
+      © {new Date().getFullYear()} Vipsa AB. All rights reserved.
     </p>
     <div class="flex gap-8 text-sm">
       <a

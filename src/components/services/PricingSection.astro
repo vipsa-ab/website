@@ -1,0 +1,124 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="bg-surface py-24">
+  <div class="mx-auto max-w-7xl px-8">
+    <div class="mb-16 text-center">
+      <h2 class="mb-4 text-4xl font-bold">Enkla och transparenta priser</h2>
+      <p class="text-on-surface-variant">
+        Alla priser är efter 50% RUT-avdrag.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      <!-- Basic -->
+      <div class="bg-surface-container-low flex flex-col rounded-xl p-8">
+        <div class="mb-8">
+          <h4 class="mb-2 text-xl font-bold">Hemstädning Bas</h4>
+          <div class="text-primary mb-1 text-4xl font-extrabold">
+            195 kr<span class="text-on-surface-variant text-sm font-normal"
+              >/tim</span
+            >
+          </div>
+          <p class="text-on-surface-variant text-sm italic">
+            Exkl. inställelseavgift
+          </p>
+        </div>
+        <ul class="mb-10 grow space-y-4">
+          <li class="flex items-start gap-3">
+            <Icon name="material-symbols:done" class="text-primary text-lg" />
+            <span class="text-sm">Standard städning av alla rum</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="material-symbols:done" class="text-primary text-lg" />
+            <span class="text-sm">Dammtorkning &amp; dammsugning</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="material-symbols:done" class="text-primary text-lg" />
+            <span class="text-sm">Våttorkning av golv</span>
+          </li>
+        </ul>
+        <button
+          class="border-primary text-primary hover:bg-primary hover:text-on-primary w-full rounded-full border-2 py-3 font-bold transition-all"
+        >
+          Välj Bas
+        </button>
+      </div>
+      <!-- Premium (Featured) -->
+      <div
+        class="bg-surface-container-lowest border-primary/20 relative flex scale-105 flex-col rounded-xl border-2 p-8 shadow-2xl"
+      >
+        <div
+          class="bg-primary text-on-primary absolute top-0 right-10 -translate-y-1/2 rounded-full px-4 py-1 text-xs font-bold tracking-wider uppercase"
+        >
+          Mest Populär
+        </div>
+        <div class="mb-8">
+          <h4 class="mb-2 text-xl font-bold">Hemstädning Premium</h4>
+          <div class="text-primary mb-1 text-4xl font-extrabold">
+            225 kr<span class="text-on-surface-variant text-sm font-normal"
+              >/tim</span
+            >
+          </div>
+          <p class="text-on-surface-variant text-sm italic">
+            Exkl. inställelseavgift
+          </p>
+        </div>
+        <ul class="mb-10 grow space-y-4">
+          <li class="flex items-start gap-3">
+            <Icon name="material-symbols:done" class="text-primary text-lg" />
+            <span class="text-sm">Allt i Bas-paketet</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="material-symbols:done" class="text-primary text-lg" />
+            <span class="text-sm">Kylskåpsrengöring</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="material-symbols:done" class="text-primary text-lg" />
+            <span class="text-sm">Bäddning av sängar</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="material-symbols:done" class="text-primary text-lg" />
+            <span class="text-sm">Hämtning av post</span>
+          </li>
+        </ul>
+        <button
+          class="signature-gradient text-on-primary shadow-primary/30 w-full rounded-full py-3 font-bold shadow-lg transition-all hover:scale-105"
+        >
+          Välj Premium
+        </button>
+      </div>
+      <!-- Flytt -->
+      <div class="bg-surface-container-low flex flex-col rounded-xl p-8">
+        <div class="mb-8">
+          <h4 class="mb-2 text-xl font-bold">Flyttstädning</h4>
+          <div class="text-primary mb-1 text-4xl font-extrabold">
+            fr. 1 490 kr
+          </div>
+          <p class="text-on-surface-variant text-sm italic">
+            Baserat på kvm efter RUT
+          </p>
+        </div>
+        <ul class="mb-10 grow space-y-4">
+          <li class="flex items-start gap-3">
+            <Icon name="material-symbols:done" class="text-primary text-lg" />
+            <span class="text-sm">Komplett genomgång av bostad</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="material-symbols:done" class="text-primary text-lg" />
+            <span class="text-sm">In- och utvändig fönsterputs</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <Icon name="material-symbols:done" class="text-primary text-lg" />
+            <span class="text-sm">Garantibesiktning</span>
+          </li>
+        </ul>
+        <button
+          class="border-primary text-primary hover:bg-primary hover:text-on-primary w-full rounded-full border-2 py-3 font-bold transition-all"
+        >
+          Få Offert
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

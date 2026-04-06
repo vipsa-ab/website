@@ -1,18 +1,18 @@
 import { experimental_AstroContainer as AstroContainer } from "astro/container";
 import { describe, it, expect, beforeEach } from "vitest";
 import { JSDOM } from "jsdom";
-import HeroSection from "@/components/landing/HeroSection.astro";
+import HeroSection from "@/components/services/HeroSection.astro";
 
-describe("HeroSection", () => {
+describe("Services HeroSection", () => {
   let container: AstroContainer;
 
   beforeEach(async () => {
     container = await AstroContainer.create();
   });
 
-  it("renders the badge text", async () => {
+  it("renders the label text", async () => {
     const html = await container.renderToString(HeroSection);
-    expect(html).toContain("Proffsig Hemstädning");
+    expect(html).toContain("Välkommen till en renare vardag");
   });
 
   it("renders the h1 heading", async () => {
@@ -20,25 +20,28 @@ describe("HeroSection", () => {
     const doc = new JSDOM(html).window.document;
     const h1 = doc.querySelector("h1");
     expect(h1).not.toBeNull();
-    expect(h1!.textContent).toContain("Ett renare hem,");
+    expect(h1!.textContent).toContain("Våra Tjänster");
   });
 
-  it("renders the highlighted h1 span", async () => {
+  it("renders the description paragraph", async () => {
+    const html = await container.renderToString(HeroSection);
+    expect(html).toContain("Vi kombinerar den svenska enkelheten");
+  });
+
+  it("renders the booking CTA link with correct href", async () => {
     const html = await container.renderToString(HeroSection);
     const doc = new JSDOM(html).window.document;
-    const span = doc.querySelector("h1 span");
-    expect(span).not.toBeNull();
-    expect(span!.textContent).toContain("mer tid för livet.");
+    const bookingLink = doc.querySelector('a[href="/booking"]');
+    expect(bookingLink).not.toBeNull();
+    expect(bookingLink!.textContent?.trim()).toBe("Boka städning");
   });
 
-  it("renders the primary CTA button", async () => {
+  it("renders the pricing CTA link with correct href", async () => {
     const html = await container.renderToString(HeroSection);
-    expect(html).toContain("Boka städning");
-  });
-
-  it("renders the secondary CTA button", async () => {
-    const html = await container.renderToString(HeroSection);
-    expect(html).toContain("Våra tjänster");
+    const doc = new JSDOM(html).window.document;
+    const pricingLink = doc.querySelector('a[href="/pricing"]');
+    expect(pricingLink).not.toBeNull();
+    expect(pricingLink!.textContent?.trim()).toBe("Se priser");
   });
 
   it("renders the hero image with correct alt", async () => {
@@ -46,7 +49,7 @@ describe("HeroSection", () => {
     expect(html).toContain('alt="Ren lägenhet"');
   });
 
-  it("renders the guarantee card text", async () => {
+  it("renders the guarantee card", async () => {
     const html = await container.renderToString(HeroSection);
     expect(html).toContain("100% Nöjd-kund-garanti");
     expect(html).toContain("Vi städar tills du är nöjd");

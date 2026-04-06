@@ -1,0 +1,54 @@
+---
+import ServiceCard from "./ServiceCard.astro";
+import type { ServiceCard as Service } from "@/types";
+
+const services: Service[] = [
+  {
+    title: "Hemstädning",
+    description:
+      "Ge dig själv gåvan av tid. Vår regelbundna hemstädning anpassas helt efter ditt schema och dina önskemål. Vi skapar den där lugna, nystädade känslan som varar hela veckan.",
+    icon: "material-symbols:house-rounded",
+    color: "primary",
+    features: ["Valfri frekvens (vecka/månad)", "Samma städare varje gång"],
+  },
+  {
+    title: "Flyttstädning",
+    description:
+      "Fokusera på ditt nya hem så tar vi hand om det gamla. Vi följer strikta checklistor och garanterar att städningen godkänns vid inspektion.",
+    icon: "material-symbols:local-shipping",
+    color: "secondary",
+    features: ["Garanti på besiktning", "Komplett fönsterputs ingår"],
+  },
+  {
+    title: "Kontorsstädning",
+
+    description:
+      "Ett rent kontor är ett produktivt kontor. Vi skapar en hälsosam arbetsmiljö för dig och dina kollegor med miljövänliga metoder och hög diskretion.",
+    icon: "material-symbols:corporate-fare",
+    color: "tertiary",
+    features: ["Anpassat efter kontorstider", "Fokus på hygieniska ytor"],
+  },
+  {
+    title: "Fönsterputs",
+    description:
+      "Släpp in ljuset! Vi putsar fönster åt både privatpersoner och företag, oavsett höjd eller storlek. Kristallklart resultat utan ränder.",
+    icon: "material-symbols:wb-sunny",
+    color: "primary",
+    features: ["In- och utvändig puts", "RUT-avdrag för privatpersoner"],
+  },
+];
+---
+
+<section class="bg-surface-container-low py-24">
+  <div class="mx-auto max-w-7xl px-8">
+    <div class="mb-20 text-center">
+      <h2 class="mb-4 text-4xl font-bold tracking-tight">
+        Skräddarsydda lösningar för alla behov
+      </h2>
+      <div class="signature-gradient mx-auto h-1.5 w-20 rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      {services.map((service) => <ServiceCard {...service} />)}
+    </div>
+  </div>
+</section>

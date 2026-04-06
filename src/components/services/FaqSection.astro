@@ -1,0 +1,44 @@
+---
+import { FaqCard } from "./FaqCard";
+
+const faqs = [
+  {
+    question: "Ingår städmaterial i priset?",
+    answer:
+      "Vid hemstädning använder vi oftast kundens egna material för att minimera smittspridning, men vi kan tillhandahålla miljövänliga produkter mot en liten avgift. Vid flyttstädning ingår allt material.",
+  },
+  {
+    question: "Är ni försäkrade?",
+    answer:
+      "Självklart! Vi har en omfattande ansvarsförsäkring som täcker eventuella skador som kan uppstå under vårt arbete. Din trygghet är vår prioritet.",
+  },
+  {
+    question: "Hur fungerar RUT-avdraget?",
+    answer:
+      "Vi sköter all administration med Skatteverket. Du betalar bara 50% av arbetskostnaden direkt på fakturan. Det är enkelt och bekvämt för dig.",
+  },
+  {
+    question: "Vad händer om jag inte är nöjd?",
+    answer:
+      "Vi har en 100% nöjd-kund-garanti. Om du mot förmodan inte skulle vara nöjd, kontaktar du oss inom 48 timmar så åtgärdar vi bristerna utan extra kostnad.",
+  },
+];
+---
+
+<section class="bg-surface-container-low py-24">
+  <div class="mx-auto max-w-3xl px-8">
+    <div class="mb-16 text-center">
+      <h2 class="mb-4 text-4xl font-bold">Vanliga frågor</h2>
+      <p class="text-on-surface-variant">
+        Här hittar du svar på de vanligaste funderingarna kring våra tjänster.
+      </p>
+    </div>
+    <div class="flex flex-col gap-4">
+      {
+        faqs.map((faq) => (
+          <FaqCard client:visible question={faq.question} answer={faq.answer} />
+        ))
+      }
+    </div>
+  </div>
+</section>

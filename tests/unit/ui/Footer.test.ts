@@ -95,7 +95,9 @@ describe("Footer", () => {
 
   it("renders the copyright notice", async () => {
     const html = await container.renderToString(Footer);
-    expect(html).toContain("© 2024 LaganStäd AB. All rights reserved.");
+    expect(html).toContain(
+      `© ${new Date().getFullYear()} Vipsa AB. All rights reserved.`,
+    );
   });
 
   it("renders the privacy policy link", async () => {

@@ -1,0 +1,22 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import {
+  HeroSection,
+  ServicesSection,
+  PricingSection,
+  FaqSection,
+  CtaSection,
+} from "@/components/services";
+
+const title = "Vipsa | Tjänster";
+const description =
+  "Utforska våra professionella städtjänster i Stockholm. Vi erbjuder hemstädning, kontorsstädning, flyttstädning och mer – alla med full RUT-avdrag och samma certifierade städare varje gång.";
+---
+
+<Layout title={title} description={description}>
+  <HeroSection />
+  <ServicesSection />
+  <PricingSection />
+  <FaqSection />
+  <CtaSection />
+</Layout>
