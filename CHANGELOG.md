@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.1.0](https://github.com/vipsa-ab/website/compare/v1.0.2...v1.1.0) (2026-04-06)
+
+
+### Features
+
+* add FAQ and CTA sections to services page ([1106ef0](https://github.com/vipsa-ab/website/commit/1106ef05563232a8447dbc69a1c7ebdfa4e44896))
+* add pricing section to services page ([cd052a8](https://github.com/vipsa-ab/website/commit/cd052a86ad01907581f589bc967fd93d16570256))
+* implement services page with reusable HeroSection component and service directory structure ([a5d2f86](https://github.com/vipsa-ab/website/commit/a5d2f86a80cfaec03c81db7967e6822997742ac9))
+* implement services section with ServiceCard component and add GGA configuration ([690d65a](https://github.com/vipsa-ab/website/commit/690d65a3379088405502f715e1cf19e393df3f7a))
+
 ## [1.0.2](https://github.com/vipsa-ab/website/compare/v1.0.1...v1.0.2) (2026-04-05)
 
 
