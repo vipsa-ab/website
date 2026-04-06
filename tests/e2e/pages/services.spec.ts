@@ -80,9 +80,12 @@ test.describe("Services Page", () => {
   });
 
   test("hero section renders booking CTA", async ({ page }) => {
-    const cta = page.locator('main a[href="/booking"]', {
-      hasText: "Boka städning",
-    });
+    const cta = page.locator(
+      'main section[id="service-hero"] a[href="/booking"]',
+      {
+        hasText: "Boka städning",
+      },
+    );
     await expect(cta).toBeVisible();
   });
 
@@ -277,7 +280,9 @@ test.describe("Services Page", () => {
   });
 
   test("CTA section booking link is visible and correct", async ({ page }) => {
-    const cta = page.locator("main a", { hasText: "Boka Din Städning" });
+    const cta = page.locator('main section[id="service-cta"] a', {
+      hasText: "Boka städning",
+    });
     await expect(cta).toBeVisible();
     await expect(cta).toHaveAttribute("href", "/booking");
   });
@@ -359,7 +364,9 @@ test.describe("Services Page", () => {
 
   test("hero booking CTA navigates to /booking", async ({ page }) => {
     await page
-      .locator('main a[href="/booking"]', { hasText: "Boka städning" })
+      .locator('main section[id="service-hero"] a[href="/booking"]', {
+        hasText: "Boka städning",
+      })
       .click();
     await expect(page).toHaveURL("/booking");
   });
@@ -372,7 +379,11 @@ test.describe("Services Page", () => {
   });
 
   test("CTA section booking link navigates to /booking", async ({ page }) => {
-    await page.locator("main a", { hasText: "Boka Din Städning" }).click();
+    await page
+      .locator('main section[id="service-cta"] a', {
+        hasText: "Boka städning",
+      })
+      .click();
     await expect(page).toHaveURL("/booking");
   });
 
