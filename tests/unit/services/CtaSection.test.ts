@@ -28,7 +28,7 @@ describe("CtaSection", () => {
     const doc = new JSDOM(html).window.document;
     const link = doc.querySelector('a[href="/booking"]');
     expect(link).not.toBeNull();
-    expect(link!.textContent?.trim()).toBe("Boka Din Städning");
+    expect(link!.textContent?.trim()).toBe("Boka städning");
   });
 
   it("renders the background image", async () => {

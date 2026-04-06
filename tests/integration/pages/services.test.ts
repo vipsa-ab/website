@@ -241,7 +241,7 @@ describe("Services Page (integration with Layout)", () => {
   });
 
   it("renders the CtaSection booking link", () => {
-    expect(html).toContain("Boka Din Städning");
+    expect(html).toContain("Boka städning");
   });
 
   it("renders the CtaSection background image", () => {
