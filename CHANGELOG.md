@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/vipsa-ab/website/compare/v1.1.0...v1.1.1) (2026-04-06)
+
+
+### Bug Fixes
+
+* improve CTA button sizing and test selectors ([0114978](https://github.com/vipsa-ab/website/commit/011497853d5f113376a5642f6de255a8f2522516))
+
 ## [1.1.0](https://github.com/vipsa-ab/website/compare/v1.0.2...v1.1.0) (2026-04-06)
 
 
