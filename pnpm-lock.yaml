@@ -22,6 +22,9 @@ importers:
       astro-icon:
         specifier: 1.1.5
         version: 1.1.5
+      clsx:
+        specifier: ^2.1.1
+        version: 2.1.1
       react:
         specifier: 19.2.4
         version: 19.2.4
@@ -31,6 +34,9 @@ importers:
       sharp:
         specifier: 0.34.5
         version: 0.34.5
+      tailwind-merge:
+        specifier: ^3.5.0
+        version: 3.5.0
       tailwindcss:
         specifier: 4.2.2
         version: 4.2.2
@@ -5427,6 +5433,12 @@ packages:
       }
     engines: { node: ^14.18.0 || >=16.0.0 }
 
+  tailwind-merge@3.5.0:
+    resolution:
+      {
+        integrity: sha512-I8K9wewnVDkL1NTGoqWmVEIlUcB9gFriAEkXkfCjX5ib8ezGxtR3xD7iZIxrfArjEsH7F1CHD4RFUtxefdqV/A==,
+      }
+
   tailwindcss@4.2.2:
     resolution:
       {
@@ -9673,6 +9685,8 @@ snapshots:
   synckit@0.11.12:
     dependencies:
       "@pkgr/core": 0.2.9
+
+  tailwind-merge@3.5.0: {}
 
   tailwindcss@4.2.2: {}
 

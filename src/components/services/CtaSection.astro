@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+
+import rectangular from "@/assets/img/rectangular.webp";
+---
+
+<section class="bg-surface py-24">
+  <div class="mx-auto max-w-5xl px-8">
+    <div
+      class="signature-gradient relative overflow-hidden rounded-xl p-12 text-center shadow-2xl md:p-20"
+    >
+      <div class="absolute inset-0 opacity-10 mix-blend-overlay">
+        <Image
+          alt="Kitchen cleaning texture"
+          class="h-full w-full object-cover"
+          data-alt="close up of a clean marble kitchen counter with sunlight reflecting softly on a polished surface"
+          src={rectangular}
+        />
+      </div>
+      <div class="relative z-10">
+        <h2 class="text-on-primary mb-6 text-3xl font-bold md:text-5xl">
+          Redo för en renare vardag?
+        </h2>
+        <p class="text-on-primary/90 mx-auto mb-10 max-w-2xl text-lg">
+          Boka din första städning idag och upplev Nordic Hearth-effekten. Vi
+          garanterar att du kommer älska resultatet.
+        </p>
+        <a
+          href="/booking"
+          class="bg-surface-container-lowest text-primary rounded-full px-12 py-5 text-xl font-extrabold shadow-xl transition-transform hover:scale-105"
+        >
+          Boka Din Städning
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
