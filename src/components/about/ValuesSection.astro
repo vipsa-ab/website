@@ -1,0 +1,65 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="bg-surface py-24">
+  <div class="mx-auto max-w-7xl px-8">
+    <div class="mb-16 text-center">
+      <h2 class="font-headline mb-4 text-4xl font-bold">Våra Värderingar</h2>
+      <div class="bg-primary mx-auto h-1 w-20 rounded-full"></div>
+    </div>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+      <!-- Kvalitet -->
+      <div
+        class="bg-surface-container-lowest group rounded-xl p-10 shadow-sm transition-shadow hover:shadow-md"
+      >
+        <div
+          class="bg-primary-fixed mb-8 flex h-16 w-16 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
+        >
+          <Icon
+            name="material-symbols:verified"
+            class="text-primary text-3xl"
+          />
+        </div>
+        <h3 class="font-headline mb-4 text-2xl font-bold">Kvalitet</h3>
+        <p class="text-on-surface-variant leading-relaxed">
+          Vi nöjer oss inte med "bra". Varje list, varje hörn och varje spegel
+          ska reflektera vår passion för perfektion.
+        </p>
+      </div>
+      <!-- Hållbarhet -->
+      <div
+        class="bg-surface-container-lowest group rounded-xl p-10 shadow-sm transition-shadow hover:shadow-md"
+      >
+        <div
+          class="bg-tertiary-fixed mb-8 flex h-16 w-16 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
+        >
+          <Icon name="material-symbols:eco" class="text-tertiary text-3xl" />
+        </div>
+        <h3 class="font-headline mb-4 text-2xl font-bold">Hållbarhet</h3>
+        <p class="text-on-surface-variant leading-relaxed">
+          Genom att använda Svanenmärkta produkter och optimerade rutter minskar
+          vi vårt avtryck och skyddar ditt hem och vår planet.
+        </p>
+      </div>
+      <!-- Pålitlighet -->
+      <div
+        class="bg-surface-container-lowest group rounded-xl p-10 shadow-sm transition-shadow hover:shadow-md"
+      >
+        <div
+          class="bg-secondary-fixed mb-8 flex h-16 w-16 items-center justify-center rounded-xl transition-transform group-hover:scale-110"
+        >
+          <Icon
+            name="material-symbols:shield-with-heart"
+            class="text-secondary text-3xl"
+          />
+        </div>
+        <h3 class="font-headline mb-4 text-2xl font-bold">Pålitlighet</h3>
+        <p class="text-on-surface-variant leading-relaxed">
+          Samma personal, samma tid, samma höga standard. Vi bygger långsiktiga
+          relationer baserade på förtroende och säkerhet.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
