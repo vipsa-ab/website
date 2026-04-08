@@ -1,0 +1,23 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import {
+  HeroSection,
+  StorySection,
+  ValuesSection,
+  TeamSection,
+  CtaSection,
+} from "@/components/about";
+
+const title = "Om Vipsa | Samma städare. Varje gång.";
+const description =
+  "Lär känna Vipsa — din pålitliga partner för professionell städning i Stockholm. Vi kombinerar småländsk noggrannhet med modern hållbarhet för att skapa ett renare hem och en enklare vardag. Upptäck vår historia, våra värderingar och vårt engagemang för att leverera enastående städtjänster med full RUT-avdrag och total ekonomisk transparens. Vipsa — där varje städning är en investering i ditt välbefinnande och ditt hem.";
+---
+
+<Layout title={title} description={description}>
+  <HeroSection />
+  <StorySection />
+  <ValuesSection />
+  <TeamSection />
+  <CtaSection />
+</Layout>

@@ -1,0 +1,51 @@
+---
+import TeamCard from "./TeamCard.astro";
+
+import square from "@/assets/img/square.webp";
+
+const teamMembers = [
+  {
+    name: "Elin Karlsson",
+    role: "Teamledare & Kvalitetsansvarig",
+    description: "Expert på varsam rengöring av antikviteter och moderna ytor.",
+    image: square,
+  },
+  {
+    name: "Johan Lindberg",
+    role: "Fönsterspecialist",
+    description: "Ger dina fönster en lyster du inte trodde var möjlig.",
+    image: square,
+  },
+  {
+    name: "Sara Andersson",
+    role: "Hållbarhetskoordinator",
+    description:
+      "Ser till att våra metoder är lika snälla mot miljön som mot ditt hem.",
+    image: square,
+  },
+  {
+    name: "Markus Berg",
+    role: "Driftchef",
+    description: "Logistikens mästare som ser till att vi alltid är i tid.",
+    image: square,
+  },
+];
+---
+
+<section class="bg-surface-container-low overflow-hidden py-24">
+  <div class="mx-auto max-w-7xl px-8">
+    <div
+      class="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row"
+    >
+      <div>
+        <h2 class="font-headline mb-4 text-4xl font-bold">Möt Vårt Team</h2>
+        <p class="text-on-surface-variant text-lg">
+          Människorna bakom glansen i ditt hem.
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {teamMembers.map((member) => <TeamCard {...member} />)}
+    </div>
+  </div>
+</section>
