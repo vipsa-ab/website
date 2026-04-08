@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/vipsa-ab/website/compare/v1.1.1...v1.2.0) (2026-04-08)
+
+
+### Features
+
+* add about page with hero, story, values, team, and CTA sections ([e71c72f](https://github.com/vipsa-ab/website/commit/e71c72fe8c25ccef07778ff7a608b90fab6de127))
+
 ## [1.1.1](https://github.com/vipsa-ab/website/compare/v1.1.0...v1.1.1) (2026-04-06)
 
 
