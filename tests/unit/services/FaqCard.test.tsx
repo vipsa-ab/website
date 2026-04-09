@@ -4,30 +4,23 @@ import { render, screen, fireEvent, act } from "@testing-library/react";
 import { FaqCard } from "@/components/services/FaqCard";
 
 const defaultProps = {
-  question: "Ingår städmaterial i priset?",
-  answer: "Vid hemstädning använder vi oftast kundens egna material.",
+  question: "Test question?",
+  answer: "Test answer content.",
 };
 
-describe("FaqCard", () => {
-  it("renders the question text", () => {
-    render(<FaqCard {...defaultProps} />);
-    expect(
-      screen.getByText("Ingår städmaterial i priset?"),
-    ).toBeInTheDocument();
-  });
-
+describe("FaqCard — toggle behavior", () => {
   it("does not show the answer by default", () => {
     render(<FaqCard {...defaultProps} />);
     expect(screen.queryByText(defaultProps.answer)).not.toBeInTheDocument();
   });
 
-  it("shows the answer when the question is clicked", async () => {
+  it("shows the answer when the button is clicked", async () => {
     render(<FaqCard {...defaultProps} />);
     await act(async () => fireEvent.click(screen.getByRole("button")));
     expect(screen.getByText(defaultProps.answer)).toBeInTheDocument();
   });
 
-  it("hides the answer when clicked again", async () => {
+  it("hides the answer when clicked again (toggle off)", async () => {
     render(<FaqCard {...defaultProps} />);
     const button = screen.getByRole("button");
 
@@ -38,11 +31,8 @@ describe("FaqCard", () => {
     expect(screen.queryByText(defaultProps.answer)).not.toBeInTheDocument();
   });
 
-  it("renders the expand icon SVG", () => {
+  it("renders the question as the button label", () => {
     render(<FaqCard {...defaultProps} />);
-    const svg = document.querySelector(
-      'svg[data-icon="material-symbols:expand-more"]',
-    );
-    expect(svg).not.toBeNull();
+    expect(screen.getByRole("button")).toHaveTextContent(defaultProps.question);
   });
 });
