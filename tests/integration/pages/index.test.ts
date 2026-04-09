@@ -38,7 +38,13 @@ describe("Index Page — Layout integration", () => {
       a.getAttribute("href"),
     );
     expect(hrefs).toEqual(
-      expect.arrayContaining(["/", "/services", "/about", "/pricing", "/contact"]),
+      expect.arrayContaining([
+        "/",
+        "/services",
+        "/about",
+        "/pricing",
+        "/contact",
+      ]),
     );
   });
 
@@ -93,9 +99,7 @@ describe("Index Page — section composition", () => {
 
   it("renders service navigation links to individual service pages", () => {
     const main = page.screen.getByRole("main");
-    const serviceLinks = main.querySelectorAll(
-      'a[href^="/services/"]',
-    );
+    const serviceLinks = main.querySelectorAll('a[href^="/services/"]');
     expect(serviceLinks.length).toBeGreaterThanOrEqual(1);
   });
 });

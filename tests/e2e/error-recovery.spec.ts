@@ -13,7 +13,10 @@ test.describe("404 error recovery", () => {
     await expect(page.getByRole("main").locator("h1")).toBeVisible();
 
     // User clicks the recovery link to go home
-    await page.getByRole("main").getByRole("link", { name: /startsidan/i }).click();
+    await page
+      .getByRole("main")
+      .getByRole("link", { name: /startsidan/i })
+      .click();
 
     // User successfully reaches the homepage
     await expect(page).toHaveURL("/");

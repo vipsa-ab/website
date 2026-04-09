@@ -31,7 +31,13 @@ describe("About Page — Layout integration", () => {
       a.getAttribute("href"),
     );
     expect(hrefs).toEqual(
-      expect.arrayContaining(["/", "/services", "/about", "/pricing", "/contact"]),
+      expect.arrayContaining([
+        "/",
+        "/services",
+        "/about",
+        "/pricing",
+        "/contact",
+      ]),
     );
   });
 });
@@ -46,8 +52,8 @@ describe("About Page — team data propagation", () => {
   it("renders multiple team member cards with distinct names", () => {
     const main = page.screen.getByRole("main");
     // TeamCard renders member names in h4 elements
-    const memberNames = Array.from(main.querySelectorAll("h4")).map(
-      (h) => h.textContent?.trim(),
+    const memberNames = Array.from(main.querySelectorAll("h4")).map((h) =>
+      h.textContent?.trim(),
     );
     expect(memberNames.length).toBeGreaterThanOrEqual(3);
     const unique = new Set(memberNames);

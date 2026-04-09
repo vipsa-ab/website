@@ -31,7 +31,13 @@ describe("Services Page — Layout integration", () => {
       a.getAttribute("href"),
     );
     expect(hrefs).toEqual(
-      expect.arrayContaining(["/", "/services", "/about", "/pricing", "/contact"]),
+      expect.arrayContaining([
+        "/",
+        "/services",
+        "/about",
+        "/pricing",
+        "/contact",
+      ]),
     );
   });
 });
@@ -45,9 +51,9 @@ describe("Services Page — pricing data propagation", () => {
 
   it("renders multiple pricing tiers with distinct headings", () => {
     const main = page.screen.getByRole("main");
-    const headings = Array.from(
-      main.querySelectorAll("h4"),
-    ).map((h) => h.textContent?.trim());
+    const headings = Array.from(main.querySelectorAll("h4")).map((h) =>
+      h.textContent?.trim(),
+    );
 
     expect(headings.length).toBeGreaterThanOrEqual(3);
     const unique = new Set(headings);

@@ -12,9 +12,7 @@ test.describe("FAQ interaction — post-hydration", () => {
     });
     await faqSection.scrollIntoViewIfNeeded();
 
-    const firstFaqButton = page
-      .getByRole("button", { name: /\?/ })
-      .first();
+    const firstFaqButton = page.getByRole("button", { name: /\?/ }).first();
 
     // Retry until hydration completes and click actually toggles state
     await expect(async () => {
