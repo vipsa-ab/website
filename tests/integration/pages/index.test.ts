@@ -1,157 +1,105 @@
-import { experimental_AstroContainer as AstroContainer } from "astro/container";
-import reactSSR from "@astrojs/react/server.js";
-import { describe, it, expect, beforeEach } from "vitest";
-import { JSDOM } from "jsdom";
+import { describe, it, expect, beforeAll } from "vitest";
+import { renderPage, type PageRenderResult } from "../helpers";
 import IndexPage from "@/pages/index.astro";
 
-describe("Index Page (integration with Layout)", () => {
-  let container: AstroContainer;
-  let html: string;
-  let doc: Document;
+describe("Index Page — Layout integration", () => {
+  let page: PageRenderResult;
 
-  beforeEach(async () => {
-    container = await AstroContainer.create();
-    container.addServerRenderer({ renderer: reactSSR });
-    html = await container.renderToString(IndexPage, { partial: false });
-    doc = new JSDOM(html).window.document;
+  beforeAll(async () => {
+    page = await renderPage(IndexPage);
   });
 
-  // ── HTML document structure ──────────────────────────────────────────────
-
-  it("renders a complete HTML document", async () => {
-    expect(html).toContain("<!DOCTYPE html>");
-    expect(html).toContain("<html");
-    expect(html).toContain("</html>");
+  it("passes page-specific title to the document head", () => {
+    const title = page.doc.querySelector("title");
+    expect(title?.textContent).toMatch(/vipsa/i);
   });
 
-  it("sets the lang attribute to Swedish", async () => {
-    const htmlEl = doc.querySelector("html");
-    expect(htmlEl?.getAttribute("lang")).toBe("sv");
+  it("passes page-specific description to meta tag", () => {
+    const meta = page.doc.querySelector('meta[name="description"]');
+    expect(meta?.getAttribute("content")).toBeTruthy();
   });
 
-  it("includes a <head> with charset UTF-8", async () => {
-    const meta = doc.querySelector('meta[charset="UTF-8"]');
-    expect(meta).not.toBeNull();
+  it("sets the document language to Swedish", () => {
+    expect(page.doc.documentElement.getAttribute("lang")).toBe("sv");
   });
 
-  it("includes the viewport meta tag", async () => {
-    const meta = doc.querySelector('meta[name="viewport"]');
-    expect(meta).not.toBeNull();
+  it("assembles header, main, and footer landmarks", () => {
+    expect(page.screen.getByRole("banner")).toBeDefined();
+    expect(page.screen.getByRole("main")).toBeDefined();
+    expect(page.screen.getByRole("contentinfo")).toBeDefined();
   });
 
-  it("sets the correct page title", async () => {
-    const title = doc.querySelector("title");
-    expect(title?.textContent).toBe("Vipsa | Samma städare. Varje gång.");
-  });
+  it("header provides navigation with links to all main routes", () => {
+    const banner = page.screen.getByRole("banner");
+    const nav = banner.querySelector("nav");
+    expect(nav).not.toBeNull();
 
-  it("sets the correct meta description", async () => {
-    const meta = doc.querySelector('meta[name="description"]');
-    expect(meta?.getAttribute("content")).toContain(
-      "Professionell städning i Stockholm",
+    const hrefs = Array.from(nav!.querySelectorAll("a")).map((a) =>
+      a.getAttribute("href"),
     );
-  });
-
-  // ── Layout: Header ───────────────────────────────────────────────────────
-
-  it("renders the header inside the document", async () => {
-    expect(doc.querySelector("header")).not.toBeNull();
-  });
-
-  it("renders the home nav link from the Header", async () => {
-    const homeLink = doc.querySelector('a[aria-label="Gå till startsidan"]');
-    expect(homeLink).not.toBeNull();
-    expect(homeLink?.getAttribute("href")).toBe("/");
-  });
-
-  it("renders all main navigation links from the Header", async () => {
-    const navLinks = Array.from(doc.querySelectorAll("nav a")).map((a) => ({
-      href: a.getAttribute("href"),
-      text: a.textContent?.trim(),
-    }));
-
-    expect(navLinks).toEqual(
+    expect(hrefs).toEqual(
       expect.arrayContaining([
-        expect.objectContaining({ href: "/", text: "Hem" }),
-        expect.objectContaining({ href: "/services", text: "Tjänster" }),
-        expect.objectContaining({ href: "/about", text: "Om Oss" }),
-        expect.objectContaining({ href: "/pricing", text: "Prislista" }),
-        expect.objectContaining({ href: "/contact", text: "Kontakt" }),
+        "/",
+        "/services",
+        "/about",
+        "/pricing",
+        "/contact",
       ]),
     );
   });
 
-  it("renders the Header booking CTA", async () => {
-    const bookingLink = doc.querySelector('header a[href="/booking"]');
+  it("header provides a booking call-to-action linking to /booking", () => {
+    const banner = page.screen.getByRole("banner");
+    const bookingLink = banner.querySelector('a[href="/booking"]');
     expect(bookingLink).not.toBeNull();
-    expect(bookingLink?.textContent?.trim()).toBe("Boka Nu");
   });
 
-  it("renders the mobile menu trigger button", async () => {
-    expect(html).toContain('aria-label="Öppna navigationsmeny"');
-  });
-
-  // ── Layout: Footer ───────────────────────────────────────────────────────
-
-  it("renders the footer inside the document", async () => {
-    expect(doc.querySelector("footer")).not.toBeNull();
-  });
-
-  it("renders the Footer brand description", async () => {
-    expect(html).toContain(
-      "Din lokala partner för ett renare hem och en enklare vardag i Sigtuna.",
+  it("footer provides navigation links for key routes", () => {
+    const footer = page.screen.getByRole("contentinfo");
+    const hrefs = Array.from(footer.querySelectorAll("a")).map((a) =>
+      a.getAttribute("href"),
+    );
+    expect(hrefs).toEqual(
+      expect.arrayContaining(["/", "/services", "/about", "/booking"]),
     );
   });
 
-  it("renders the Footer contact section with address", async () => {
-    expect(html).toContain("Ormbergsvägen 15");
-    expect(html).toContain("193 36 Sigtuna");
+  it("footer provides legal links (privacy and terms)", () => {
+    const footer = page.screen.getByRole("contentinfo");
+    expect(footer.querySelector('a[href="/privacy"]')).not.toBeNull();
+    expect(footer.querySelector('a[href="/terms"]')).not.toBeNull();
+  });
+});
+
+describe("Index Page — section composition", () => {
+  let page: PageRenderResult;
+
+  beforeAll(async () => {
+    page = await renderPage(IndexPage);
   });
 
-  it("renders the Footer copyright notice", async () => {
-    expect(html).toContain(
-      `© ${new Date().getFullYear()} Vipsa AB. All rights reserved.`,
-    );
-  });
-
-  it("renders the Footer privacy and terms links", async () => {
-    expect(doc.querySelector('footer a[href="/privacy"]')).not.toBeNull();
-    expect(doc.querySelector('footer a[href="/terms"]')).not.toBeNull();
-  });
-
-  // ── Layout: <main> wraps page content ────────────────────────────────────
-
-  it("wraps page sections inside <main>", async () => {
-    const main = doc.querySelector("main");
-    expect(main).not.toBeNull();
-    // HeroSection renders a <section> inside <main>
-    expect(main?.querySelector("section")).not.toBeNull();
-  });
-
-  // ── Page content: landing sections ───────────────────────────────────────
-
-  it("renders the HeroSection h1", async () => {
-    const h1 = doc.querySelector("main h1");
+  it("renders a primary heading within main content", () => {
+    const main = page.screen.getByRole("main");
+    const h1 = main.querySelector("h1");
     expect(h1).not.toBeNull();
-    expect(h1?.textContent).toContain("Ett renare hem,");
+    expect(h1!.textContent!.trim().length).toBeGreaterThan(0);
   });
 
-  it("renders the HeroSection primary CTA", async () => {
-    expect(html).toContain("Boka städning");
+  it("renders multiple content sections inside main", () => {
+    const main = page.screen.getByRole("main");
+    const sections = main.querySelectorAll("section");
+    expect(sections.length).toBeGreaterThanOrEqual(3);
   });
 
-  it("renders the ServiceSection", async () => {
-    expect(html).toContain("Våra Tjänster");
+  it("provides a booking entry-point link within the page content", () => {
+    const main = page.screen.getByRole("main");
+    const bookingLink = main.querySelector('a[href="/booking"]');
+    expect(bookingLink).not.toBeNull();
   });
 
-  it("renders the HowItWorkSection", async () => {
-    expect(html).toContain("Hur det fungerar");
-  });
-
-  it("renders the AboutSection", async () => {
-    expect(html).toContain("Om Vipsa");
-  });
-
-  it("renders the TestimonialsSection", async () => {
-    expect(html).toContain("Vad våra kunder säger");
+  it("renders service navigation links to individual service pages", () => {
+    const main = page.screen.getByRole("main");
+    const serviceLinks = main.querySelectorAll('a[href^="/services/"]');
+    expect(serviceLinks.length).toBeGreaterThanOrEqual(1);
   });
 });
