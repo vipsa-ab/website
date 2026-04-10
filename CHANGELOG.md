@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/vipsa-ab/website/compare/v1.2.0...v1.3.0) (2026-04-10)
+
+
+### Features
+
+* add pricing page with calculator and RUT explanation ([af2b277](https://github.com/vipsa-ab/website/commit/af2b277d9cd5cf2625d29ac327677fd0d5ce0755))
+
 ## [1.2.0](https://github.com/vipsa-ab/website/compare/v1.1.1...v1.2.0) (2026-04-08)
 
 
