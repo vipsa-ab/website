@@ -1,0 +1,25 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+export const prerender = true;
+
+import {
+  HeroSection,
+  PricingSection,
+  CalculatorSection,
+  RutSection,
+  FaqSection,
+} from "@/components/pricing";
+
+const title = "Vipsa | Enkel Fakturering & Betalning";
+const description =
+  "Vipsa gör fakturering enkelt. Skapa professionella fakturor, ta emot betalningar via Swish och kort, och håll koll på din ekonomi – allt på ett ställe";
+---
+
+<Layout title={title} description={description}>
+  <HeroSection />
+  <PricingSection />
+  <CalculatorSection client:visible />
+  <RutSection />
+  <FaqSection />
+</Layout>
