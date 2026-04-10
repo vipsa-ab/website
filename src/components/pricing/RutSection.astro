@@ -1,0 +1,85 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="bg-surface px-4 py-24">
+  <div class="container mx-auto">
+    <div
+      class="bg-secondary-fixed relative flex flex-col items-center gap-12 overflow-hidden rounded-xl p-8 md:flex-row md:p-16"
+    >
+      <div class="z-10 flex-1">
+        <h2
+          class="font-headline text-on-secondary-fixed mb-6 text-4xl font-extrabold"
+        >
+          Så fungerar RUT-avdraget
+        </h2>
+        <div class="text-on-secondary-fixed-variant space-y-6">
+          <p class="text-lg leading-relaxed">
+            RUT står för Rengöring, Underhåll och Tvätt. Som privatperson har du
+            rätt till skattereduktion för hushållsnära tjänster.
+          </p>
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
+            <div class="flex items-start gap-4">
+              <div class="rounded-full bg-white/40 p-2">
+                <Icon
+                  name="material-symbols:percent"
+                  class="text-primary size-6"
+                />
+              </div>
+              <div>
+                <p class="font-bold">50% Rabatt</p>
+                <p class="text-sm">
+                  Du betalar bara hälften av arbetskostnaden.
+                </p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="rounded-full bg-white/40 p-2">
+                <Icon
+                  name="material-symbols:account-balance"
+                  class="text-primary size-6"
+                />
+              </div>
+              <div>
+                <p class="font-bold">Direktavdrag</p>
+                <p class="text-sm">Vi sköter all kontakt med Skatteverket.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="z-10 w-full flex-1 md:w-auto">
+        <div
+          class="shadow-on-secondary-fixed/5 rounded-xl bg-white p-8 shadow-xl"
+        >
+          <div class="mb-6 text-center">
+            <p
+              class="text-primary mb-2 text-sm font-bold tracking-widest uppercase"
+            >
+              Exempelberäkning
+            </p>
+            <div class="bg-primary mx-auto h-1 w-12"></div>
+          </div>
+          <div class="space-y-4">
+            <div
+              class="flex items-center justify-between border-b border-zinc-100 py-2"
+            >
+              <span class="text-on-surface-variant">Arbetskostnad</span>
+              <span class="font-semibold">1 000 kr</span>
+            </div>
+            <div
+              class="text-primary flex items-center justify-between border-b border-zinc-100 py-2"
+            >
+              <span class="font-medium">RUT-avdrag (50%)</span>
+              <span class="font-bold">- 500 kr</span>
+            </div>
+            <div class="flex items-center justify-between pt-4">
+              <span class="text-lg font-extrabold">Din kostnad</span>
+              <span class="text-primary text-2xl font-extrabold">500 kr</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,31 @@
+---
+import { FaqCard } from "@/components/ui/FaqCard";
+const faqs = [
+  {
+    question: "Tillkommer det några resekostnader?",
+    answer:
+      "Vi har en fast framkörningsavgift på 95 kr per tillfälle. Detta täcker transport och parkering så att du slipper oväntade kostnader.",
+  },
+  {
+    question: "Ingår städmaterial i priset?",
+    answer:
+      "Vid hemstädning använder vi normalt det material som finns i ditt hem. Vid flyttstädning och engångsuppdrag tar vi med oss allt professionellt material som behövs.",
+  },
+  {
+    question: "Hur fungerar betalningen?",
+    answer:
+      "Vi fakturerar i efterskott via e-post eller post. Du betalar alltid netto efter RUT-avdraget, vi sköter resten med Skatteverket.",
+  },
+];
+---
+
+<section class="bg-surface-container-low px-4 py-24">
+  <div class="mx-auto max-w-4xl">
+    <h2 class="font-headline mb-16 text-center text-3xl font-extrabold">
+      Vanliga frågor om priser
+    </h2>
+    <div class="flex flex-col gap-4">
+      {faqs.map((faq) => <FaqCard client:visible {...faq} />)}
+    </div>
+  </div>
+</section>

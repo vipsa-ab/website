@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { describe, it, expect } from "vitest";
 import { render, screen, fireEvent, act } from "@testing-library/react";
-import { FaqCard } from "@/components/services/FaqCard";
+import { FaqCard } from "@/components/ui/FaqCard";
 
 const defaultProps = {
   question: "Test question?",

@@ -1,0 +1,58 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+import square from "@/assets/img/square.webp";
+---
+
+<section class="bg-surface relative mt-20 overflow-hidden px-4 py-20 md:py-32">
+  <div class="relative z-10 container mx-auto">
+    <div class="max-w-2xl">
+      <span
+        class="label-md text-primary mb-6 inline-block font-bold tracking-widest uppercase"
+        >Transparens &amp; Enkelhet</span
+      >
+      <h1
+        class="font-headline text-on-surface mb-8 text-5xl leading-[1.1] font-extrabold tracking-tight md:text-7xl"
+      >
+        Enkla och transparenta priser
+      </h1>
+      <p
+        class="text-on-surface-variant mb-10 text-lg leading-relaxed md:text-xl"
+      >
+        Hos oss finns inga dolda avgifter. Som privatperson betalar du endast
+        <span class="text-primary font-bold">50% av arbetskostnaden</span>
+        direkt på fakturan tack vare RUT-avdraget.
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <div
+          class="bg-surface-container-low flex items-center gap-3 rounded-lg px-6 py-4"
+        >
+          <Icon
+            name="material-symbols:verified-user"
+            class="text-primary size-6"
+          />
+          <span class="font-semibold">Ansvarsförsäkrade</span>
+        </div>
+        <div
+          class="bg-surface-container-low flex items-center gap-3 rounded-lg px-6 py-4"
+        >
+          <Icon name="material-symbols:task-alt" class="text-primary size-6" />
+          <span class="font-semibold">Ingen bindningstid</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Asymmetric Image Placement -->
+  <div
+    class="absolute top-20 right-[-10%] hidden h-[80%] w-[40%] rotate-2 overflow-hidden rounded-xl shadow-2xl md:right-[-5%] lg:block"
+  >
+    <Image
+      alt="Cleaning service"
+      class="h-full w-full object-cover"
+      data-alt="Modern minimalist living room with white sofa, light oak floors, and large windows with bright natural sunlight streaming in"
+      loading="eager"
+      src={square}
+    />
+  </div>
+</section>
