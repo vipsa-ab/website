@@ -8,13 +8,27 @@ import react from "@astrojs/react";
 
 import node from "@astrojs/node";
 
+import sitemap from "@astrojs/sitemap";
+
 // https://astro.build/config
 export default defineConfig({
+  site: "https://www.vipsa.se",
   vite: {
     plugins: [tailwindcss()],
   },
+  security: {
+    checkOrigin: true,
 
-  integrations: [react(), icon()],
+    allowedDomains: [
+      {
+        hostname: "www.vipsa.se",
+        protocol: "https",
+        port: "443",
+      },
+    ],
+  },
+
+  integrations: [react(), icon(), sitemap()],
 
   output: "server",
   adapter: node({
