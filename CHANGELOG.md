@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/vipsa-ab/website/compare/v1.3.0...v1.4.0) (2026-04-11)
+
+
+### Features
+
+* add sitemap, security.txt, and configure site domain ([31d5904](https://github.com/vipsa-ab/website/commit/31d590409ee4830f2b939660764bb8265262c6f7))
+
 ## [1.3.0](https://github.com/vipsa-ab/website/compare/v1.2.0...v1.3.0) (2026-04-10)
 
 
