@@ -1,0 +1,15 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { HeroSection, BookingForm } from "@/components/booking";
+
+export const prerender = true;
+
+const title = "Vipsa | Boka din städning";
+const description =
+  "Professionell hemstädning i Stockholm - boka enkelt online och få ditt hem skinande rent";
+---
+
+<Layout title={title} description={description}>
+  <HeroSection />
+  <BookingForm client:visible />
+</Layout>

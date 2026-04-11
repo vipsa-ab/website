@@ -3,6 +3,7 @@ import { defineConfig, fontProviders } from "astro/config";
 import icon from "astro-icon";
 
 import tailwindcss from "@tailwindcss/vite";
+import Icons from "unplugin-icons/vite";
 
 import react from "@astrojs/react";
 
@@ -14,7 +15,7 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://www.vipsa.se",
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [tailwindcss(), Icons({ compiler: "jsx", jsx: "react" })],
   },
   security: {
     checkOrigin: true,
