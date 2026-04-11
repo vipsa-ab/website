@@ -1,0 +1,8 @@
+# Security Contact for Vipsa
+# https://www.rfc-editor.org/rfc/rfc9116
+
+Contact: mailto:security@vipsa.se
+Expires: 2027-04-11T00:00:00.000Z
+Preferred-Languages: en, sv
+Canonical: https://www.vipsa.se/.well-known/security.txt
+Encryption: https://www.vipsa.se/.well-known/pgp-key.txt
