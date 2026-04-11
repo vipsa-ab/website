@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.5.0](https://github.com/vipsa-ab/website/compare/v1.4.0...v1.5.0) (2026-04-11)
+
+
+### Features
+
+* add complete booking form with calendar and pricing ([103865f](https://github.com/vipsa-ab/website/commit/103865f21fd5fd7b1b5890bf95e855b830346bbd))
+
 ## [1.4.0](https://github.com/vipsa-ab/website/compare/v1.3.0...v1.4.0) (2026-04-11)
 
 
