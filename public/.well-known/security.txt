@@ -1,3 +1,6 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA256
+
 # Security Contact for Vipsa
 # https://www.rfc-editor.org/rfc/rfc9116
 
@@ -6,3 +9,20 @@ Expires: 2027-04-11T00:00:00.000Z
 Preferred-Languages: en, sv
 Canonical: https://www.vipsa.se/.well-known/security.txt
 Encryption: https://www.vipsa.se/.well-known/pgp-key.txt
+-----BEGIN PGP SIGNATURE-----
+
+iQJPBAEBCAA5FiEEFtuLDS26gbGYB9tfVu9cvQwaBbcFAmnabfQbFIAAAAAABAAO
+bWFudTIsMi41KzEuMTIsMCwzAAoJEFbvXL0MGgW3h+cP/A0WbScgWoVm/2okKCKl
+z10mRIwkI/ksWHfbcsLFrYMS7/eQ1oWtHgqc8EoABvxw9tfDL0LIe+UT8QNzZAOE
+IkcRj8fVtqPCYNoCymS0OodD2DnwO3ZeLwxYiTm5RTR6q+Wqh+GjFGFDRtqZFNoe
+F01+UXUc/SuAGtLxSdOM0XJh0b3d2+DJ0i7P0jGnOfajFQjZVb2CdS/erEpK5tQE
+6AFpBYYLsTViUhDdAG78q33vr6CfgZnOkB9NppC1//l3ZLmBr7TCz6/hh7790e7H
+oDIOZC76FpnSZJWv+eYOWyA8kmBC08dcdvEhE6X/985QZA845b2C5RzmoEHmTb8l
+UFY6CgtphzaOivklSx7s5Mfu3yJSzI60r35UWkCBie+ofBbh6X1sWKJK+8HMfGsc
+Qy9A3Ni1TM4cV4WrWfxSlBLU2PeFkzOBR1J8CkbaPR2Exd8v0pM92FrMPU69fGB/
+LL7WOwNztPVWXedm2F1jNHS1X4dHjLmlPB2BQacu2UU6loz4OK0A0O1Cjn9YTMhe
+hTPhLEeD3beCczKu/6Y1sxwfUPhEjXHOjp8M8x6YCGxtcv+ad9mJlQ5cNMOV3XFr
+MDfx1bTC4YyHhYPc602rQYMOsvbQDsizM9AQjybcdyjLRcC7yqTxcW6bANYYFrfx
+Es0XIbVRvjcP5+l9eq0K7iGY
+=YDqV
+-----END PGP SIGNATURE-----
