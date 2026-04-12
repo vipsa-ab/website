@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.7.0](https://github.com/vipsa-ab/website/compare/v1.6.0...v1.7.0) (2026-04-12)
+
+
+### Features
+
+* add Sonner toast notification styles ([4cc6422](https://github.com/vipsa-ab/website/commit/4cc6422143f9b927916d69b998192cf3c55aaf7d))
+
 ## [1.6.0](https://github.com/vipsa-ab/website/compare/v1.5.0...v1.6.0) (2026-04-12)
 
 
