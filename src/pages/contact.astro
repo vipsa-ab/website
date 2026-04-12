@@ -1,0 +1,29 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import {
+  HeroSection,
+  TrustBarSection,
+  ContactForm,
+  InfoSection,
+  ContactMap,
+} from "@/components/contact";
+
+const title = "Vipsa | Kontakta oss — Vi hjälper dig gärna";
+const description =
+  "Har du frågor om Vipsa? Kontakta oss via telefon, e-post eller vårt kontaktformulär. Vi svarar snabbt och hjälper dig vidare.";
+---
+
+<Layout title={title} description={description}>
+  <HeroSection />
+  <TrustBarSection />
+  <div class="container mx-auto mb-32 px-4">
+    <div class="grid grid-cols-1 items-start gap-16 lg:grid-cols-2">
+      <ContactForm client:visible />
+      <div class="space-y-12">
+        <InfoSection />
+        <ContactMap client:visible />
+      </div>
+    </div>
+  </div>
+</Layout>
