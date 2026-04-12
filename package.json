@@ -60,7 +60,7 @@
     "astro-icon": "1.1.5",
     "clsx": "2.1.1",
     "date-fns": "4.1.0",
-    "mapbox-gl": "^3.21.0",
+    "maplibre-gl": "^5.22.0",
     "personnummer": "3.2.1",
     "react": "19.2.4",
     "react-day-picker": "9.14.0",

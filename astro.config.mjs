@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, fontProviders, envField } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import icon from "astro-icon";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -35,15 +35,6 @@ export default defineConfig({
   adapter: node({
     mode: "standalone",
   }),
-
-  env: {
-    schema: {
-      PUBLIC_MAPBOX_TOKEN: envField.string({
-        context: "client",
-        access: "public",
-      }),
-    },
-  },
 
   fonts: [
     {
