@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "sonner/dist/styles.css";
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/container-queries";
 
