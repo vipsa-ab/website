@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/vipsa-ab/website/compare/v1.5.0...v1.6.0) (2026-04-12)
+
+
+### Features
+
+* add contact page with form and interactive map ([7c4290e](https://github.com/vipsa-ab/website/commit/7c4290e135001f935b7ed15771db9baaeb9a314c))
+
 ## [1.5.0](https://github.com/vipsa-ab/website/compare/v1.4.0...v1.5.0) (2026-04-11)
 
 
