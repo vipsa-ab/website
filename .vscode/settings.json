@@ -6,7 +6,8 @@
     "maplibre",
     "maplibregl",
     "rgba",
-    "Vipsa"
+    "Vipsa",
+    "Vipsas"
   ],
   "cSpell.language": "sv,en",
   "files.associations": {

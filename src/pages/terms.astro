@@ -1,0 +1,292 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+
+import square from "@/assets/img/square.webp";
+
+const title = "Användarvillkor | Vipsa";
+const description =
+  "Läs om Vipsas användarvillkor och regler för att använda tjänsten";
+---
+
+<Layout title={title} description={description}>
+  <div class="mx-auto max-w-5xl px-6 pt-32 pb-24 md:px-12">
+    <!-- Hero Section -->
+    <div class="mb-20">
+      <h1
+        class="text-on-surface mb-6 text-5xl font-extrabold tracking-tighter md:text-6xl"
+      >
+        Användarvillkor
+      </h1>
+      <p class="text-on-surface-variant max-w-2xl text-xl leading-relaxed">
+        Välkommen till Vipsa. Dessa villkor reglerar din användning av våra
+        tjänster och beskriver dina rättigheter och skyldigheter som kund hos
+        oss.
+      </p>
+    </div>
+    <!-- Content Grid: Asymmetric Layout -->
+    <div class="grid grid-cols-1 gap-12 md:grid-cols-12">
+      <!-- Sidebar Navigation (Anchor) -->
+      <aside class="hidden md:col-span-4 md:block">
+        <div class="sticky top-32 space-y-4">
+          <div class="bg-surface-container-low rounded-xl p-6">
+            <h3
+              class="text-primary mb-4 text-xs font-bold tracking-widest uppercase"
+            >
+              Innehållsförteckning
+            </h3>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors"
+                  href="#allman">1. Allmänna villkor</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors"
+                  href="#bokning">2. Bokning och bekräftelse</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors"
+                  href="#priser">3. Priser och betalning</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors"
+                  href="#avbokning">4. Avbokning och ombokning</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors"
+                  href="#reklamation">5. Reklamation och ansvar</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-on-surface-variant hover:text-primary transition-colors"
+                  href="#gdpr">6. Integritet och GDPR</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div class="relative h-64 overflow-hidden rounded-xl shadow-sm">
+            <Image
+              alt="Minimalist clean Scandinavian living room with white sofa and natural wood coffee table, bright morning light"
+              class="h-full w-full object-cover grayscale transition-all duration-700 hover:grayscale-0"
+              data-alt="Minimalist clean Scandinavian living room with white sofa and natural wood coffee table, bright morning light"
+              src={square}
+              loading="eager"
+            />
+            <div class="bg-primary/10 absolute inset-0 mix-blend-multiply">
+            </div>
+          </div>
+        </div>
+      </aside>
+      <!-- Main Document -->
+      <div class="space-y-16 md:col-span-8">
+        <!-- Section 1 -->
+        <section class="scroll-mt-32" id="allman">
+          <div class="mb-6 flex items-center gap-4">
+            <span class="text-primary text-lg font-bold">01</span>
+            <h2 class="text-2xl font-bold tracking-tight">Allmänna villkor</h2>
+          </div>
+          <div
+            class="prose prose-stone text-on-surface-variant max-w-none space-y-4 leading-relaxed"
+          >
+            <p>
+              Dessa allmänna villkor gäller mellan Vipsa AB (nedan kallat
+              "Vipsa") och kunden (nedan kallad "Kunden") vid beställning av
+              städtjänster. Genom att boka en tjänst godkänner Kunden dessa
+              villkor i sin helhet.
+            </p>
+            <p>
+              Vipsa förbehåller sig rätten att ändra dessa villkor vid behov.
+              Senaste versionen finns alltid tillgänglig på vår webbplats.
+            </p>
+          </div>
+        </section>
+        <!-- Section 2 -->
+        <section
+          class="bg-surface-container-low scroll-mt-32 rounded-xl p-8"
+          id="bokning"
+        >
+          <div class="mb-6 flex items-center gap-4">
+            <span class="text-primary text-lg font-bold">02</span>
+            <h2 class="text-2xl font-bold tracking-tight">
+              Bokning och bekräftelse
+            </h2>
+          </div>
+          <div class="text-on-surface-variant space-y-4 leading-relaxed">
+            <p>
+              Bokning sker via vår webbplats, e-post eller telefon. En bokning
+              anses bindande när Vipsa har skickat en bokningsbekräftelse till
+              Kunden.
+            </p>
+            <ul class="list-none space-y-2">
+              <li class="inline-flex items-start gap-3">
+                <Icon
+                  name="material-symbols:check-circle"
+                  class="text-primary mt-1 size-4"
+                />
+                <span class="flex-1">
+                  Kunden ansvarar för att tillhandahålla korrekt information om
+                  bostadens yta och skick.
+                </span>
+              </li>
+              <li class="inline-flex items-start gap-3">
+                <Icon
+                  name="material-symbols:check-circle"
+                  class="text-primary mt-1 size-4"
+                />
+                <span class="flex-1">
+                  Nyckelhantering avtalas separat mellan parterna innan första
+                  städtillfället.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </section>
+        <!-- Section 3 -->
+        <section class="scroll-mt-32" id="priser">
+          <div class="mb-6 flex items-center gap-4">
+            <span class="text-primary text-lg font-bold">03</span>
+            <h2 class="text-2xl font-bold tracking-tight">
+              Priser och betalning
+            </h2>
+          </div>
+          <div class="text-on-surface-variant space-y-4 leading-relaxed">
+            <p>
+              Alla priser anges inklusive moms för privatpersoner om inget annat
+              anges. För företagskunder anges priser exklusive moms.
+            </p>
+            <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <div class="border-primary bg-surface-container border-l-4 p-5">
+                <h4 class="text-on-surface mb-2 font-bold">RUT-avdrag</h4>
+                <p class="text-sm italic">
+                  Vi administrerar RUT-avdraget direkt på fakturan. Kunden
+                  ansvarar för att det finns utrymme för avdraget hos
+                  Skatteverket.
+                </p>
+              </div>
+              <div class="border-primary bg-surface-container border-l-4 p-5">
+                <h4 class="text-on-surface mb-2 font-bold">Faktura</h4>
+                <p class="text-sm italic">
+                  Betalningsvillkor är normalt 14 dagar från fakturadatum. Vid
+                  försenad betalning debiteras lagstadgad påminnelseavgift.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Section 4 -->
+        <section class="scroll-mt-32" id="avbokning">
+          <div class="mb-6 flex items-center gap-4">
+            <span class="text-primary text-lg font-bold">04</span>
+            <h2 class="text-2xl font-bold tracking-tight">
+              Avbokning och ombokning
+            </h2>
+          </div>
+          <div class="text-on-surface-variant space-y-4 leading-relaxed">
+            <p>
+              Vi förstår att planer kan ändras. För att vi ska kunna planera
+              vårt arbete gäller följande regler för avbokning:
+            </p>
+            <div class="mt-4 space-y-4">
+              <div
+                class="border-surface-container flex items-center justify-between border-b py-3"
+              >
+                <span>Mer än 48 timmar innan</span>
+                <span class="text-primary font-bold">Kostnadsfritt</span>
+              </div>
+              <div
+                class="border-surface-container flex items-center justify-between border-b py-3"
+              >
+                <span>24-48 timmar innan</span>
+                <span class="text-on-surface font-bold">50% av priset</span>
+              </div>
+              <div
+                class="border-surface-container flex items-center justify-between border-b py-3"
+              >
+                <span>Mindre än 24 timmar innan</span>
+                <span class="text-on-surface font-bold">100% av priset</span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- Section 5 -->
+        <section class="scroll-mt-32" id="reklamation">
+          <div class="mb-6 flex items-center gap-4">
+            <span class="text-primary text-lg font-bold">05</span>
+            <h2 class="text-2xl font-bold tracking-tight">
+              Reklamation och ansvar
+            </h2>
+          </div>
+          <div class="text-on-surface-variant space-y-4 leading-relaxed">
+            <p>
+              Vipsa innehar ansvarsförsäkring som täcker eventuella skador
+              orsakade av vår personal under arbetets utförande.
+            </p>
+            <p class="text-on-surface font-semibold">
+              Vid missnöje med utfört arbete:
+            </p>
+            <ol class="list-decimal space-y-2 pl-5">
+              <li>
+                Reklamation måste ske inom 48 timmar efter avslutat arbete.
+              </li>
+              <li>
+                Vipsa förbehåller sig rätten att åtgärda bristerna på plats
+                innan eventuellt prisavdrag diskuteras.
+              </li>
+              <li>
+                Vi ersätter inte skador som beror på normalt slitage eller
+                felaktigt monterade föremål.
+              </li>
+            </ol>
+          </div>
+        </section>
+        <!-- Section 6 -->
+        <section
+          class="border-primary-fixed scroll-mt-32 rounded-2xl border-2 p-8"
+          id="gdpr"
+        >
+          <div class="mb-6 flex items-center gap-4">
+            <span class="text-primary text-lg font-bold">06</span>
+            <h2 class="text-2xl font-bold tracking-tight">
+              Integritet och GDPR
+            </h2>
+          </div>
+          <div class="text-on-surface-variant space-y-4 leading-relaxed">
+            <p>
+              Vi värnar om din personliga integritet. Vipsa behandlar
+              personuppgifter i enlighet med dataskyddsförordningen (GDPR).
+            </p>
+            <p>
+              Dina uppgifter används endast för att administrera
+              kundförhållandet, utföra beställda tjänster och hantera
+              fakturering samt RUT-ansökningar. Vi säljer aldrig dina uppgifter
+              vidare till tredje part.
+            </p>
+            <a
+              class="text-primary inline-flex items-center gap-2 font-bold transition-all hover:gap-4"
+              href="/privacy"
+            >
+              Läs vår fullständiga integritetspolicy
+              <Icon name="material-symbols:arrow-forward" class="size-4" />
+            </a>
+          </div>
+        </section>
+        <div class="border-surface-container-high border-t pt-10">
+          <p class="text-sm text-stone-500 italic">
+            Senast uppdaterad: 13 April 2026
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
