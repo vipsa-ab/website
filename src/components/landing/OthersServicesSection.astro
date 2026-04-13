@@ -1,0 +1,90 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="bg-surface py-24">
+  <div class="mx-auto max-w-7xl px-8">
+    <div class="mb-16 text-center">
+      <h2 class="font-headline mb-4 text-3xl font-bold md:text-5xl">
+        Tilläggstjänster
+      </h2>
+      <p class="text-on-surface-variant text-lg">
+        Gör ditt liv ännu enklare med våra kompletterande tjänster.
+      </p>
+    </div>
+    <div class="grid gap-8 md:grid-cols-3">
+      <!-- Fönsterputsning -->
+      <a
+        href="/services/windows-cleaning"
+        class="bg-surface-container-lowest group flex flex-col items-center rounded-2xl border border-neutral-50 p-8 text-center shadow-sm transition-shadow hover:shadow-md"
+      >
+        <div
+          class="bg-primary-container/10 text-primary mb-6 flex h-16 w-16 items-center justify-center rounded-2xl"
+        >
+          <Icon name="material-symbols:window" class="text-3xl" />
+        </div>
+        <h3 class="font-headline mb-3 text-xl font-bold">Fönsterputsning</h3>
+        <p class="text-on-surface-variant mb-6 flex-1">
+          Kristallklara fönster utan ränder. Vi sköter putsningen så du kan
+          njuta av utsikten.
+        </p>
+        <div class="relative z-10">
+          <button
+            class="text-primary inline-flex items-center font-bold transition-all group-hover:gap-3"
+          >
+            Läs mer
+            <Icon name="material-symbols:arrow-forward" class="ml-1 size-4" />
+          </button>
+        </div>
+      </a>
+      <!-- Strykning -->
+      <a
+        href="/services/iron-service"
+        class="bg-surface-container-lowest group flex flex-col items-center rounded-2xl border border-neutral-50 p-8 text-center shadow-sm transition-shadow hover:shadow-md"
+      >
+        <div
+          class="bg-primary-container/10 text-primary mb-6 flex h-16 w-16 items-center justify-center rounded-2xl"
+        >
+          <Icon name="material-symbols:iron" class="text-3xl" />
+        </div>
+        <h3 class="font-headline mb-3 text-xl font-bold">Strykning</h3>
+        <p class="text-on-surface-variant mb-6 flex-1">
+          Spara tid på tvätten. Vi stryker och viker dina kläder med perfektion
+          direkt i ditt hem.
+        </p>
+        <div class="relative z-10">
+          <button
+            class="text-primary inline-flex items-center font-bold transition-all group-hover:gap-3"
+          >
+            Läs mer
+            <Icon name="material-symbols:arrow-forward" class="ml-1 size-4" />
+          </button>
+        </div>
+      </a>
+      <!-- Trädgårdsarbete -->
+      <a
+        href="/services/yard-service"
+        class="bg-surface-container-lowest group flex flex-col items-center rounded-2xl border border-neutral-50 p-8 text-center shadow-sm transition-shadow hover:shadow-md"
+      >
+        <div
+          class="bg-primary-container/10 text-primary mb-6 flex h-16 w-16 items-center justify-center rounded-2xl"
+        >
+          <Icon name="material-symbols:yard" class="text-3xl" />
+        </div>
+        <h3 class="font-headline mb-3 text-xl font-bold">Trädgårdsarbete</h3>
+        <p class="text-on-surface-variant mb-6 flex-1">
+          Vi hjälper dig med gräsklippning, ogräsrensning och allmän skötsel av
+          din utemiljö.
+        </p>
+        <div class="relative z-10">
+          <button
+            class="text-primary inline-flex items-center font-bold transition-all group-hover:gap-3"
+          >
+            Läs mer
+            <Icon name="material-symbols:arrow-forward" class="ml-1 size-4" />
+          </button>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>

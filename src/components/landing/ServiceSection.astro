@@ -1,58 +1,156 @@
 ---
 import { Icon } from "astro-icon/components";
-import ServiceCard from "./ServiceCard.astro";
-import Rectangular from "@/assets/img/rectangular.webp";
-
-const services = [
-  {
-    title: "Hemstädning",
-    description:
-      "Regelbunden städning som anpassas helt efter dina behov och önskemål i vardagen.",
-    imageUrl: Rectangular,
-    dataAlt:
-      "Professional cleaner in white uniform dusting a modern glass coffee table in a bright minimalist apartment",
-    linkUrl: "/services/home-cleaning",
-  },
-  {
-    title: "Flyttstädning",
-    description:
-      "Garanterad godkänd flyttstädning så att du kan fokusera helt på ditt nya hem.",
-    imageUrl: Rectangular,
-    dataAlt:
-      "Empty modern apartment with white walls and wooden floors being cleaned for new move-in",
-    linkUrl: "/services/move-cleaning",
-  },
-  {
-    title: "Kontorsstädning",
-    description:
-      "En ren arbetsmiljö ökar trivseln och produktiviteten för alla på företaget.",
-    imageUrl: Rectangular,
-    dataAlt:
-      "Bright modern office space with large windows and clean desks showing professional office cleaning results",
-    linkUrl: "/services/office-cleaning",
-  },
-];
 ---
 
-<section class="bg-surface-container-low py-24">
-  <div class="container mx-auto mb-16 px-4">
-    <h2 class="font-headline mb-4 text-3xl font-bold md:text-5xl">
-      Våra Tjänster
-    </h2>
-    <div class="bg-primary h-1.5 w-20 rounded-full"></div>
-
-    <div class="grid grid-cols-1 gap-8 pt-20 lg:grid-cols-2 xl:grid-cols-4">
-      {
-        services.map((service) => (
-          <ServiceCard
-            title={service.title}
-            description={service.description}
-            imageUrl={service.imageUrl}
-            dataAlt={service.dataAlt}
-            linkUrl={service.linkUrl}
-          />
-        ))
-      }
+<section class="bg-surface-container-low py-24" id="services">
+  <div class="mx-auto mb-16 max-w-7xl px-8">
+    <div class="mb-4 inline-block">
+      <h2 class="font-headline text-3xl font-bold md:text-5xl">
+        Våra Tjänster
+      </h2>
+      <div class="bg-primary mt-2 h-1.5 w-20 rounded-full"></div>
+    </div>
+    <p class="text-on-surface-variant mt-4 max-w-2xl text-lg">
+      Professionella städtjänster anpassade för dina behov. Upptäck hur vi kan
+      göra din vardag enklare.
+    </p>
+  </div>
+  <div class="mx-auto max-w-7xl px-8">
+    <div class="grid min-h-150 grid-cols-1 gap-6 md:grid-cols-4 md:grid-rows-2">
+      <!-- Hemstädning - Tall/Wide Hybrid -->
+      <a
+        href="/services/home-cleaning"
+        class="group relative flex flex-col justify-between overflow-hidden rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-2 md:row-span-2"
+      >
+        <div class="relative z-10">
+          <div
+            class="text-primary mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-green-100"
+          >
+            <Icon name="material-symbols:home" class="text-3xl" />
+          </div>
+          <h3 class="font-headline mb-4 text-2xl font-bold">Hemstädning</h3>
+          <p class="text-on-surface-variant mb-6 leading-relaxed">
+            Regelbunden städning som anpassas helt efter dina behov och önskemål
+            i vardagen. Vi ser till att ditt hem alltid är välkomnande.
+          </p>
+        </div>
+        <div class="relative z-10 mt-auto">
+          <button
+            class="text-primary inline-flex items-center font-bold transition-all group-hover:gap-3"
+          >
+            Läs mer
+            <Icon name="material-symbols:arrow-forward" class="ml-1 size-4" />
+          </button>
+        </div>
+        <!-- Subtle graphic overlay -->
+        <div
+          class="absolute right-0 bottom-0 translate-x-1/4 translate-y-1/4 opacity-5 transition-opacity group-hover:opacity-10"
+        >
+          <Icon name="material-symbols:home" class="text-[12rem]" />
+        </div>
+      </a>
+      <!-- Flyttstädning - Wide -->
+      <a
+        href="/services/move-cleaning"
+        class="group flex flex-col justify-between rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-2"
+      >
+        <div>
+          <div
+            class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-100 text-blue-600"
+          >
+            <Icon name="material-symbols:local-shipping" class="size-6" />
+          </div>
+          <div class="flex items-start justify-between">
+            <div>
+              <h3 class="font-headline mb-2 text-xl font-bold">
+                Flyttstädning
+              </h3>
+              <p class="text-on-surface-variant text-sm">
+                Garanterad godkänd städning vid flytt.
+              </p>
+            </div>
+            <button
+              class="group-hover:bg-primary group-hover:border-primary flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 transition-all group-hover:text-white"
+            >
+              <Icon name="material-symbols:arrow-forward" class="text-sm" />
+            </button>
+          </div>
+        </div>
+      </a>
+      <!-- Storstädning - Square -->
+      <a
+        href="/services/deep-cleaning"
+        class="group rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-1"
+      >
+        <div
+          class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-purple-100 text-purple-600"
+        >
+          <Icon name="material-symbols:cleaning" class="size-6" />
+        </div>
+        <h3 class="font-headline mb-2 text-xl font-bold">Storstädning</h3>
+        <p class="text-on-surface-variant text-sm">
+          En djupgående rengöring för extra fräschör.
+        </p>
+      </a>
+      <!-- Byggstädning - Square -->
+      <a
+        href="/services/construction-cleaning"
+        class="group rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-1"
+      >
+        <div
+          class="mb-6 flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-100 text-amber-600"
+        >
+          <Icon name="material-symbols:construction" class="size-6" />
+        </div>
+        <h3 class="font-headline mb-2 text-xl font-bold">Byggstädning</h3>
+        <p class="text-on-surface-variant text-sm">
+          Vi röjer upp efter renoveringen.
+        </p>
+      </a>
+      <!-- Kontorsstädning - Wide -->
+      <a
+        href="/services/office-cleaning"
+        class="group flex items-center gap-6 rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-2"
+      >
+        <div
+          class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600"
+        >
+          <Icon name="material-symbols:corporate-fare" class="text-3xl" />
+        </div>
+        <div class="grow">
+          <h3 class="font-headline mb-1 text-xl font-bold">Kontorsstädning</h3>
+          <p class="text-on-surface-variant text-sm">
+            Rena arbetsplatser för högre trivsel och produktivitet.
+          </p>
+        </div>
+        <button
+          class="group-hover:bg-primary group-hover:border-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-200 transition-all group-hover:text-white"
+        >
+          <Icon name="material-symbols:arrow-forward" class="text-sm" />
+        </button>
+      </a>
+      <!-- Trappstädning - Wide -->
+      <a
+        href="/services/stairs-cleaning"
+        class="group flex items-center gap-6 rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-2"
+      >
+        <div
+          class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-rose-100 text-rose-600"
+        >
+          <Icon name="material-symbols:stairs" class="text-3xl" />
+        </div>
+        <div class="grow">
+          <h3 class="font-headline mb-1 text-xl font-bold">Trappstädning</h3>
+          <p class="text-on-surface-variant text-sm">
+            Snygga och välstädade trapphus för alla boende.
+          </p>
+        </div>
+        <button
+          class="group-hover:bg-primary group-hover:border-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-200 transition-all group-hover:text-white"
+        >
+          <Icon name="material-symbols:arrow-forward" class="text-sm" />
+        </button>
+      </a>
     </div>
   </div>
 </section>
