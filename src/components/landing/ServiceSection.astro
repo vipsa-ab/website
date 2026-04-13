@@ -61,7 +61,7 @@ import { Icon } from "astro-icon/components";
             <Icon name="material-symbols:local-shipping" class="size-6" />
           </div>
           <div class="flex items-start justify-between">
-            <div>
+            <div class="flex-1">
               <h3 class="font-headline mb-2 text-xl font-bold">
                 Flyttstädning
               </h3>
@@ -110,46 +110,52 @@ import { Icon } from "astro-icon/components";
       <!-- Kontorsstädning - Wide -->
       <a
         href="/services/office-cleaning"
-        class="group flex items-center gap-6 rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-2"
+        class="group flex flex-col items-start gap-6 rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-2 md:flex-row md:items-center"
       >
         <div
-          class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600"
+          class="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-emerald-100 text-emerald-600 md:size-16"
         >
           <Icon name="material-symbols:corporate-fare" class="text-3xl" />
         </div>
-        <div class="grow">
-          <h3 class="font-headline mb-1 text-xl font-bold">Kontorsstädning</h3>
-          <p class="text-on-surface-variant text-sm">
-            Rena arbetsplatser för högre trivsel och produktivitet.
-          </p>
+        <div class="flex w-full justify-between md:items-center">
+          <div class="grow">
+            <h3 class="font-headline mb-1 text-xl font-bold">
+              Kontorsstädning
+            </h3>
+            <p class="text-on-surface-variant text-sm">
+              Rena arbetsplatser för högre trivsel och produktivitet.
+            </p>
+          </div>
+          <button
+            class="group-hover:bg-primary group-hover:border-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-200 transition-all group-hover:text-white"
+          >
+            <Icon name="material-symbols:arrow-forward" class="text-sm" />
+          </button>
         </div>
-        <button
-          class="group-hover:bg-primary group-hover:border-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-200 transition-all group-hover:text-white"
-        >
-          <Icon name="material-symbols:arrow-forward" class="text-sm" />
-        </button>
       </a>
       <!-- Trappstädning - Wide -->
       <a
         href="/services/stairs-cleaning"
-        class="group flex items-center gap-6 rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-2"
+        class="group flex flex-col items-start gap-6 rounded-3xl border border-neutral-100 bg-white p-8 shadow-sm transition-all duration-300 hover:shadow-xl md:col-span-2 md:flex-row md:items-center"
       >
         <div
-          class="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-rose-100 text-rose-600"
+          class="flex size-12 shrink-0 items-center justify-center rounded-2xl bg-rose-100 text-rose-600 md:size-16"
         >
           <Icon name="material-symbols:stairs" class="text-3xl" />
         </div>
-        <div class="grow">
-          <h3 class="font-headline mb-1 text-xl font-bold">Trappstädning</h3>
-          <p class="text-on-surface-variant text-sm">
-            Snygga och välstädade trapphus för alla boende.
-          </p>
+        <div class="flex w-full justify-between md:items-center">
+          <div class="grow">
+            <h3 class="font-headline mb-1 text-xl font-bold">Trappstädning</h3>
+            <p class="text-on-surface-variant text-sm">
+              Snygga och välstädade trapphus för alla boende.
+            </p>
+          </div>
+          <button
+            class="group-hover:bg-primary group-hover:border-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-200 transition-all group-hover:text-white"
+          >
+            <Icon name="material-symbols:arrow-forward" class="text-sm" />
+          </button>
         </div>
-        <button
-          class="group-hover:bg-primary group-hover:border-primary flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-neutral-200 transition-all group-hover:text-white"
-        >
-          <Icon name="material-symbols:arrow-forward" class="text-sm" />
-        </button>
       </a>
     </div>
   </div>
