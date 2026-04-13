@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.1](https://github.com/vipsa-ab/website/compare/v1.8.0...v1.8.1) (2026-04-13)
+
+
+### Performance Improvements
+
+* enable prerendering for privacy and terms pages ([ec96e46](https://github.com/vipsa-ab/website/commit/ec96e46b4f99e2ebcc001e491986c3280352ab7b))
+
 ## [1.8.0](https://github.com/vipsa-ab/website/compare/v1.7.0...v1.8.0) (2026-04-13)
 
 
