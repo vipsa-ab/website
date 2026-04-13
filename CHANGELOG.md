@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.0](https://github.com/vipsa-ab/website/compare/v1.7.0...v1.8.0) (2026-04-13)
+
+
+### Features
+
+* add privacy policy and terms of service pages ([76adc50](https://github.com/vipsa-ab/website/commit/76adc501182280c28b5847765f8d48f9c9ca146e))
+
 ## [1.7.0](https://github.com/vipsa-ab/website/compare/v1.6.0...v1.7.0) (2026-04-12)
 
 
