@@ -1,0 +1,216 @@
+---
+import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import Layout from "@/layouts/Layout.astro";
+
+import rectangle from "@/assets/img/rectangular.webp";
+
+const title = "Integritetspolicy | Vipsa";
+const description =
+  "Läs om hur Vipsa hanterar dina personuppgifter och skyddar din integritet.";
+---
+
+<Layout title={title} description={description}>
+  <div class="mx-auto my-32 max-w-3xl">
+    <!-- Header Section -->
+    <div class="mb-16 text-center">
+      <span
+        class="font-label text-primary mb-4 block text-xs font-bold tracking-widest uppercase"
+        >Information</span
+      >
+      <h1
+        class="text-on-surface mb-6 text-4xl font-extrabold tracking-tight md:text-5xl"
+      >
+        Integritetspolicy
+      </h1>
+      <p
+        class="text-on-surface-variant font-body mx-auto max-w-2xl text-lg leading-relaxed"
+      >
+        Vi på Vipsa värnar om din personliga integritet. Denna policy förklarar
+        hur vi samlar in och använder din information i enlighet med GDPR.
+      </p>
+    </div>
+    <!-- Content Canvas -->
+    <div class="space-y-12">
+      <!-- 1. Inledning -->
+      <section
+        class="bg-surface-container-lowest border-primary rounded-xl border-l-4 p-8 transition-all duration-300 hover:scale-[1.01] md:p-12"
+      >
+        <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold">
+          <Icon name="material-symbols:policy" class="text-primary size-6" />
+          1. Inledning
+        </h2>
+        <div
+          class="font-body text-on-surface-variant space-y-4 leading-relaxed"
+        >
+          <p>
+            Denna integritetspolicy beskriver hur Vipsa AB ("vi", "oss")
+            hanterar dina personuppgifter. Vi strävar efter att vara så
+            transparenta som möjligt gällande varför vi behöver dina uppgifter
+            och hur vi skyddar dem.
+          </p>
+        </div>
+      </section>
+      <!-- 2. Vilka uppgifter vi samlar in -->
+      <section class="bg-surface-container-low rounded-xl p-8 md:p-12">
+        <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold">
+          <Icon
+            name="material-symbols:person-search"
+            class="text-primary size-6"
+          />
+          2. Vilka uppgifter vi samlar in
+        </h2>
+        <ul class="font-body text-on-surface-variant space-y-4">
+          <li class="flex gap-4">
+            <Icon
+              name="material-symbols:check-circle"
+              class="text-primary-container size-6 shrink-0"
+            />
+            <div>
+              <strong>Kontaktinformation:</strong> Namn, adress, e-postadress och
+              telefonnummer vid bokning av tjänst.
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <Icon
+              name="material-symbols:check-circle"
+              class="text-primary-container size-6 shrink-0"
+            />
+            <div>
+              <strong>Fastighetsuppgifter:</strong> Information som krävs för att
+              utföra städtjänsten (t.ex. kvadratmeter, typ av boende).
+            </div>
+          </li>
+          <li class="flex gap-4">
+            <Icon
+              name="material-symbols:check-circle"
+              class="text-primary-container size-6 shrink-0"
+            />
+            <div>
+              <strong>RUT-avdrag:</strong> Personnummer krävs för att kunna administrera
+              skattereduktion hos Skatteverket.
+            </div>
+          </li>
+        </ul>
+      </section>
+      <!-- Visual Break with Image -->
+      <div class="relative my-16 h-64 w-full overflow-hidden rounded-xl">
+        <Image
+          alt="Nordic Clean Interior"
+          class="h-full w-full object-cover grayscale-20"
+          data-alt="Modern Nordic living room with bright white walls, minimalist furniture, and soft morning sunlight streaming through large windows"
+          src={rectangle}
+        />
+        <div class="bg-primary/10 absolute inset-0 backdrop-blur-[2px]"></div>
+        <div class="absolute right-6 bottom-6 left-6">
+          <p class="font-headline text-xl font-bold text-white drop-shadow-md">
+            Ett renare hem, med trygg hantering av din data.
+          </p>
+        </div>
+      </div>
+      <!-- 3. Varför vi behandlar dina uppgifter -->
+      <section class="bg-surface-container-lowest rounded-xl p-8 md:p-12">
+        <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold">
+          <Icon name="material-symbols:analytics" class="text-primary size-6" />
+          3. Varför vi behandlar dina uppgifter
+        </h2>
+        <div
+          class="font-body text-on-surface-variant space-y-4 leading-relaxed"
+        >
+          <p>Vi behandlar dina uppgifter för att:</p>
+          <ul class="list-disc space-y-2 pl-5">
+            <li>
+              Kunna fullfölja vårt avtal med dig (planera och utföra städning).
+            </li>
+            <li>Administrera betalningar och RUT-avdrag.</li>
+            <li>
+              Kommunicera med dig gällande dina bokningar och
+              kundserviceärenden.
+            </li>
+            <li>Uppfylla rättsliga förpliktelser (t.ex. bokföringslagen).</li>
+          </ul>
+        </div>
+      </section>
+      <!-- 4 & 5 Bento Grid Style -->
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+        <section class="bg-surface-container rounded-xl p-8">
+          <h3 class="mb-4 flex items-center gap-2 text-xl font-bold">
+            <Icon
+              name="material-symbols:schedule"
+              class="text-primary size-6"
+            />
+            4. Hur länge vi sparar data
+          </h3>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed">
+            Vi sparar dina uppgifter så länge det är nödvändigt för att uppfylla
+            de ändamål som beskrivs ovan, eller så länge lagstadgade
+            lagringstider (t.ex. 7 år enligt bokföringslagen) kräver det.
+          </p>
+        </section>
+        <section class="bg-surface-container rounded-xl p-8">
+          <h3 class="mb-4 flex items-center gap-2 text-xl font-bold">
+            <Icon name="material-symbols:gavel" class="text-primary size-6" />
+            5. Dina rättigheter
+          </h3>
+          <p class="font-body text-on-surface-variant text-sm leading-relaxed">
+            Enligt GDPR har du rätt att begära utdrag, rättelse eller radering
+            av dina uppgifter. Du kan även invända mot behandling eller begära
+            begränsning av hur vi använder din data.
+          </p>
+        </section>
+      </div>
+      <!-- 6. Cookies -->
+      <section class="bg-surface-container-lowest rounded-xl p-8 md:p-12">
+        <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold">
+          <Icon name="material-symbols:cookie" class="text-primary size-6" />
+          6. Cookies
+        </h2>
+        <div class="font-body text-on-surface-variant leading-relaxed">
+          <p>
+            Vår webbplats använder inga tredjepartscookies. Vi samlar inte in
+            data för reklam eller spårning. Eventuella tekniska cookies används
+            enbart för att säkerställa webbplatsens grundläggande
+            funktionalitet.
+          </p>
+        </div>
+      </section>
+      <!-- 7. Kontaktinformation -->
+      <section class="rounded-xl bg-zinc-900 p-8 text-white shadow-xl md:p-12">
+        <h2 class="mb-6 flex items-center gap-3 text-2xl font-bold">
+          <Icon
+            name="material-symbols:contact-support"
+            class="text-primary-container size-6"
+          />
+          7. Kontaktinformation
+        </h2>
+        <div class="font-body grid grid-cols-1 gap-8 md:grid-cols-2">
+          <div>
+            <p
+              class="font-label mb-2 text-sm tracking-widest uppercase opacity-70"
+            >
+              Ansvarig
+            </p>
+            <p class="text-lg font-semibold">Vipsa AB</p>
+            <p class="opacity-80">Ormbergsvägen 15<br />193 36 Sigtuna</p>
+          </div>
+          <div class="space-y-4">
+            <a
+              class="hover:text-primary-container flex items-center gap-3 transition-colors"
+              href="mailto:info@vipsa.se"
+            >
+              <Icon name="material-symbols:mail" class="size-6" />
+              info@vipsa.se
+            </a>
+            <a
+              class="hover:text-primary-container flex items-center gap-3 transition-colors"
+              href="tel:+4600000000"
+            >
+              <Icon name="material-symbols:call" class="size-6" />
+              0372-XXX XX XX
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
