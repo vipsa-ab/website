@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.2](https://github.com/vipsa-ab/website/compare/v1.8.1...v1.8.2) (2026-04-13)
+
+
+### Bug Fixes
+
+* **landing:** improve responsive layout for wide service cards ([a232083](https://github.com/vipsa-ab/website/commit/a2320839eef923352ab7ec746c370b14d6f38279))
+
 ## [1.8.1](https://github.com/vipsa-ab/website/compare/v1.8.0...v1.8.1) (2026-04-13)
 
 
