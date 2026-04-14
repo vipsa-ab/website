@@ -1,0 +1,81 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="bg-surface py-20">
+  <div class="container mx-auto px-4">
+    <div class="mb-12 text-center">
+      <h2 class="mb-4 text-3xl font-bold tracking-tight">
+        Kompletterande tjänster
+      </h2>
+      <p class="text-on-surface-variant">
+        Låt oss underlätta din vardag ytterligare med våra tilläggstjänster.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+      <!-- Fönsterputsning -->
+      <a
+        class="bg-surface-container-low hover:bg-surface-container group flex items-center gap-6 rounded-xl p-6 transition-colors"
+        href="/services/windows-cleaning"
+      >
+        <div
+          class="bg-primary-fixed flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
+        >
+          <Icon name="material-symbols:window" class="text-primary size-6" />
+        </div>
+        <div>
+          <h4
+            class="group-hover:text-primary mb-1 text-lg font-bold transition-colors"
+          >
+            Fönsterputsning
+          </h4>
+          <p class="text-on-surface-variant text-sm">
+            Kristallklara fönster utan ränder.
+          </p>
+        </div>
+      </a>
+      <!-- Strykning -->
+      <a
+        class="bg-surface-container-low hover:bg-surface-container group flex items-center gap-6 rounded-xl p-6 transition-colors"
+        href="/services/iron-service"
+      >
+        <div
+          class="bg-primary-fixed flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
+        >
+          <Icon name="material-symbols:iron" class="text-primary size-6" />
+        </div>
+        <div>
+          <h4
+            class="group-hover:text-primary mb-1 text-lg font-bold transition-colors"
+          >
+            Strykning
+          </h4>
+          <p class="text-on-surface-variant text-sm">
+            Vi tar hand om tvättberget åt dig.
+          </p>
+        </div>
+      </a>
+      <!-- Trädgårdsarbete -->
+      <a
+        class="bg-surface-container-low hover:bg-surface-container group flex items-center gap-6 rounded-xl p-6 transition-colors"
+        href="/services/yard-service"
+      >
+        <div
+          class="bg-primary-fixed flex h-14 w-14 shrink-0 items-center justify-center rounded-full"
+        >
+          <Icon name="material-symbols:park" class="text-primary size-6" />
+        </div>
+        <div>
+          <h4
+            class="group-hover:text-primary mb-1 text-lg font-bold transition-colors"
+          >
+            Trädgårdsarbete
+          </h4>
+          <p class="text-on-surface-variant text-sm">
+            Hjälp med gräsklippning &amp; rensning.
+          </p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
