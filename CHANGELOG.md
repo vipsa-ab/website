@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.8.4](https://github.com/vipsa-ab/website/compare/v1.8.3...v1.8.4) (2026-04-14)
+
+
+### Bug Fixes
+
+* **services:** adjust OtherServicesSection grid breakpoint from md to lg ([83dea5f](https://github.com/vipsa-ab/website/commit/83dea5f43224a89341888e879cb285aae7a986d8))
+
 ## [1.8.3](https://github.com/vipsa-ab/website/compare/v1.8.2...v1.8.3) (2026-04-13)
 
 
