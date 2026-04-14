@@ -1,7 +1,7 @@
 export interface ServiceCard {
   title: string;
+  img: ImageMetadata;
   description: string;
-  features: string[];
   icon: string;
-  color: "primary" | "secondary" | "tertiary";
+  href: string;
 }

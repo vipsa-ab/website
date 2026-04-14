@@ -1,18 +1,18 @@
 ---
-import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-
-import Square from "@/assets/img/square.webp";
 ---
 
-<section
-  class="bg-surface relative overflow-hidden px-4 py-24 md:py-32"
-  id="service-hero"
->
-  <div
-    class="container mx-auto flex flex-col items-center justify-between gap-16 md:flex-row"
-  >
-    <div class="relative z-10">
+<section class="bg-surface relative mt-20 overflow-hidden px-4 py-12 md:py-20">
+  <div class="container mx-auto">
+    <nav
+      aria-label="Breadcrumb"
+      class="text-on-surface-variant mb-8 flex items-center gap-2 text-sm font-medium"
+    >
+      <a class="hover:text-primary transition-colors" href="/">Hem</a>
+      <Icon name="material-symbols:chevron-right" class="text-sm" />
+      <span class="text-on-surface">Tjänster</span>
+    </nav>
+    <div class="text-center">
       <span
         class="label-md text-primary mb-4 block font-bold tracking-[0.15em] uppercase"
         >Välkommen till en renare vardag</span
@@ -23,13 +23,12 @@ import Square from "@/assets/img/square.webp";
         Våra Tjänster
       </h1>
       <p
-        class="text-on-surface-variant mb-10 max-w-xl text-lg leading-relaxed md:text-xl"
+        class="text-on-surface-variant mx-auto mb-10 max-w-2xl text-lg leading-relaxed md:text-xl"
       >
-        Vi kombinerar den svenska enkelheten med enastående noggrannhet. Upplev
-        skillnaden med professionell städning som skapar rymd och harmoni i ditt
-        hem eller på din arbetsplats.
+        Vi erbjuder ett brett spektrum av professionella städtjänster för både
+        hem och företag. Alltid med fokus på nordisk noggrannhet och hållbarhet.
       </p>
-      <div class="flex flex-wrap gap-4">
+      <div class="flex justify-center gap-4">
         <a
           href="/booking"
           class="signature-gradient text-on-primary shadow-primary/20 rounded-full px-8 py-4 font-bold shadow-xl transition-transform hover:scale-105"
@@ -37,38 +36,11 @@ import Square from "@/assets/img/square.webp";
           Boka städning
         </a>
         <a
-          href="/pricing"
           class="bg-surface-container-lowest text-primary hover:bg-surface-container rounded-full px-8 py-4 font-bold transition-colors"
+          href="/pricing"
         >
-          Se priser
+          Prisöversikt
         </a>
-      </div>
-    </div>
-    <div class="relative max-w-xl" transition:name="hero-image">
-      <div class="aspect-4/5 overflow-hidden rounded-xl shadow-2xl">
-        <Image
-          loading="eager"
-          alt="Ren lägenhet"
-          fetchpriority="high"
-          class="aspect-4/5 w-full rounded-xl object-cover"
-          data-alt="A bright, minimalist, and modern living room after a professional cleaning service. The room is spotless with natural sunlight streaming through large windows, featuring light wood floors, a comfortable grey sofa, and a serene Nordic aesthetic."
-          src={Square}
-        />
-      </div>
-      <div
-        class="bg-surface-container-lowest absolute -bottom-6 -left-6 z-20 hidden rounded-lg p-6 shadow-xl md:block"
-      >
-        <div class="flex items-center gap-4">
-          <div class="bg-primary-container size-12 rounded-full p-3 text-white">
-            <Icon name="material-symbols:check-circle" class="size-6" />
-          </div>
-          <div>
-            <p class="text-on-surface font-bold">100% Nöjd-kund-garanti</p>
-            <p class="text-on-surface-variant text-sm">
-              Vi städar tills du är nöjd
-            </p>
-          </div>
-        </div>
       </div>
     </div>
   </div>
