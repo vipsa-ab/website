@@ -62,63 +62,48 @@ describe("Pricing Page — hero section", () => {
     expect(h1Section?.textContent).toMatch(/RUT/i);
   });
 
-  it("displays trust badges (ansvarsförsäkrade, ingen bindningstid)", () => {
+  it("displays a RUT-avdrag badge alongside the CTA", () => {
     const main = page.screen.getByRole("main");
-    expect(main.textContent).toMatch(/Ansvarsförsäkrade/);
-    expect(main.textContent).toMatch(/Ingen bindningstid/);
+    expect(main.textContent).toMatch(/50% RUT-avdrag ingår/);
   });
 });
 
-describe("Pricing Page — pricing tiers", () => {
+describe("Pricing Page — pricing section (other services)", () => {
   let page: PageRenderResult;
 
   beforeAll(async () => {
     page = await renderPage(PricingPage);
   });
 
-  it("renders three pricing tier headings", () => {
+  it("renders the section heading", () => {
+    const main = page.screen.getByRole("main");
+    const h2s = Array.from(main.querySelectorAll("h2")).map((h) =>
+      h.textContent?.trim(),
+    );
+    expect(h2s).toContain("Priser för övriga tjänster");
+  });
+
+  it("renders four service cards with headings", () => {
     const main = page.screen.getByRole("main");
     const h3s = Array.from(main.querySelectorAll("h3")).map((h) =>
       h.textContent?.trim(),
     );
-    expect(h3s).toContain("Hemstädning");
     expect(h3s).toContain("Flyttstädning");
+    expect(h3s).toContain("Stor- & Byggstädning");
     expect(h3s).toContain("Kontorsstädning");
+    expect(h3s).toContain("Trappstädning");
   });
 
-  it("shows price amounts for hemstädning and flyttstädning", () => {
+  it("shows price for flyttstädning and kontorsstädning", () => {
     const main = page.screen.getByRole("main");
     const html = main.innerHTML;
-    expect(html).toMatch(/195\s*kr/);
     expect(html).toMatch(/1\s*490\s*kr/);
+    expect(html).toMatch(/245\s*kr\/tim/);
   });
 
-  it("shows 'Offert' for kontorsstädning instead of a fixed price", () => {
+  it("shows offert button for trappstädning", () => {
     const main = page.screen.getByRole("main");
-    expect(main.textContent).toMatch(/Offert/);
-  });
-
-  it("highlights flyttstädning as most popular", () => {
-    const main = page.screen.getByRole("main");
-    expect(main.textContent).toMatch(/Mest populär/i);
-  });
-
-  it("each pricing tier has a CTA button", () => {
-    const main = page.screen.getByRole("main");
-    const buttons = Array.from(main.querySelectorAll("button"));
-    const ctaLabels = buttons.map((b) => b.textContent?.trim());
-    expect(ctaLabels).toContain("Boka Hemstäd");
-    expect(ctaLabels).toContain("Boka Flyttstäd");
-    expect(ctaLabels).toContain("Begär Offert");
-  });
-
-  it("each pricing tier lists feature items", () => {
-    const main = page.screen.getByRole("main");
-    const lists = main.querySelectorAll("ul");
-    expect(lists.length).toBeGreaterThanOrEqual(3);
-    for (const list of lists) {
-      expect(list.querySelectorAll("li").length).toBeGreaterThanOrEqual(3);
-    }
+    expect(main.textContent).toMatch(/Begär offert baserat på storlek/);
   });
 });
 
@@ -134,7 +119,7 @@ describe("Pricing Page — calculator section (SSR shell)", () => {
     const headings = Array.from(main.querySelectorAll("h2")).map((h) =>
       h.textContent?.trim(),
     );
-    expect(headings).toContain("Beräkna ditt pris");
+    expect(headings).toContain("Beräkna ditt pris för hemstädning");
   });
 });
 
@@ -202,6 +187,40 @@ describe("Pricing Page — FAQ section", () => {
   });
 });
 
+describe("Pricing Page — other services (tilläggstjänster)", () => {
+  let page: PageRenderResult;
+
+  beforeAll(async () => {
+    page = await renderPage(PricingPage);
+  });
+
+  it("renders the tilläggstjänster heading", () => {
+    const main = page.screen.getByRole("main");
+    const h2s = Array.from(main.querySelectorAll("h2")).map((h) =>
+      h.textContent?.trim(),
+    );
+    expect(h2s).toContain("Tilläggstjänster");
+  });
+
+  it("lists three add-on services with prices", () => {
+    const main = page.screen.getByRole("main");
+    const h4s = Array.from(main.querySelectorAll("h4")).map((h) =>
+      h.textContent?.trim(),
+    );
+    expect(h4s).toContain("Fönsterputsning");
+    expect(h4s).toContain("Strykning");
+    expect(h4s).toContain("Trädgårdsarbete");
+  });
+
+  it("shows hourly rates for add-on services", () => {
+    const main = page.screen.getByRole("main");
+    const html = main.innerHTML;
+    expect(html).toMatch(/195\s*kr\/tim/);
+    expect(html).toMatch(/225\s*kr\/tim/);
+    expect(html).toMatch(/299\s*kr\/tim/);
+  });
+});
+
 describe("Pricing Page — section composition", () => {
   let page: PageRenderResult;
 
@@ -209,13 +228,13 @@ describe("Pricing Page — section composition", () => {
     page = await renderPage(PricingPage);
   });
 
-  it("renders all five content sections inside main", () => {
+  it("renders all six content sections inside main", () => {
     const main = page.screen.getByRole("main");
     const sections = main.querySelectorAll("section");
-    expect(sections.length).toBeGreaterThanOrEqual(5);
+    expect(sections.length).toBeGreaterThanOrEqual(6);
   });
 
-  it("sections follow the correct visual order (hero → pricing → calculator → RUT → FAQ)", () => {
+  it("sections follow the correct visual order (hero → calculator → pricing → other services → RUT → FAQ)", () => {
     const main = page.screen.getByRole("main");
     const headings = Array.from(main.querySelectorAll("h1, h2")).map((h) =>
       h.textContent?.trim(),
@@ -223,13 +242,16 @@ describe("Pricing Page — section composition", () => {
     const heroIdx = headings.findIndex((h) =>
       h?.match(/pris.*transparent|transparenta.*pris/i),
     );
-    const pricingIdx = headings.findIndex((_, i) => i > heroIdx);
-    const calculatorIdx = headings.indexOf("Beräkna ditt pris");
+    const calculatorIdx = headings.indexOf("Beräkna ditt pris för hemstädning");
+    const pricingIdx = headings.indexOf("Priser för övriga tjänster");
+    const otherServicesIdx = headings.indexOf("Tilläggstjänster");
     const rutIdx = headings.indexOf("Så fungerar RUT-avdraget");
     const faqIdx = headings.indexOf("Vanliga frågor om priser");
 
     expect(heroIdx).toBeLessThan(calculatorIdx);
-    expect(calculatorIdx).toBeLessThan(rutIdx);
+    expect(calculatorIdx).toBeLessThan(pricingIdx);
+    expect(pricingIdx).toBeLessThan(otherServicesIdx);
+    expect(otherServicesIdx).toBeLessThan(rutIdx);
     expect(rutIdx).toBeLessThan(faqIdx);
   });
 });

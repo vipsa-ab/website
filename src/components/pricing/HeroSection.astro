@@ -5,54 +5,60 @@ import { Icon } from "astro-icon/components";
 import square from "@/assets/img/square.webp";
 ---
 
-<section class="bg-surface relative mt-20 overflow-hidden px-4 py-20 md:py-32">
-  <div class="relative z-10 container mx-auto">
-    <div class="max-w-2xl">
+<section class="relative overflow-hidden pt-20 pb-32">
+  <div
+    class="container mx-auto mt-20 grid grid-cols-1 items-center gap-12 px-4 lg:grid-cols-2"
+  >
+    <div class="z-10">
       <span
-        class="label-md text-primary mb-6 inline-block font-bold tracking-widest uppercase"
-        >Transparens &amp; Enkelhet</span
+        class="bg-primary-fixed text-on-primary-fixed mb-6 inline-block rounded-full px-4 py-1 text-xs font-bold tracking-widest uppercase"
+        >Prislista</span
       >
       <h1
-        class="font-headline text-on-surface mb-8 text-5xl leading-[1.1] font-extrabold tracking-tight md:text-7xl"
+        class="font-headline text-on-surface mb-8 text-5xl leading-[1.1] font-extrabold tracking-tight sm:text-6xl md:text-7xl"
       >
-        Enkla och transparenta priser
+        Enkla och
+        <span class="text-primary-container">transparenta</span> priser
       </h1>
-      <p
-        class="text-on-surface-variant mb-10 text-lg leading-relaxed md:text-xl"
-      >
-        Hos oss finns inga dolda avgifter. Som privatperson betalar du endast
-        <span class="text-primary font-bold">50% av arbetskostnaden</span>
-        direkt på fakturan tack vare RUT-avdraget.
+      <p class="text-on-surface-variant mb-10 max-w-lg text-xl leading-relaxed">
+        Vi tror på ärlighet och kvalitet. Inga dolda avgifter, bara skinande
+        rena resultat. Kom ihåg att du som privatperson får 50% rabatt via
+        RUT-avdraget.
       </p>
       <div class="flex flex-wrap gap-4">
+        <a
+          class="signature-gradient shadow-primary/20 rounded-full px-8 py-4 font-bold text-white shadow-lg transition-all hover:opacity-90"
+          href="#kalkylator"
+        >
+          Beräkna ditt pris
+        </a>
         <div
-          class="bg-surface-container-low flex items-center gap-3 rounded-lg px-6 py-4"
+          class="bg-surface-container-lowest flex items-center gap-3 rounded-full px-6 py-4"
         >
           <Icon
-            name="material-symbols:verified-user"
-            class="text-primary size-6"
+            name="material-symbols:verified"
+            class="text-primary-container size-6"
           />
-          <span class="font-semibold">Ansvarsförsäkrade</span>
-        </div>
-        <div
-          class="bg-surface-container-low flex items-center gap-3 rounded-lg px-6 py-4"
-        >
-          <Icon name="material-symbols:task-alt" class="text-primary size-6" />
-          <span class="font-semibold">Ingen bindningstid</span>
+          <span class="font-semibold">50% RUT-avdrag ingår</span>
         </div>
       </div>
     </div>
-  </div>
-  <!-- Asymmetric Image Placement -->
-  <div
-    class="absolute top-20 right-[-10%] hidden h-[80%] w-[40%] rotate-2 overflow-hidden rounded-xl shadow-2xl md:right-[-5%] lg:block"
-  >
-    <Image
-      alt="Cleaning service"
-      class="h-full w-full object-cover"
-      data-alt="Modern minimalist living room with white sofa, light oak floors, and large windows with bright natural sunlight streaming in"
-      loading="eager"
-      src={square}
-    />
+    <div class="relative">
+      <div
+        class="bg-primary-fixed/30 absolute -top-12 -right-12 h-64 w-64 rounded-full blur-3xl"
+      >
+      </div>
+      <div
+        class="relative z-10 rotate-2 overflow-hidden rounded-xl shadow-2xl transition-transform duration-500 hover:rotate-0"
+      >
+        <Image
+          alt="Professional cleaning service"
+          class="h-125 w-full object-cover"
+          data-alt="Modern bright living room being cleaned by a professional, soft morning sunlight, minimal Nordic furniture and clean surfaces"
+          src={square}
+          loading="eager"
+        />
+      </div>
+    </div>
   </div>
 </section>
