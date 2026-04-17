@@ -1,0 +1,56 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section class="bg-surface-container-low py-24">
+  <div class="mx-auto max-w-7xl px-8">
+    <div
+      class="mb-16 flex flex-col items-end justify-between gap-6 md:flex-row"
+    >
+      <div>
+        <h2 class="font-headline mb-4 text-4xl font-bold">Tilläggstjänster</h2>
+        <p class="text-on-surface-variant">
+          Gör din vardag ännu enklare med våra extratjänster.
+        </p>
+      </div>
+    </div>
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
+      <!-- Fönsterputsning -->
+      <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+        <div class="mb-6 flex items-center gap-4">
+          <Icon
+            name="material-symbols:window"
+            class="text-primary-container size-6"
+          />
+          <h4 class="text-xl font-bold">Fönsterputsning</h4>
+        </div>
+        <p class="text-primary text-3xl font-extrabold">195 kr/tim</p>
+        <p class="text-on-surface-variant mt-2 text-sm">Efter RUT-avdrag</p>
+      </div>
+      <!-- Strykning -->
+      <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+        <div class="mb-6 flex items-center gap-4">
+          <Icon
+            name="material-symbols:iron"
+            class="text-primary-container size-6"
+          />
+          <h4 class="text-xl font-bold">Strykning</h4>
+        </div>
+        <p class="text-primary text-3xl font-extrabold">225 kr/tim</p>
+        <p class="text-on-surface-variant mt-2 text-sm">Efter RUT-avdrag</p>
+      </div>
+      <!-- Trädgårdsarbete -->
+      <div class="bg-surface-container-lowest rounded-xl p-8 shadow-sm">
+        <div class="mb-6 flex items-center gap-4">
+          <Icon
+            name="material-symbols:yard"
+            class="text-primary-container size-6"
+          />
+          <h4 class="text-xl font-bold">Trädgårdsarbete</h4>
+        </div>
+        <p class="text-primary text-3xl font-extrabold">299 kr/tim</p>
+        <p class="text-on-surface-variant mt-2 text-sm">Efter RUT-avdrag</p>
+      </div>
+    </div>
+  </div>
+</section>

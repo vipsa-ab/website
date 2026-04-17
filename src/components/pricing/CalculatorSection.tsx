@@ -14,11 +14,11 @@ export const CalculatorSection = () => {
 
   const price = Math.round((squareMeters / 36) * 390 * multiplier);
   return (
-    <section className="bg-surface px-4 py-24">
+    <section className="bg-surface-container-lowest px-4 py-24" id="kalkylator">
       <div className="mx-auto max-w-4xl">
         <div className="mb-12 text-center">
           <h2 className="font-headline mb-4 text-3xl font-extrabold md:text-4xl">
-            Beräkna ditt pris
+            Beräkna ditt pris för hemstädning
           </h2>
           <p className="text-on-surface-variant">
             Få en uppskattning direkt för din hemstädning.

@@ -2,160 +2,100 @@
 import { Icon } from "astro-icon/components";
 ---
 
-<section class="bg-surface-container px-4 py-24">
-  <div class="container mx-auto">
-    <div class="grid grid-cols-1 gap-8 lg:grid-cols-3">
-      <!-- Hemstädning -->
+<section class="bg-surface py-32">
+  <div class="container mx-auto px-4">
+    <h2 class="font-headline mb-16 text-center text-4xl font-bold">
+      Priser för övriga tjänster
+    </h2>
+    <div class="grid grid-cols-1 gap-8 md:grid-cols-2">
+      <!-- Flyttstädning -->
       <div
-        class="bg-surface-container-lowest flex h-full flex-col rounded-xl p-8 transition-all duration-500 hover:-translate-y-2"
-      >
-        <div class="mb-8">
-          <h3 class="font-headline mb-2 text-2xl font-bold">Hemstädning</h3>
-          <p class="text-on-surface-variant text-sm">
-            För ett gnistrande rent hem varje vecka.
-          </p>
-        </div>
-        <div class="mb-8">
-          <span class="text-on-surface-variant text-sm">Från</span>
-          <div class="flex items-baseline gap-1">
-            <span class="text-primary text-4xl font-extrabold">195 kr</span>
-            <span class="text-lg font-semibold">/tim</span>
-          </div>
-          <p class="text-on-surface-variant mt-1 text-xs">
-            efter RUT-avdrag (ord. pris 390 kr)
-          </p>
-        </div>
-        <ul class="mb-10 grow space-y-4">
-          <li class="flex items-start gap-3">
-            <Icon
-              name="material-symbols:check-circle"
-              class="text-primary-container"
-            />
-            <span class="text-sm">Återkommande städning</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <Icon
-              name="material-symbols:check-circle"
-              class="text-primary-container"
-            />
-            <span class="text-sm">Samma städare varje gång</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <Icon
-              name="material-symbols:check-circle"
-              class="text-primary-container"
-            />
-            <span class="text-sm">Ingen bindningstid</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <Icon
-              name="material-symbols:check-circle"
-              class="text-primary-container"
-            />
-            <span class="text-sm">Nöjd kund-garanti</span>
-          </li>
-        </ul>
-        <button
-          class="border-primary text-primary hover:bg-primary w-full rounded-full border-2 py-4 font-bold transition-all hover:text-white"
-        >
-          Boka Hemstäd
-        </button>
-      </div>
-      <!-- Flyttstädning (Featured) -->
-      <div
-        class="relative flex h-full flex-col overflow-hidden rounded-xl bg-white p-8 shadow-[0_40px_60px_-15px_rgba(159,66,0,0.08)] transition-all duration-500 hover:-translate-y-2"
+        class="bg-surface-container-lowest hover:border-primary-container/20 rounded-xl border border-transparent p-8 transition-all duration-300 hover:-translate-y-2"
       >
         <div
-          class="bg-primary absolute top-0 right-0 rounded-bl-lg px-4 py-1.5 text-[10px] font-bold tracking-wider text-white uppercase"
+          class="bg-primary-fixed mb-8 flex h-14 w-14 items-center justify-center rounded-xl"
         >
-          Mest populär
+          <Icon
+            name="material-symbols:local-shipping"
+            class="text-primary text-3xl"
+          />
         </div>
-        <div class="mb-8">
-          <h3 class="font-headline mb-2 text-2xl font-bold">Flyttstädning</h3>
-          <p class="text-on-surface-variant text-sm">
-            Vi tar hand om allt inför din flytt.
-          </p>
+        <h3 class="mb-4 text-2xl font-bold">Flyttstädning</h3>
+        <p class="text-on-surface-variant mb-8">
+          Komplett städning med garanti för att din flytt ska bli så smidig som
+          möjligt.
+        </p>
+        <div class="mt-auto">
+          <p class="text-on-surface-variant text-sm">Från (efter RUT)</p>
+          <p class="text-primary text-3xl font-extrabold">1 490 kr</p>
         </div>
-        <div class="mb-8">
-          <span class="text-on-surface-variant text-sm">Från</span>
-          <div class="flex items-baseline gap-1">
-            <span class="text-primary text-4xl font-extrabold">1 490 kr</span>
-          </div>
-          <p class="text-on-surface-variant mt-1 text-xs">efter RUT-avdrag</p>
-        </div>
-        <ul class="mb-10 grow space-y-4">
-          <li class="flex items-start gap-3">
-            <Icon name="material-symbols:check-circle" class="text-primary" />
-            <span class="text-sm font-medium">Fönsterputs ingår alltid</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <Icon name="material-symbols:check-circle" class="text-primary" />
-            <span class="text-sm font-medium"
-              >Besiktningsgaranti (14 dagar)</span
-            >
-          </li>
-          <li class="flex items-start gap-3">
-            <Icon name="material-symbols:check-circle" class="text-primary" />
-            <span class="text-sm font-medium">Fast pris baserat på kvm</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <Icon name="material-symbols:check-circle" class="text-primary" />
-            <span class="text-sm font-medium">Grovrengöring av vitvaror</span>
-          </li>
-        </ul>
-        <button
-          class="signature-gradient w-full rounded-full py-4 font-bold text-white shadow-lg shadow-orange-500/20 transition-all hover:opacity-90"
+      </div>
+      <!-- Storstädning -->
+      <!-- Byggstädning -->
+      <div
+        class="bg-surface-container-lowest hover:border-primary-container/20 rounded-xl border border-transparent p-8 transition-all duration-300 hover:-translate-y-2"
+      >
+        <div
+          class="bg-tertiary-fixed mb-8 flex h-14 w-14 items-center justify-center rounded-xl"
         >
-          Boka Flyttstäd
-        </button>
+          <Icon
+            name="material-symbols:cleaning-services"
+            class="text-tertiary text-3xl"
+          />
+        </div>
+        <h3 class="mb-4 text-2xl font-bold">Stor- &amp; Byggstädning</h3>
+        <p class="text-on-surface-variant mb-8">
+          Oavsett om det är en djupgående säsongsstädning eller grovstädning
+          efter renovering och nybygge ser vi till att det blir kliniskt rent.
+        </p>
+        <div class="mt-auto">
+          <p class="text-on-surface-variant text-sm">Från (efter RUT)</p>
+          <p class="text-primary text-3xl font-extrabold">225 kr/tim</p>
+          <p class="text-on-surface-variant mt-1 text-xs">Minst 4 timmar</p>
+        </div>
       </div>
       <!-- Kontorsstädning -->
       <div
-        class="bg-surface-container-lowest flex h-full flex-col rounded-xl p-8 transition-all duration-500 hover:-translate-y-2"
+        class="bg-surface-container-lowest hover:border-primary-container/20 rounded-xl border border-transparent p-8 transition-all duration-300 hover:-translate-y-2"
       >
-        <div class="mb-8">
-          <h3 class="font-headline mb-2 text-2xl font-bold">Kontorsstädning</h3>
-          <p class="text-on-surface-variant text-sm">
-            Professionell miljö för dina anställda.
-          </p>
-        </div>
-        <div class="mb-8">
-          <div class="flex items-baseline gap-1">
-            <span class="text-primary text-3xl font-extrabold">Offert</span>
-          </div>
-          <p class="text-on-surface-variant mt-1 text-xs">
-            Skräddarsytt för ditt företag
-          </p>
-        </div>
-        <ul class="mb-10 grow space-y-4">
-          <li class="flex items-start gap-3">
-            <Icon
-              name="material-symbols:check-circle"
-              class="text-primary-container"
-            />
-
-            <span class="text-sm">Anpassat efter era arbetstider</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <Icon
-              name="material-symbols:check-circle"
-              class="text-primary-container"
-            />
-            <span class="text-sm">Miljöcertifierade metoder</span>
-          </li>
-          <li class="flex items-start gap-3">
-            <Icon
-              name="material-symbols:check-circle"
-              class="text-primary-container"
-            />
-            <span class="text-sm">Flexibla avtal</span>
-          </li>
-        </ul>
-        <button
-          class="border-primary text-primary hover:bg-primary w-full rounded-full border-2 py-4 font-bold transition-all hover:text-white"
+        <div
+          class="bg-surface-container-highest mb-8 flex h-14 w-14 items-center justify-center rounded-xl"
         >
-          Begär Offert
-        </button>
+          <Icon
+            name="material-symbols:apartment"
+            class="text-on-surface text-3xl"
+          />
+        </div>
+        <h3 class="mb-4 text-2xl font-bold">Kontorsstädning</h3>
+        <p class="text-on-surface-variant mb-8">
+          En ren arbetsmiljö ökar trivseln. Skräddarsydda lösningar för företag.
+        </p>
+        <div class="mt-auto">
+          <p class="text-on-surface-variant text-sm">Från (exkl. moms)</p>
+          <p class="text-on-surface text-3xl font-extrabold">245 kr/tim</p>
+        </div>
+      </div>
+      <!-- Trappstädning -->
+      <div
+        class="bg-surface-container-lowest hover:border-primary-container/20 rounded-xl border border-transparent p-8 transition-all duration-300 hover:-translate-y-2"
+      >
+        <div
+          class="bg-secondary-container mb-8 flex h-14 w-14 items-center justify-center rounded-xl"
+        >
+          <Icon
+            name="material-symbols:stairs"
+            class="text-secondary text-3xl"
+          />
+        </div>
+        <h3 class="mb-4 text-2xl font-bold">Trappstädning</h3>
+        <p class="text-on-surface-variant mb-8">
+          Vi håller trapphus rena och välkomnande för BRF och fastighetsägare.
+        </p>
+        <div class="mt-auto">
+          <button class="text-primary font-bold hover:underline">
+            Begär offert baserat på storlek
+          </button>
+        </div>
       </div>
     </div>
   </div>

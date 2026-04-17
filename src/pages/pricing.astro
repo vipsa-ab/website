@@ -9,6 +9,7 @@ import {
   CalculatorSection,
   RutSection,
   FaqSection,
+  OtherServicesSection,
 } from "@/components/pricing";
 
 const title = "Vipsa | Enkel Fakturering & Betalning";
@@ -18,8 +19,9 @@ const description =
 
 <Layout title={title} description={description}>
   <HeroSection />
-  <PricingSection />
   <CalculatorSection client:visible />
+  <PricingSection />
+  <OtherServicesSection />
   <RutSection />
   <FaqSection />
 </Layout>
