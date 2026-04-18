@@ -1,0 +1,44 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<section class="bg-surface py-24" id="excluded">
+  <div class="container mx-auto px-4">
+    <div class="grid gap-12 md:grid-cols-[1fr_1.2fr] md:items-start">
+      <div class="md:top-32">
+        <span
+          class="label-md text-primary mb-4 block font-bold tracking-[0.15em] uppercase"
+          >Vad som inte ingår</span
+        >
+        <h2 class="font-headline mb-4 text-3xl font-bold md:text-5xl">
+          Transparent om gränserna
+        </h2>
+        <p class="text-on-surface-variant text-lg leading-relaxed">
+          Vi tror på ärlighet. Nedan ser du exakt vad som ligger utanför denna
+          tjänst — många punkter kan bokas som separata tilläggstjänster eller
+          offereras vid behov.
+        </p>
+      </div>
+      <ul
+        class="bg-surface-container-lowest flex flex-col gap-4 rounded-2xl p-8 shadow-sm md:p-10"
+      >
+        {
+          items.map((item) => (
+            <li class="flex items-start gap-4">
+              <div class="bg-error-container text-on-error-container mt-0.5 flex size-7 shrink-0 items-center justify-center rounded-full">
+                <Icon name="material-symbols:close" class="size-4" />
+              </div>
+              <span class="text-on-surface leading-relaxed">{item}</span>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Area {
+  area: string;
+  icon: string;
+  items: string[];
+}
+
+interface Props {
+  areas: Area[];
+}
+
+const { areas } = Astro.props;
+const isOdd = areas.length % 2 === 1;
+---
+
+<section class="bg-surface-container-low py-24" id="included">
+  <div class="container mx-auto px-4">
+    <div class="mb-16 max-w-3xl">
+      <span
+        class="label-md text-primary mb-4 block font-bold tracking-[0.15em] uppercase"
+        >Vad som ingår</span
+      >
+      <h2 class="font-headline mb-4 text-3xl font-bold md:text-5xl">
+        Detaljerad checklista, uppdelad per yta
+      </h2>
+      <p class="text-on-surface-variant mt-4 text-lg">
+        Vi följer en genomtänkt rutin för varje del av hemmet — så att du alltid
+        vet vad du får. Ingenting glöms, ingenting tas för givet.
+      </p>
+    </div>
+    <div class="grid gap-8 md:grid-cols-2">
+      {
+        areas.map((area, index) => (
+          <article
+            class:list={[
+              "bg-surface-container-lowest flex flex-col rounded-2xl p-8 shadow-sm",
+              isOdd && index === areas.length - 1 && "md:col-span-2",
+            ]}
+          >
+            <div class="mb-6 flex items-center gap-4">
+              <div class="bg-primary-fixed text-primary flex size-12 items-center justify-center rounded-2xl">
+                <Icon name={area.icon} class="size-6" />
+              </div>
+              <h3 class="font-headline text-xl font-bold">{area.area}</h3>
+            </div>
+            <ul class="flex flex-col gap-4">
+              {area.items.map((item) => (
+                <li class="flex items-start gap-3">
+                  <Icon
+                    name="material-symbols:check-circle"
+                    class="text-primary mt-0.5 size-5 shrink-0"
+                  />
+                  <span class="text-on-surface-variant leading-relaxed">
+                    {item}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

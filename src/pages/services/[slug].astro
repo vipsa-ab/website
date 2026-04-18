@@ -1,0 +1,59 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+
+import Layout from "@/layouts/Layout.astro";
+import {
+  HeroSection,
+  IntroSection,
+  IncludedSection,
+  ExcludedSection,
+  PricingSection,
+} from "@/components/service-detail";
+import { CtaSection } from "@/components/services";
+
+export const prerender = true;
+
+export async function getStaticPaths() {
+  const services = await getCollection("services");
+  return services.map((service) => ({
+    params: { slug: service.id },
+    props: { service },
+  }));
+}
+
+interface Props {
+  service: CollectionEntry<"services">;
+}
+
+const { service } = Astro.props;
+const { Content } = await render(service);
+const { data } = service;
+
+const title = `Vipsa | ${data.title}`;
+const description = data.description;
+---
+
+<Layout title={title} description={description}>
+  <HeroSection
+    title={data.title}
+    icon={data.icon}
+    tagline={data.hero.tagline}
+    subtitle={data.hero.subtitle}
+    ctaLabel={data.ctaLabel}
+  />
+  <IntroSection description={data.description}>
+    <Content />
+  </IntroSection>
+  <IncludedSection areas={data.included} />
+  <ExcludedSection items={data.excluded} />
+  <PricingSection
+    price={data.pricing.price}
+    unit={data.pricing.unit}
+    rutIncluded={data.pricing.rutIncluded}
+    minHours={data.pricing.minHours}
+    description={data.pricing.description}
+    highlights={data.pricing.highlights}
+    ctaLabel={data.ctaLabel}
+  />
+  <CtaSection />
+</Layout>

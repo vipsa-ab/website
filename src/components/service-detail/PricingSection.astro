@@ -1,0 +1,134 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  price: string;
+  unit: string;
+  rutIncluded: boolean;
+  minHours: number | null;
+  description: string;
+  highlights: string[];
+  ctaLabel: string;
+}
+
+const {
+  price,
+  unit,
+  rutIncluded,
+  minHours,
+  description,
+  highlights,
+  ctaLabel,
+} = Astro.props;
+---
+
+<section class="bg-surface-container-low py-24" id="pricing">
+  <div class="container mx-auto px-4">
+    <div class="mb-12 max-w-3xl">
+      <span
+        class="label-md text-primary mb-4 block font-bold tracking-[0.15em] uppercase"
+        >Pris &amp; villkor</span
+      >
+      <h2 class="font-headline mb-4 text-3xl font-bold md:text-5xl">
+        Transparent prissättning
+      </h2>
+      <p class="text-on-surface-variant mt-4 text-lg">
+        {description}
+      </p>
+    </div>
+    <div class="grid gap-8 lg:grid-cols-[1.2fr_1fr]">
+      <div
+        class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm md:p-12"
+      >
+        <div class="mb-8 flex items-end gap-3">
+          <span class="text-primary text-5xl font-extrabold md:text-6xl"
+            >{price}</span
+          >
+          <span class="text-on-surface-variant pb-2 text-sm font-medium"
+            >{unit}</span
+          >
+        </div>
+        <div class="flex flex-wrap gap-3">
+          {
+            rutIncluded && (
+              <span class="bg-primary/10 text-primary inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold">
+                <Icon
+                  name="material-symbols:percent-discount"
+                  class="text-base"
+                />
+                50% RUT inkluderat
+              </span>
+            )
+          }
+          {
+            !rutIncluded && (
+              <span class="bg-secondary/10 text-secondary inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold">
+                <Icon
+                  name="material-symbols:corporate-fare"
+                  class="text-base"
+                />
+                Företagstjänst — exkl. moms
+              </span>
+            )
+          }
+          {
+            minHours !== null && (
+              <span class="bg-surface-container text-on-surface inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-bold">
+                <Icon name="material-symbols:schedule" class="text-base" />
+                Min. {minHours} timmar
+              </span>
+            )
+          }
+        </div>
+        <a
+          href="/booking"
+          class="signature-gradient text-on-primary shadow-primary/20 mt-10 inline-flex rounded-full px-8 py-4 font-bold shadow-xl transition-transform hover:scale-105"
+        >
+          {ctaLabel}
+        </a>
+      </div>
+      <div
+        class="bg-surface-container-lowest rounded-2xl p-8 shadow-sm md:p-12"
+      >
+        <h3
+          class="font-headline mb-6 flex items-center gap-2 text-xl font-bold"
+        >
+          <Icon name="material-symbols:verified" class="text-primary size-6" />
+          Det här ingår alltid
+        </h3>
+        <ul class="flex flex-col gap-4">
+          {
+            highlights.map((highlight) => (
+              <li class="flex items-start gap-3">
+                <Icon
+                  name="material-symbols:check-circle"
+                  class="text-primary mt-0.5 size-5 shrink-0"
+                />
+                <span class="text-on-surface-variant leading-relaxed">
+                  {highlight}
+                </span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+    {
+      rutIncluded && (
+        <p class="text-on-surface-variant mt-10 text-center text-sm italic">
+          * Alla priser för privatpersoner inkluderar 50% RUT-avdrag.
+          Inställelseavgift kan tillkomma.
+          <a
+            class="text-primary ml-1 font-bold underline"
+            href="https://www.skatteverket.se/privat/fastigheterochbostad/rotarbeteochrutarbete"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Läs mer om RUT här
+          </a>
+          .
+        </p>
+      )
+    }
+  </div>
+</section>
