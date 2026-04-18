@@ -1,0 +1,59 @@
+---
+import { Icon } from "astro-icon/components";
+import Breadcrumb from "./Breadcrumb.astro";
+
+interface Props {
+  title: string;
+  icon: string;
+  tagline: string;
+  subtitle: string;
+  ctaLabel: string;
+}
+
+const { title, icon, tagline, subtitle, ctaLabel } = Astro.props;
+---
+
+<section class="bg-surface relative mt-20 overflow-hidden px-4 py-12 md:py-20">
+  <div class="container mx-auto">
+    <Breadcrumb title={title} />
+    <div
+      class="mt-12 grid gap-10 md:mt-16 md:grid-cols-[auto_1fr] md:items-center"
+    >
+      <div
+        class="bg-primary-fixed text-primary flex size-24 shrink-0 items-center justify-center rounded-3xl md:size-32"
+      >
+        <Icon name={icon} class="size-12 md:size-16" />
+      </div>
+      <div>
+        <span
+          class="label-md text-primary mb-4 block font-bold tracking-[0.15em] uppercase"
+          >{tagline}</span
+        >
+        <h1
+          class="text-on-surface mb-6 text-4xl leading-[1.1] font-extrabold tracking-tight md:text-6xl"
+        >
+          {title}
+        </h1>
+        <p
+          class="text-on-surface-variant mb-8 max-w-2xl text-lg leading-relaxed md:text-xl"
+        >
+          {subtitle}
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a
+            href="/booking"
+            class="signature-gradient text-on-primary shadow-primary/20 rounded-full px-8 py-4 font-bold shadow-xl transition-transform hover:scale-105"
+          >
+            {ctaLabel}
+          </a>
+          <a
+            class="bg-surface-container-lowest text-primary hover:bg-surface-container rounded-full px-8 py-4 font-bold transition-colors"
+            href="/pricing"
+          >
+            Se priser
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

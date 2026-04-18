@@ -1,0 +1,20 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<nav
+  aria-label="Breadcrumb"
+  class="text-on-surface-variant flex items-center gap-2 text-sm font-medium"
+>
+  <a class="hover:text-primary transition-colors" href="/">Hem</a>
+  <Icon name="material-symbols:chevron-right" class="text-sm" />
+  <a class="hover:text-primary transition-colors" href="/services">Tjänster</a>
+  <Icon name="material-symbols:chevron-right" class="text-sm" />
+  <span class="text-on-surface">{title}</span>
+</nav>
