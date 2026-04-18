@@ -99,7 +99,7 @@ describe("BookingForm — rendering", () => {
     expect(screen.getByText("Ditt pris")).toBeInTheDocument();
   });
 
-  it("renders all four service radio options", () => {
+  it("renders all six service radio options", () => {
     render(<BookingForm />);
     expect(
       screen.getByRole("radio", { name: /hemstädning/i }),
@@ -108,10 +108,16 @@ describe("BookingForm — rendering", () => {
       screen.getByRole("radio", { name: /flyttstädning/i }),
     ).toBeInTheDocument();
     expect(
+      screen.getByRole("radio", { name: /storstädning/i }),
+    ).toBeInTheDocument();
+    expect(
+      screen.getByRole("radio", { name: /byggstädning/i }),
+    ).toBeInTheDocument();
+    expect(
       screen.getByRole("radio", { name: /kontorsstädning/i }),
     ).toBeInTheDocument();
     expect(
-      screen.getByRole("radio", { name: /fönsterputs/i }),
+      screen.getByRole("radio", { name: /trappstädning/i }),
     ).toBeInTheDocument();
   });
 
@@ -204,8 +210,7 @@ describe("BookingForm — service selection", () => {
     });
     await act(async () => fireEvent.click(officeRadio));
     // Service name appears in both the card and the summary — verify at least 2 matches
-    const matches = screen.getAllByText(/Kontorsstädning/);
-    expect(matches.length).toBeGreaterThanOrEqual(2);
+    expect(await screen.findAllByText(/Kontorsstädning/)).toHaveLength(2);
   });
 });
 
@@ -232,22 +237,22 @@ describe("BookingForm — pricing logic", () => {
   it("calculates home cleaning price: 75kvm * 12 kr/kvm = 900 base", async () => {
     render(<BookingForm />);
     await setSize("75");
-    // base=900, discount=100(weekly), fee=49 → beforeRut=849 → afterRut=425
-    expect(screen.getByText("900 kr")).toBeInTheDocument();
+    // base=1920
+    expect(await screen.findByText("1920 kr")).toBeInTheDocument();
   });
 
   it("applies weekly discount of 100 kr", async () => {
     render(<BookingForm />);
     await setSize("75");
-    // default is weekly → discount = 100
-    expect(screen.getByText("-100 kr")).toBeInTheDocument();
+    // default is weekly → discount = 1920 * 0.1 = 192
+    expect(await screen.findByText("-192 kr")).toBeInTheDocument();
   });
 
   it("applies biweekly discount of 50 kr", async () => {
     render(<BookingForm />);
     await setSize("75");
     await selectFrequency("Varannan vecka");
-    expect(screen.getByText("-50 kr")).toBeInTheDocument();
+    expect(await screen.findByText("-96 kr")).toBeInTheDocument();
   });
 
   it("shows no discount for monthly frequency", async () => {
@@ -261,51 +266,51 @@ describe("BookingForm — pricing logic", () => {
   it("shows service fee of 49 kr", async () => {
     render(<BookingForm />);
     await setSize("75");
-    expect(screen.getByText("49 kr")).toBeInTheDocument();
+    expect(await screen.findByText("49 kr")).toBeInTheDocument();
   });
 
   it("calculates before-RUT price correctly", async () => {
     render(<BookingForm />);
     await setSize("75");
-    // base=900 - discount=100 + fee=49 = 849
-    expect(screen.getByText("849 kr")).toBeInTheDocument();
+    // base=1920 - discount=192 + fee=49 = 1777
+    expect(await screen.findByText("1777 kr")).toBeInTheDocument();
   });
 
   it("calculates after-RUT as 50% of before-RUT", async () => {
     render(<BookingForm />);
     await setSize("75");
-    // afterRut = Math.round(849 * 0.5) = 425
-    expect(screen.getByText("425 kr")).toBeInTheDocument();
+    // afterRut = Math.round(1777 * 0.5) = 889
+    expect(await screen.findByText("889 kr")).toBeInTheDocument();
   });
 
   it("uses moving cleaning rate: 20 kr/kvm", async () => {
     render(<BookingForm />);
     await selectService(/flyttstädning/i);
     await setSize("50");
-    // base = 50 * 20 = 1000
-    expect(screen.getByText("1000 kr")).toBeInTheDocument();
+    // base = 7.5 hrs * 495 = 3713
+    expect(await screen.findByText("3713 kr")).toBeInTheDocument();
   });
 
   it("uses office cleaning rate: 15 kr/kvm", async () => {
     render(<BookingForm />);
     await selectService(/kontorsstädning/i);
     await setSize("100");
-    // base = 100 * 15 = 1500
-    expect(screen.getByText("1500 kr")).toBeInTheDocument();
+    // base = 4 hrs * 420 = 1680
+    expect(await screen.findByText("1680 kr")).toBeInTheDocument();
   });
 
-  it("uses window cleaning rate: 8 kr/kvm", async () => {
+  it("uses deep cleaning rate", async () => {
     render(<BookingForm />);
-    await selectService(/fönsterputs/i);
-    await setSize("100");
-    // base = 100 * 8 = 800
-    expect(screen.getByText("800 kr")).toBeInTheDocument();
+    await selectService(/storstädning/i);
+    await setSize("50");
+    // base = 6 hrs * 550 = 3300
+    expect(await screen.findByText("3300 kr")).toBeInTheDocument();
   });
 
   it("shows size in summary when >= 10 kvm", async () => {
     render(<BookingForm />);
     await setSize("80");
-    expect(screen.getByText(/80 kvm/)).toBeInTheDocument();
+    expect(await screen.findByText(/80 kvm/)).toBeInTheDocument();
   });
 
   it("does not show size in summary when < 10 kvm", async () => {
@@ -334,7 +339,7 @@ describe("BookingForm — frequency interaction", () => {
       fireEvent.change(sizeInput, { target: { value: "75" } }),
     );
     // Default weekly
-    expect(screen.getByText(/Varje vecka \(Rabatt\)/)).toBeInTheDocument();
+    expect(await screen.findByText(/Varje vecka \(-10%\)/)).toBeInTheDocument();
   });
 });
 
@@ -427,9 +432,26 @@ describe("BookingForm — field validation errors", () => {
     ).toBeInTheDocument();
   });
 
+  async function fillRequiredFields(user: any) {
+    await user.type(screen.getByPlaceholderText("t.ex. 75"), "50");
+    await user.type(screen.getByPlaceholderText("Erik Andersson"), "Erik");
+    await user.type(
+      screen.getByPlaceholderText("erik@exempel.se"),
+      "erik@test.com",
+    );
+    await user.type(screen.getByPlaceholderText("070-123 45 67"), "0701234567");
+    await user.type(
+      screen.getByPlaceholderText("Storgatan 1, 123 45 Växjö"),
+      "Testgatan 1",
+    );
+    await user.click(screen.getByTestId("mock-select-date"));
+    await user.click(await screen.findByText("08:00 - 12:00"));
+  }
+
   it("shows error for invalid personnummer format", async () => {
     const user = userEvent.setup();
     render(<BookingForm />);
+    await fillRequiredFields(user);
     const pnrInput = screen.getByPlaceholderText("ÅÅMMDD-XXXX");
     await user.type(pnrInput, "12345");
     await user.tab();
@@ -439,6 +461,7 @@ describe("BookingForm — field validation errors", () => {
   it("shows error for correctly formatted but invalid personnummer", async () => {
     const user = userEvent.setup();
     render(<BookingForm />);
+    await fillRequiredFields(user);
     const pnrInput = screen.getByPlaceholderText("ÅÅMMDD-XXXX");
     await user.type(pnrInput, "000000-0000");
     await user.tab();
