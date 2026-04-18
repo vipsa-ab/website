@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.10.0](https://github.com/vipsa-ab/website/compare/v1.9.0...v1.10.0) (2026-04-18)
+
+
+### Features
+
+* add service detail pages with content collections ([1f555dc](https://github.com/vipsa-ab/website/commit/1f555dc03c63140ee0284fe5a985b56b2ea7e4ff))
+
 ## [1.9.0](https://github.com/vipsa-ab/website/compare/v1.8.4...v1.9.0) (2026-04-18)
 
 
