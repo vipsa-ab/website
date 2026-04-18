@@ -1,6 +1,6 @@
 {
   "name": "vipsa-website",
-  "version": "1.8.4",
+  "version": "1.9.0",
   "packageManager": "pnpm@10.33.0",
   "description": "Marketing and lead-capture website for Vipsa — premium cleaning service in Stockholm",
   "author": {

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.9.0](https://github.com/vipsa-ab/website/compare/v1.8.4...v1.9.0) (2026-04-18)
+
+
+### Features
+
+* **booking:** enhance booking form with new services, addons, and validation ([467ced1](https://github.com/vipsa-ab/website/commit/467ced1450b865e5c60d735bb77333f9ab6e2a11))
+
 ## [1.8.4](https://github.com/vipsa-ab/website/compare/v1.8.3...v1.8.4) (2026-04-14)
 
 
