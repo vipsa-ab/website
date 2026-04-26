@@ -1,64 +1,139 @@
 # Vipsa — Frontend
 
-Sitio web de Vipsa construido con Astro, React y Tailwind CSS v4.
+Vipsa's marketing website — premium cleaning service in Stockholm. Built with Astro, React, and Tailwind CSS v4.
+
+**Live:** [vipsa.se](https://www.vipsa.se)
 
 ## Stack
 
-- **Astro** (SSR via Node adapter) — routing file-based, SPA transitions con `<ClientRouter>`
-- **React** — islands interactivos
-- **TypeScript** (strict)
-- **Tailwind CSS v4** — tokens de color Material Design 3
-- **Vitest** + **Playwright** — tests unitarios, de integración y E2E
+| Technology | Purpose |
+|------------|---------|
+| **Astro** 6.x | SSR via Node adapter, file-based routing, SPA transitions with `<ClientRouter>` |
+| **React** 19 | Interactive islands (forms, maps, pricing calculator) |
+| **TypeScript** strict | Static typing throughout |
+| **Tailwind CSS** v4 | Material Design 3 tokens + custom utilities (`glass-nav`, `signature-gradient`, `text-glow`) |
+| **Zod** + `react-hook-form` | Form validation |
+| **Vitest** + **Playwright** | Unit, integration, and E2E testing |
 
-## Estructura del proyecto
+## Pages
 
-```text
-/
-├── public/
-├── src/
-│   ├── assets/img/
-│   ├── components/
-│   │   ├── ui/          # Header, Footer
-│   │   ├── landing/     # HeroSection, ServiceSection, etc.
-│   │   └── icones/      # Logo SVG
-│   ├── layouts/
-│   │   └── Layout.astro
-│   ├── pages/
-│   │   ├── index.astro
-│   │   └── 404.astro
-│   └── styles/
-│       └── global.css   # Tokens @theme + utilidades custom
-├── tests/
-│   ├── unit/
-│   ├── integration/
-│   └── e2e/
-└── package.json
+```
+src/pages/
+├── index.astro              # Landing page
+├── 404.astro                # Error page
+├── about.astro             # About us
+├── booking.astro            # Book a service
+├── contact.astro           # Contact page
+├── pricing.astro            # Pricing calculator + RUT
+├── privacy.astro           # Privacy policy
+├── terms.astro             # Terms & conditions
+├── services/
+│   ├── index.astro          # Service catalog
+│   └── [slug].astro          # Service detail (dynamic route)
+└── robots.txt.ts            # robots.txt generator
 ```
 
-## Comandos
+## Architecture
 
-| Comando                 | Acción                                        |
-| :---------------------- | :-------------------------------------------- |
-| `pnpm install`          | Instala dependencias                          |
-| `pnpm dev`              | Servidor de desarrollo en `localhost:4321`    |
-| `pnpm build`            | Build de producción en `./dist/`              |
-| `pnpm preview`          | Previsualiza el build localmente              |
-| `pnpm lint`             | Chequeo ESLint                                |
-| `pnpm lint:fix`         | Corrige errores de lint automáticamente       |
-| `pnpm format`           | Formatea con Prettier                         |
-| `pnpm test`             | Todos los tests (unitarios + integración)     |
-| `pnpm test:unit`        | Solo tests unitarios                          |
-| `pnpm test:integration` | Solo tests de integración                     |
-| `pnpm test:coverage`    | Reporte de cobertura                          |
-| `pnpm test:e2e`         | Tests E2E con Playwright                      |
+```
+src/
+├── assets/img/              # Static images
+├── components/
+│   ├── about/               # HeroSection, StorySection, ValuesSection, TeamSection, TeamCard, CtaSection
+│   ├── booking/             # HeroSection, BookingForm (React island)
+│   ├── contact/             # HeroSection, InfoSection, ContactForm, ContactMap, TrustBarSection
+│   ├── landing/             # HeroSection, ServiceSection, HowItWorkSection, AboutSection,
+│   │                        # OthersServicesSection, TestimonialsSection, TestimonialCard
+│   ├── pricing/             # HeroSection, PricingSection, CalculatorSection, RutSection, FaqSection
+│   ├── service-detail/      # HeroSection, Breadcrumb, IntroSection, IncludedSection,
+│   │                        # ExcludedSection, PricingSection, FaqSection
+│   ├── services/            # ServicesSection, ServiceCard, OtherServicesSection, CtaSection
+│   └── ui/                  # Header, Footer, MobileMenu, FaqCard
+├── content/
+│   └── services/            # Markdown content for services (home-cleaning, office-cleaning, etc.)
+├── content.config.ts        # Astro Content Collections config
+├── icons/                   # Logo SVG
+├── layouts/
+│   └── Layout.astro         # Root shell — persistent Header/Footer with transition:persist
+├── lib/
+│   └── utils.ts             # Helpers (cn(), etc.)
+├── pages/                   # File-based routes (see above)
+├── styles/
+│   └── global.css           # @theme tokens + @utility custom directives
+└── types/                   # TypeScript interfaces
+```
 
-## Design System
+## Commands
 
-El diseño sigue la estética **"The Digital Sanctuary" / Nordic Lagom**. Ver `DESIGN.md` para la especificación completa.
+```bash
+# Development
+pnpm dev              # Dev server at localhost:4321
 
-Puntos clave:
-- **Sin bordes de 1px** — separación de secciones mediante cambios tonales de superficie
-- **Colores**: naranja `#ff7e33` (primary-container), teal `#2c5f5d` (primary), negro suave `#1a1c1c` (on-surface)
-- **Glassmorphism**: opacidad 80% + `backdrop-blur-[20px]` en navbar y elementos flotantes
-- **Gradiente signature**: `primary` → `primary-container` a 135° para CTAs primarios (utilidad `signature-gradient`)
-- **Tipografía**: Manrope para titulares, Plus Jakarta Sans para cuerpo
+# Build
+pnpm build            # Production build to ./dist/
+pnpm preview          # Preview production build locally
+
+# Code quality
+pnpm lint             # ESLint check
+pnpm lint:fix         # ESLint auto-fix
+pnpm format           # Prettier format
+
+# Testing
+pnpm test              # Unit + Integration (Vitest)
+pnpm test:watch        # Vitest watch mode
+pnpm test:unit         # Unit tests only
+pnpm test:integration  # Integration tests only
+pnpm test:coverage     # Coverage report
+pnpm test:e2e          # E2E with Playwright
+pnpm test:e2e:ui       # Playwright UI
+```
+
+## Design System — "The Digital Sanctuary"
+
+See `DESIGN.md` for the full specification (Nordic Lagom aesthetic).
+
+### Key Rules
+
+- **NO 1px borders** — section separation via tonal surface shifts (`surface` → `surface-container-*`)
+- **Glassmorphism**: 80% opacity + `backdrop-blur-[20px]` on navbars and floating elements
+- **Signature gradient**: `primary` (#2c5f5d) → `primary-container` (#ff7e33) at 135° for primary CTAs
+- **Shadows**: Max 4% opacity — should feel like atmospheric light, not dark smudges
+- **Typography**: Manrope for headlines (tracking -0.02em), Plus Jakarta Sans for body, `label-md` all-caps with tracking +0.1em for tags
+
+### Main Colors
+
+| Token | Hex | Usage |
+|-------|-----|-------|
+| `primary` | `#2c5f5d` | Main color (teal) |
+| `primary-container` | `#ff7e33` | Signature accent (orange) |
+| `on-surface` | `#1a1c1c` | Text (never #000000) |
+| `surface` | `#f9f9f9` | Base background |
+| `surface-container-*` | varies | Elevation and cards |
+
+## Testing
+
+```
+tests/
+├── unit/          # Vitest + jsdom (React components, utils, schemas)
+├── integration/   # Vitest + jsdom (full pages, routing)
+└── e2e/           # Playwright (Chromium, Firefox, Safari, Mobile)
+```
+
+## Path Alias
+
+`@/` maps to `./src/` (configured in both `tsconfig.json` and `vitest.config.ts`).
+
+## Setup
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Node.js >= 22.12.0 required.
+
+## Further reading
+
+- [DESIGN.md](./DESIGN.md) — Full design system specification
+- [AGENTS.md](./AGENTS.md) — Guidance for Claude Code (AI agents)
+- [CLAUDE.md](./CLAUDE.md) — Additional project configuration
