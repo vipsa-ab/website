@@ -1,0 +1,27 @@
+import http from "http";
+
+// Minimal mock backend server for E2E tests
+// Handles POST /contact and POST /booking, returns 200 OK
+
+const server = http.createServer((req, res) => {
+  if (
+    req.method === "POST" &&
+    (req.url === "/contact" || req.url === "/booking")
+  ) {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end("{}");
+    return;
+  }
+  res.writeHead(404, { "Content-Type": "application/json" });
+  res.end('{"error":"not found"}');
+});
+
+export default async () => {
+  await new Promise<void>((resolve) => {
+    server.listen(3000, "localhost", () => {
+      resolve();
+    });
+  });
+};
+
+export { server };

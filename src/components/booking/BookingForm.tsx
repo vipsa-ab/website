@@ -7,6 +7,7 @@ import { DayPicker } from "react-day-picker";
 import { addDays, format, startOfMonth, addMonths, subMonths } from "date-fns";
 import { sv } from "date-fns/locale";
 import { toast, Toaster } from "sonner";
+import { apiClient } from "@/lib/api-client";
 
 import HomeIcon from "~icons/material-symbols/home";
 import LocalShippingIcon from "~icons/material-symbols/local-shipping";
@@ -432,11 +433,35 @@ export const BookingForm = () => {
   }, [watchedDate]);
 
   const onSubmit = async (data: BookingFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    console.log("Booking submitted:", data);
-    toast.success("Bokning bekräftad!", {
-      description: `Städning bokad ${format(data.date, "d MMMM yyyy", { locale: sv })} kl. ${data.timeSlot}.`,
-    });
+    // Transform camelCase to snake_case for the backend
+    const payload = {
+      service: data.service,
+      size: data.size,
+      rooms: data.rooms,
+      frequency: data.frequency,
+      hours: data.hours,
+      auto_hours: data.autoHours,
+      date: format(data.date, "yyyy-MM-dd"),
+      time_slot: data.timeSlot,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      customer_type: data.customerType,
+      personal_number: data.personalNumber ?? "",
+      organisation_number: data.organisationNumber ?? "",
+      address: data.address,
+      addons: data.addons,
+    };
+    try {
+      await apiClient.post("/booking", payload);
+      toast.success("Bokning bekräftad!", {
+        description: `Städning bokad ${format(data.date, "d MMMM yyyy", { locale: sv })} kl. ${data.timeSlot}.`,
+      });
+    } catch {
+      toast.error("Något gick fel", {
+        description: "Försök igen eller kontakta oss direkt.",
+      });
+    }
   };
 
   const onError = () => {

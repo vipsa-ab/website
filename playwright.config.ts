@@ -2,6 +2,7 @@ import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
   testDir: "./tests/e2e",
+  testMatch: "**/*.spec.ts",
   fullyParallel: true,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
@@ -33,9 +34,13 @@ export default defineConfig({
       use: { ...devices["iPhone 12"] },
     },
   ],
+  globalSetup: "./tests/e2e/global-setup.ts",
   webServer: {
     command: "pnpm dev",
     url: "http://localhost:4321",
     reuseExistingServer: !process.env.CI,
+    env: {
+      BACKEND_URL: "http://localhost:3000",
+    },
   },
 });

@@ -1,5 +1,5 @@
 // @ts-check
-import { defineConfig, fontProviders } from "astro/config";
+import { defineConfig, fontProviders, envField } from "astro/config";
 import icon from "astro-icon";
 
 import tailwindcss from "@tailwindcss/vite";
@@ -14,6 +14,15 @@ import sitemap from "@astrojs/sitemap";
 // https://astro.build/config
 export default defineConfig({
   site: "https://www.vipsa.se",
+  env: {
+    schema: {
+      BACKEND_URL: envField.string({
+        context: "client",
+        access: "public",
+        optional: false,
+      }),
+    },
+  },
   vite: {
     plugins: [tailwindcss(), Icons({ compiler: "jsx", jsx: "react" })],
   },
