@@ -14,6 +14,13 @@ vi.mock("sonner", () => ({
   Toaster: () => <div data-testid="toaster" />,
 }));
 
+// Mock apiClient
+vi.mock("@/lib/api-client", () => ({
+  apiClient: {
+    post: vi.fn().mockResolvedValue({ status: 200 }),
+  },
+}));
+
 import { ContactForm } from "@/components/contact/ContactForm";
 
 beforeEach(() => {
@@ -209,9 +216,9 @@ describe("ContactForm — submission", () => {
     );
   });
 
-  it("calls console.log and success toast on valid submit", async () => {
+  it("calls apiClient.post and success toast on valid submit", async () => {
     const user = userEvent.setup();
-    const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+    const { apiClient } = await import("@/lib/api-client");
     render(<ContactForm />);
 
     await user.type(screen.getByPlaceholderText("Ditt namn"), "Erik Andersson");
@@ -229,8 +236,8 @@ describe("ContactForm — submission", () => {
     await user.click(btn);
 
     await vi.waitFor(() => {
-      expect(consoleSpy).toHaveBeenCalledWith(
-        "Contact form submitted:",
+      expect(apiClient.post).toHaveBeenCalledWith(
+        "/contact",
         expect.objectContaining({
           name: "Erik Andersson",
           email: "erik@test.se",
@@ -247,8 +254,6 @@ describe("ContactForm — submission", () => {
         description: "Vi återkommer så snart som möjligt.",
       }),
     );
-
-    consoleSpy.mockRestore();
   });
 
   it("shows Skickar... text while submitting", async () => {
@@ -287,7 +292,7 @@ describe("ContactForm — service select", () => {
 
   it("submits with selected service", async () => {
     const user = userEvent.setup();
-    const consoleSpy = vi.spyOn(console, "log").mockImplementation(() => {});
+    const { apiClient } = await import("@/lib/api-client");
     render(<ContactForm />);
 
     await user.selectOptions(
@@ -308,12 +313,10 @@ describe("ContactForm — service select", () => {
     await user.click(screen.getByRole("button", { name: /skicka förfrågan/i }));
 
     await vi.waitFor(() => {
-      expect(consoleSpy).toHaveBeenCalledWith(
-        "Contact form submitted:",
+      expect(apiClient.post).toHaveBeenCalledWith(
+        "/contact",
         expect.objectContaining({ service: "Kontorsstädning" }),
       );
     });
-
-    consoleSpy.mockRestore();
   });
 });
