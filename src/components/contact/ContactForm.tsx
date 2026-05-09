@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod/v4";
 import { toast, Toaster } from "sonner";
+import { apiClient } from "@/lib/api-client";
 
 const contactSchema = z.object({
   name: z.string().min(2, "Minst 2 tecken"),
@@ -27,11 +28,16 @@ export const ContactForm = () => {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    console.log("Contact form submitted:", data);
-    toast.success("Meddelande skickat!", {
-      description: "Vi återkommer så snart som möjligt.",
-    });
+    try {
+      await apiClient.post("/contact", data);
+      toast.success("Meddelande skickat!", {
+        description: "Vi återkommer så snart som möjligt.",
+      });
+    } catch {
+      toast.error("Något gick fel", {
+        description: "Försök igen eller kontakta oss direkt.",
+      });
+    }
   };
 
   const onError = () => {
