@@ -1,7 +1,7 @@
 import http from "http";
 
 // Minimal mock backend server for E2E tests
-// Handles POST /contact and POST /booking, returns 200 OK
+// Handles POST /contact and POST /booking, returns 200 OK with {} body
 
 const server = http.createServer((req, res) => {
   if (
@@ -16,12 +16,18 @@ const server = http.createServer((req, res) => {
   res.end('{"error":"not found"}');
 });
 
-export default async () => {
-  await new Promise<void>((resolve) => {
-    server.listen(3000, "localhost", () => {
+const PORT = 3000;
+
+export async function startMockServer(): Promise<void> {
+  return new Promise((resolve) => {
+    server.listen(PORT, "localhost", () => {
       resolve();
     });
   });
-};
+}
 
-export { server };
+export async function stopMockServer(): Promise<void> {
+  return new Promise((resolve) => {
+    server.close(() => resolve());
+  });
+}
