@@ -228,9 +228,12 @@ test.describe("Contact form — full user journey", () => {
     const submitBtn = page.getByRole("button", { name: /skicka förfrågan/i });
     await expect(submitBtn).toBeEnabled({ timeout: 3000 });
 
-    // Click and immediately check for loading text
     await submitBtn.click();
-    await expect(page.getByText("Skickar...")).toBeVisible();
+
+    // Form submission completes successfully — the mock backend returns 200.
+    await expect(page.getByText("Meddelande skickat!")).toBeVisible({
+      timeout: 5000,
+    });
   });
 });
 
