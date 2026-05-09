@@ -37,5 +37,8 @@ export default defineConfig({
     command: "pnpm dev",
     url: "http://localhost:4321",
     reuseExistingServer: !process.env.CI,
+    env: {
+      BACKEND_URL: process.env.BACKEND_URL ?? "http://localhost:3000",
+    },
   },
 });
