@@ -14,6 +14,10 @@ FROM base AS build-deps
 RUN pnpm install --ignore-scripts
 
 FROM build-deps AS build
+
+ARG BACKEND_URL
+
+ENV BACKEND_URL=$BACKEND_URL
 COPY . .
 RUN pnpm run build
 
