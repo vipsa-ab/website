@@ -1,32 +1,22 @@
-import { test as base } from "@playwright/test";
+import { test as base, type BrowserContext } from "@playwright/test";
 
-export const test = base.extend({
-  // Default baseURL already set in playwright.config.ts
-});
+export { type BrowserContext };
 
-test.beforeEach(async ({ page }) => {
-  // Mock backend POST endpoints for contact and booking forms
-  await page.route("**/contact", async (route) => {
-    if (route.request().method() === "POST") {
-      await route.fulfill({
-        status: 200,
-        contentType: "application/json",
-        body: "{}",
-      });
-      return;
-    }
-    await route.continue();
-  });
-
-  await page.route("**/booking", async (route) => {
-    if (route.request().method() === "POST") {
-      await route.fulfill({
-        status: 200,
-        contentType: "application/json",
-        body: "{}",
-      });
-      return;
-    }
-    await route.continue();
-  });
+export const test = base.extend<{ context: BrowserContext }>({
+  context: async ({ context }, use) => {
+    await context.route("http://localhost:3000/**", (route) => {
+      if (route.request().method() === "POST") {
+        setTimeout(() => {
+          route.fulfill({
+            status: 200,
+            contentType: "application/json",
+            body: "{}",
+          });
+        }, 150);
+      } else {
+        route.continue();
+      }
+    });
+    await use(context);
+  },
 });
