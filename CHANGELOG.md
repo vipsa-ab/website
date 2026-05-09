@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.11.0](https://github.com/vipsa-ab/website/compare/v1.10.0...v1.11.0) (2026-05-09)
+
+
+### Features
+
+* **forms:** add axios API client for contact and booking forms ([f13dac6](https://github.com/vipsa-ab/website/commit/f13dac67c7f17dbff6981b64be659b418951c0c3))
+
+
+### Bug Fixes
+
+* **e2e:** intercept POST at context level with 150ms delay for loading state ([5dd84dc](https://github.com/vipsa-ab/website/commit/5dd84dc1b6678f982d6e6c8ed6b947962613133f))
+* **e2e:** mock /contact and /booking POST endpoints in E2E tests ([c4d5580](https://github.com/vipsa-ab/website/commit/c4d5580a21b1e914f097e8cff2f5d3e51ae6c3f8))
+* **e2e:** real HTTP mock backend with CORS support for form submissions ([9218905](https://github.com/vipsa-ab/website/commit/9218905ed347702b13034f9e174b6ab1cd62d0e0))
+* **e2e:** use 200ms artificial delay for loading state observability ([f2a4ea2](https://github.com/vipsa-ab/website/commit/f2a4ea27182d1a59835c6a0b742337c463ec7670))
+
 ## [1.10.0](https://github.com/vipsa-ab/website/compare/v1.9.0...v1.10.0) (2026-04-18)
 
 
