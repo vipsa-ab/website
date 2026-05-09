@@ -4,17 +4,17 @@ export { type BrowserContext };
 
 export const test = base.extend<{ context: BrowserContext }>({
   context: async ({ context }, use) => {
-    await context.route("http://localhost:3000/**", (route) => {
+    await context.route("http://localhost:3000/**", async (route) => {
       if (route.request().method() === "POST") {
-        setTimeout(() => {
-          route.fulfill({
-            status: 200,
-            contentType: "application/json",
-            body: "{}",
-          });
-        }, 150);
+        // Artificial delay so the loading state ("Skickar...") is observable
+        await new Promise((resolve) => setTimeout(resolve, 200));
+        await route.fulfill({
+          status: 200,
+          contentType: "application/json",
+          body: "{}",
+        });
       } else {
-        route.continue();
+        await route.continue();
       }
     });
     await use(context);
