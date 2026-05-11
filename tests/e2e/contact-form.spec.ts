@@ -191,6 +191,16 @@ test.describe("Contact form — submit button state", () => {
 });
 
 test.describe("Contact form — full user journey", () => {
+  test.beforeEach(async ({ page }) => {
+    await page.route("**/contact", async (route) => {
+      if (route.request().method() === "POST") {
+        await route.fulfill({ status: 200, json: {} });
+      } else {
+        await route.continue();
+      }
+    });
+  });
+
   test("user completes the entire contact form and submits", async ({
     page,
   }) => {

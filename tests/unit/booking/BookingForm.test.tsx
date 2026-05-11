@@ -49,9 +49,18 @@ vi.mock("react-day-picker", () => ({
         data-testid="mock-select-date"
         type="button"
         onClick={() => {
-          const futureDate = new Date();
-          futureDate.setDate(futureDate.getDate() + 5);
+          let futureDate = new Date();
           futureDate.setHours(0, 0, 0, 0);
+          for (let i = 2; i <= 60; i++) {
+            let tempDate = new Date();
+            tempDate.setDate(tempDate.getDate() + i);
+            let dow = tempDate.getDay();
+            if (dow !== 0 && dow !== 6 && i % 3 !== 0) {
+              futureDate = tempDate;
+              futureDate.setHours(0, 0, 0, 0);
+              break;
+            }
+          }
           onSelect(futureDate);
         }}
       >
