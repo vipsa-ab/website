@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.12.0](https://github.com/vipsa-ab/website/compare/v1.11.0...v1.12.0) (2026-05-11)
+
+
+### Features
+
+* update landing page content and imagery for Stockholm market positioning ([248e724](https://github.com/vipsa-ab/website/commit/248e724b3d45fb2d71001b846dca6612a69b3989))
+
+
+### Bug Fixes
+
+* update backend address to IPv4 and improve test reliability with mock date selection and contact route intercepts ([8612c23](https://github.com/vipsa-ab/website/commit/8612c23eacb3cb657b4e45b71cb0bc790e35ff2e))
+
 ## [1.11.0](https://github.com/vipsa-ab/website/compare/v1.10.0...v1.11.0) (2026-05-09)
 
 
