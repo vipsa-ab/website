@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
-import Square from "@/assets/img/square.webp";
+import HeroImage from "@/assets/img/hemstadning-stockholm-skinande-rent-vardagsrum.webp";
 ---
 
 <section
@@ -14,19 +14,20 @@ import Square from "@/assets/img/square.webp";
       <span
         class="bg-secondary-fixed text-on-secondary-fixed mb-6 inline-block rounded-full px-4 py-1 text-xs font-bold tracking-widest uppercase"
       >
-        Proffsig Hemstädning
+        Professionell Städhjälp
       </span>
       <h1
-        class="font-headline text-on-surface mb-8 text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl"
+        class="font-headline text-on-surface mb-8 text-4xl leading-tight font-extrabold tracking-tight sm:text-5xl lg:text-6xl"
       >
-        Ett renare hem, <br />
-        <span class="text-primary">mer tid för livet.</span>
+        Hemstädning i Stockholm – <br />
+        <span class="text-primary">samma städare varje gång.</span>
       </h1>
       <p
         class="text-on-surface-variant mb-10 max-w-lg text-lg leading-relaxed md:text-xl"
       >
-        Vi levererar premium städtjänster i Sigtuna med fokus på detaljer,
-        trygghet och det där lilla extra som gör skillnad.
+        Få mer tid över till annat med vår premium hemstädning i Stockholm. Njut
+        av ett skinande rent hem med fullt RUT-avdrag, trygga villkor och 100%
+        nöjd-kund-garanti.
       </p>
       <div class="flex flex-wrap gap-4">
         <a
@@ -43,7 +44,7 @@ import Square from "@/assets/img/square.webp";
         </a>
       </div>
     </div>
-    <div class="relative max-w-xl" transition:name="hero-image">
+    <div class="relative max-w-xl">
       <div
         class="bg-secondary-container/20 absolute -top-10 -right-10 h-64 w-64 rounded-full blur-3xl"
       >
@@ -52,12 +53,12 @@ import Square from "@/assets/img/square.webp";
         class="relative z-10 transform overflow-hidden rounded-xl shadow-2xl transition-transform duration-500 hover:rotate-0 md:rotate-2"
       >
         <Image
-          alt="Ren lägenhet"
+          alt="Professionell hemstädning i Stockholm – ett skinande rent och ljust vardagsrum efter städning av Vipsa"
+          title="Hemstädning Stockholm av Vipsa"
           fetchpriority="high"
           loading="eager"
           class="aspect-4/5 w-full rounded-xl object-cover"
-          data-alt="A bright, minimalist, and modern living room after a professional cleaning service. The room is spotless with natural sunlight streaming through large windows, featuring light wood floors, a comfortable grey sofa, and a serene Nordic aesthetic."
-          src={Square}
+          src={HeroImage}
         />
       </div>
       <div
