@@ -27,7 +27,7 @@ export default function globalSetup() {
       res.end();
     });
 
-    server.listen(3000, "::1", () => setTimeout(resolve, 100));
+    server.listen(3000, "127.0.0.1", () => setTimeout(resolve, 100));
     server.on("error", reject);
   });
 }

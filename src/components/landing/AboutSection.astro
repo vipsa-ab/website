@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import Rectangular from "@/assets/img/rectangular.webp";
+import AboutImage from "@/assets/img/personlig-stadfirma-stockholm-vipsa.webp";
 ---
 
 <section class="bg-surface-container-low overflow-hidden py-24">
@@ -8,10 +8,10 @@ import Rectangular from "@/assets/img/rectangular.webp";
     <div class="relative">
       <div class="relative z-10 overflow-hidden rounded-xl shadow-2xl">
         <Image
-          src={Rectangular}
-          alt="Vårt team"
-          class="h-125 w-full object-cover"
-          data-alt="Diverse friendly professional cleaning team in blue and white uniforms smiling together in a bright modern office"
+          src={AboutImage}
+          alt="Vipsa städfirma i Stockholm – en av våra dedikerade och certifierade städare som städar ett vardagsrum"
+          title="Din lokala städfirma i Stockholm"
+          class="aspect-5/4 w-full object-cover"
         />
       </div>
       <div
@@ -21,36 +21,37 @@ import Rectangular from "@/assets/img/rectangular.webp";
     </div>
     <div>
       <h2 class="font-headline mb-8 text-3xl font-bold md:text-5xl">
-        Om Vipsa
+        Din lokala städfirma i Stockholm
       </h2>
       <div class="text-on-surface-variant space-y-6 text-lg leading-relaxed">
         <p>
-          Vi är ett lokalt städföretag baserat i Sigtuna med passion för att
-          skapa trivsamma miljöer. Sedan starten har vårt mål varit att erbjuda
-          personlig och pålitlig service som förenklar vardagen för våra kunder.
+          Vi är en dedikerad städfirma i Stockholm med en brinnande passion för
+          fläckfria hem. Vårt fokus är kvalitet framför kvantitet – därför
+          erbjuder vi alltid personlig service där du får samma städare vid
+          varje besök. Det skapar trygghet och ett bättre resultat.
         </p>
         <p>
-          Genom att kombinera moderna metoder med ett öga för detaljer och en
-          stark miljömedvetenhet, levererar vi resultat som tål att granskas.
-          Varje kund är unik, och vi anpassar oss alltid efter dina specifika
-          förutsättningar.
+          Genom att kombinera noggrannhet med miljövänliga metoder lämnar vi
+          inget åt slumpen. Oavsett om du behöver hemstädning eller
+          flyttstädning arbetar vi stenhårt för att överträffa dina
+          förväntningar. Din bekvämlighet är vår högsta prioritet.
         </p>
       </div>
       <div class="mt-10 grid grid-cols-2 gap-6">
         <div class="bg-surface-container-lowest rounded-lg p-6">
-          <p class="text-primary font-headline text-3xl font-black">500+</p>
+          <p class="text-primary font-headline text-3xl font-black">100%</p>
           <p
             class="text-on-surface-variant text-sm font-bold tracking-wider uppercase"
           >
-            Nöjda Kunder
+            Nöjd-kund-garanti
           </p>
         </div>
         <div class="bg-surface-container-lowest rounded-lg p-6">
-          <p class="text-primary font-headline text-3xl font-black">10k+</p>
+          <p class="text-primary font-headline text-3xl font-black">Samma</p>
           <p
             class="text-on-surface-variant text-sm font-bold tracking-wider uppercase"
           >
-            Städtimmar
+            Städare varje gång
           </p>
         </div>
       </div>

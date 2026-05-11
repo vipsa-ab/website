@@ -40,7 +40,7 @@ export default defineConfig({
     url: "http://localhost:4321",
     reuseExistingServer: !process.env.CI,
     env: {
-      BACKEND_URL: "http://localhost:3000",
+      BACKEND_URL: "http://127.0.0.1:3000",
     },
   },
 });
