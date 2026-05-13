@@ -3,24 +3,34 @@ import { FaqCard } from "@/components/ui/FaqCard";
 
 const faqs = [
   {
-    question: "Ingår städmaterial i priset?",
+    question: "Ingår städmaterial i priset när ni städar?",
     answer:
-      "Vid hemstädning använder vi oftast kundens egna material för att minimera smittspridning, men vi kan tillhandahålla miljövänliga produkter mot en liten avgift. Vid flyttstädning ingår allt material.",
+      "Vid hemstädning kan du välja om vi ska använda ditt material eller om vi ska ta med eget (mot en liten avgift). Vid flyttstädning och storstädning i Stockholm ingår alltid allt professionellt städmaterial och utrustning i priset.",
   },
   {
-    question: "Är ni försäkrade?",
+    question: "Är er städfirma fullt försäkrad?",
     answer:
-      "Självklart! Vi har en omfattande ansvarsförsäkring som täcker eventuella skador som kan uppstå under vårt arbete. Din trygghet är vår prioritet.",
+      "Självklart! Vår städfirma har en omfattande ansvarsförsäkring. Om olyckan mot förmodan skulle vara framme under städningen är du, ditt hem och dina möbler fullt skyddade.",
   },
   {
-    question: "Hur fungerar RUT-avdraget?",
+    question: "Hur fungerar RUT-avdraget för städning?",
     answer:
-      "Vi sköter all administration med Skatteverket. Du betalar bara 50% av arbetskostnaden direkt på fakturan. Det är enkelt och bekvämt för dig.",
+      "När du anlitar oss för städhjälp i hemmet sköter vi all kontakt med Skatteverket. Du betalar bara 50% av arbetskostnaden direkt på fakturan. RUT-avdraget gäller för både hemstädning, fönsterputs och flyttstädning.",
   },
   {
-    question: "Vad händer om jag inte är nöjd?",
+    question: "Vad ingår i en standard hemstädning?",
     answer:
-      "Vi har en 100% nöjd-kund-garanti. Om du mot förmodan inte skulle vara nöjd, kontaktar du oss inom 48 timmar så åtgärdar vi bristerna utan extra kostnad.",
+      "En standard hemstädning inkluderar dammsugning och moppning av golv, damning av fria ytor, grundlig rengöring av badrum samt avtorkning av köksbänkar och vitvaror utvändigt. Vi kan givetvis anpassa städningen efter dina specifika behov!",
+  },
+  {
+    question: "Har ni någon nöjd-kund-garanti?",
+    answer:
+      "Absolut! Din trygghet är viktigast för oss. Vi har en 100% nöjd-kund-garanti på alla våra städtjänster. Upptäcker du brister i städningen åtgärdar vi det kostnadsfritt om du kontaktar oss inom 48 timmar (eller 7 dagar för flyttstädning).",
+  },
+  {
+    question: "Vilka områden i Stockholm utför ni städning i?",
+    answer:
+      "Vi erbjuder städtjänster i hela Storstockholm. Oavsett om du bor i innerstan, Södermalm, Bromma, Täby, Nacka eller Solna, så kommer våra professionella städare hem till dig utan extra reseavdrag.",
   },
 ];
 ---
@@ -28,9 +38,12 @@ const faqs = [
 <section class="bg-surface py-24">
   <div class="mx-auto max-w-3xl px-8">
     <div class="mb-16 text-center">
-      <h2 class="mb-4 text-4xl font-bold">Vanliga frågor</h2>
+      <h2 class="mb-4 text-4xl font-bold">
+        Vanliga frågor om vår städning i Stockholm
+      </h2>
       <p class="text-on-surface-variant">
-        Här hittar du svar på de vanligaste funderingarna kring våra tjänster.
+        Här hittar du svar på de vanligaste frågorna vi får som städfirma.
+        Undrar du något annat? Tveka inte att kontakta oss!
       </p>
     </div>
     <div class="flex flex-col gap-4">
