@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.13.0](https://github.com/vipsa-ab/website/compare/v1.12.0...v1.13.0) (2026-05-13)
+
+
+### Features
+
+* add automation commands for issue generation and pull request creation ([4a133e6](https://github.com/vipsa-ab/website/commit/4a133e68a87366556648c651d5465f5503ae6466))
+* add commit-all command definition for automated semantic commits ([f3d767c](https://github.com/vipsa-ab/website/commit/f3d767cbfb2fc19d66ac248d928a367d371817a9))
+
 ## [1.12.0](https://github.com/vipsa-ab/website/compare/v1.11.0...v1.12.0) (2026-05-11)
 
 
