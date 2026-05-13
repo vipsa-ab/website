@@ -1,55 +1,61 @@
 ---
 import ServiceCard from "./ServiceCard.astro";
 import type { ServiceCard as Service } from "@/types";
-import rectangular from "@/assets/img/rectangular.webp";
+
+import hemstadning from "@/assets/img/professionell-hemstadning-stockholm.webp";
+import flyttstadning from "@/assets/img/komplett-flyttstadning-stockholm.webp";
+import storstadning from "@/assets/img/djupgaende-storstadning-stockholm.webp";
+import byggstadning from "@/assets/img/byggstadning-efter-renovering-stockholm.webp";
+import kontorsstadning from "@/assets/img/foretags-och-kontorsstadning-stockholm.webp";
+import trappstadning from "@/assets/img/trappstadning-for-brf-stockholm.webp";
 
 const services: Service[] = [
   {
     title: "Hemstädning",
     description:
-      "Regelbunden städning som anpassas efter ditt hem och schema. Vi skapar harmoni i din vardag.",
+      "Trygg och noggrann hemstädning i Stockholm. Samma städare varje gång, anpassat efter dina behov med 50% RUT-avdrag.",
     icon: "material-symbols:home",
-    img: rectangular,
+    img: hemstadning,
     href: "/services/home-cleaning",
   },
   {
     title: "Flyttstädning",
     description:
-      "Komplett genomgång av din gamla bostad. Vi garanterar att städningen godkänns vid besiktning.",
+      "Komplett flyttstädning i Stockholm med 100% besiktningsgaranti. Vi gör din gamla bostad fläckfri inför överlämningen.",
     icon: "material-symbols:local-shipping",
-    img: rectangular,
+    img: flyttstadning,
     href: "/services/move-cleaning",
   },
   {
     title: "Storstädning",
     description:
-      "En djupgående rengöring av hela hemmet. Perfekt inför högtider eller som nystart varje säsong.",
+      "Djupgående storstädning som når varje vrå. Perfekt som vårstädning eller inför högtider, givetvis med RUT-avdrag.",
     icon: "material-symbols:cleaning-services",
-    img: rectangular,
+    img: storstadning,
     href: "/services/deep-cleaning",
   },
   {
     title: "Byggstädning",
     description:
-      "Vi tar hand om byggdamm och spill efter renovering. Vi gör ditt nya bygge inflyttningsklart.",
+      "Professionell byggstädning efter renovering eller nybygge. Vi avlägsnar effektivt allt byggdamm och gör bostaden inflyttningsklar.",
     icon: "material-symbols:construction",
-    img: rectangular,
+    img: byggstadning,
     href: "/services/construction-cleaning",
   },
   {
     title: "Kontorsstädning",
     description:
-      "Skapa en hälsosam och produktiv arbetsmiljö. Vi städar när det passar er verksamhet bäst.",
+      "Kontorsstädning och företagsstädning i Stockholm som skapar en ren, hälsosam och produktiv arbetsmiljö.",
     icon: "material-symbols:corporate-fare",
-    img: rectangular,
+    img: kontorsstadning,
     href: "/services/office-cleaning",
   },
   {
     title: "Trappstädning",
     description:
-      "För bostadsrättsföreningar och fastighetsägare. Vi håller gemensamma utrymmen rena och trygga.",
+      "Noggrann trappstädning för BRF:er och fastighetsägare i Stockholm. Rena och trygga trapphus som ökar trivseln.",
     icon: "material-symbols:stairs",
-    img: rectangular,
+    img: trappstadning,
     href: "/services/stairs-cleaning",
   },
 ];
@@ -58,7 +64,9 @@ const services: Service[] = [
 <section class="bg-surface-container-low py-24">
   <div class="mx-auto max-w-7xl px-8">
     <div class="mb-16 text-center">
-      <h2 class="mb-4 text-4xl font-bold tracking-tight">Huvudtjänster</h2>
+      <h2 class="mb-4 text-4xl font-bold tracking-tight">
+        Våra Städtjänster i Stockholm
+      </h2>
       <div class="gradient-primary mx-auto h-1.5 w-20 rounded-full"></div>
     </div>
     <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
