@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.14.0](https://github.com/vipsa-ab/website/compare/v1.13.0...v1.14.0) (2026-05-17)
+
+
+### Features
+
+* **assets:** add Stockholm service hero image ([24d0884](https://github.com/vipsa-ab/website/commit/24d0884f0c39772f2a547438d1c09c9bc1ecbf24))
+
 ## [1.13.0](https://github.com/vipsa-ab/website/compare/v1.12.0...v1.13.0) (2026-05-13)
 
 
