@@ -1,38 +1,50 @@
 ---
 import { Image } from "astro:assets";
 
-import rectangular from "@/assets/img/rectangular.webp";
+import heroImage from "@/assets/img/hemstadning-stockholm-vipsa-rent-och-tryggt-hem.webp";
 ---
 
-<section class="bg-surface relative flex h-204 items-center overflow-hidden">
+<section
+  class="bg-surface relative mt-16 flex h-svh items-center overflow-hidden"
+>
   <div class="absolute inset-0 z-0">
     <Image
-      alt="Clean Nordic Living Room"
-      class="h-full w-full scale-105 object-cover opacity-90"
-      data-alt="Modern Nordic living room with minimal white furniture, natural wood floors, and large windows with soft morning sunlight filtering through"
-      src={rectangular}
+      alt="Vipsa städfirma Stockholm - professionell hemstädning av arbetsyta"
+      title="Pålitlig och trygg hemstädning i Stockholm"
+      data-alt="Närbild på en lokalvårdare från Vipsa med blå skyddshandskar som sprayar och torkar av en grå yta med en vit mikrofiberduk"
+      class="h-full w-full scale-105 object-cover object-right opacity-90"
+      src={heroImage}
       loading="eager"
     />
     <div
-      class="from-surface via-surface/40 absolute inset-0 bg-linear-to-r to-transparent"
+      class="from-surface via-surface/70 absolute inset-0 bg-linear-to-r from-10% via-80% to-transparent md:via-40%"
     >
     </div>
   </div>
   <div class="relative z-10 container mx-auto w-full px-4">
-    <div class="max-w-2xl">
+    <div class="max-w-2xl text-balance">
       <span
         class="label-md text-primary mb-6 inline-block font-bold tracking-widest uppercase"
-        >Om Vipsa</span
+        >Om Vipsa Städfirma</span
       >
       <h1
         class="font-headline text-on-surface mb-8 text-5xl leading-tight font-extrabold tracking-tight md:text-7xl"
       >
-        Din partner för ett <span class="text-primary">renare hem</span>
+        Din trygga <span class="text-primary">städfirma</span>
       </h1>
       <p class="text-on-surface-variant mb-10 max-w-lg text-xl leading-relaxed">
-        Vi skapar utrymme för livet genom att förena småländsk noggrannhet med
-        modern hållbarhet i varje hörn av ditt hem.
+        Vi skapar utrymme för livet genom att erbjuda pålitlig hemstädning i
+        hela Storstockholm. Med småländsk noggrannhet och modern hållbarhet tar
+        vi hand om ditt hem, alltid med RUT-avdrag direkt på fakturan.
       </p>
     </div>
+  </div>
+
+  <!-- Fade to next section - shorter gradient from where image ends -->
+  <div
+    class="pointer-events-none absolute right-0 bottom-0 left-0 h-32"
+    style="background: linear-gradient(to bottom, transparent 0%, rgba(238,238,238,0.5) 50%, rgba(238,238,238,1) 100%);"
+    aria-hidden="true"
+  >
   </div>
 </section>
